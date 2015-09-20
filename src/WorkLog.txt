@@ -20,7 +20,7 @@ Alex Anderson
 		add record use case
 		Check system Node use case
 		Use Case Diagram}
-David Glen
+David Glenn
 	Assignment 1
 		{Toggle System mode use case
 		Create Report for Member use case
