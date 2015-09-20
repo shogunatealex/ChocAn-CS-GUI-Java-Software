@@ -2,31 +2,37 @@ Work Log
 
 Haylie Helmold
 	Assignment 1
-	{Created google Doc
-	Bill ChocAn use case}
+		{Organized Google Doc
+		Bill ChocAn use case
+		Use Case Diagram
+		Kept Time Log}
 Trevor Gentner
 	Assignment 1
-	{Glossary
-	Request Provider Directory Use case
-	Kept Work Log}
+		{Glossary
+		Request Provider Directory Use case
+		Kept Work Log
+		Use Case Diagram}
 Alex Anderson
 	Assignment 1
-	{VPP diagram
-	Update record use case
-	delete record use case
-	add record use case
-	Check system Node use case}
+		{VPP diagram
+		Update record use case
+		delete record use case
+		add record use case
+		Check system Node use case
+		Use Case Diagram}
 David Glen
 	Assignment 1
-	{Toggle System mode use case
-	Create Report for Member use case
-	Create provider report use case
-	Create ETF report use case
-	Summary report use case}
+		{Toggle System mode use case
+		Create Report for Member use case
+		Create provider report use case
+		Create ETF report use case
+		Summary report use case
+		Use Case Diagram}
 Evan Dwyer
 	Assignment 1
-	{Create Report for Member use case
-	Create provider report use case
-	Create ETF report use case
-	Summary report use case}
+		{Create Report for Member use case
+		Create provider report use case
+		Create ETF report use case
+		Summary report use case
+		Use Case Diagram}
 	
