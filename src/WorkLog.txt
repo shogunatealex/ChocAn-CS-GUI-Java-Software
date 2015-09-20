@@ -2,7 +2,7 @@ Work Log
 
 Haylie Helmold
 	Assignment 1
-		{Created Google Doc
+		{Organized Google Doc
 		Bill ChocAn use case
 		Use Case Diagram
 		Kept Time Log}
