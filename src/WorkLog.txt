@@ -2,7 +2,8 @@ Work Log
 
 Haylie Helmold
 	Assignment 1
-	{Build ChocAn use case}
+	{Created google Doc
+	Bill ChocAn use case}
 Trevor Gentner
 	Assignment 1
 	{Glossary
