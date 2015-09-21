@@ -3,6 +3,7 @@ Work Log
 Haylie Helmold
 	Assignment 1
 		{Organized Google Doc
+		Formating and presentation of Google Doc
 		Bill ChocAn use case
 		Use Case Diagram
 		Kept Time Log}
