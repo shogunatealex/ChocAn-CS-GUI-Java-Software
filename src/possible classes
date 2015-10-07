@@ -1,0 +1,18 @@
+Boundary class: Terminal
+		Provider Report
+		Summary Report
+		Memory Report
+		ETF Record
+Entity Class: Record
+		Member Record
+		Provider Record
+	Member Card	
+		MemberNumber()
+	System Status
+		Toggle_system_status()
+		Check_system_status()
+	Provider Directory
+Control: Run_Accounting_Procedure
+	Total User Fee’s 
+	Create Provider Report
+	Create all reports
