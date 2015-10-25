@@ -1,8 +1,0 @@
-Everything besides user inputs will be computerized i,e, reports, member and 
-provider edits, the accounting procedure are all a part of the functionality 
-of the program. The data is stored in the provider-directory, which is in-house
-storage. The hardware needed includes input terminals, a server, and network 
-infrastructure. The program will need to interact with the communication software,
-banking software, Acme Accouting, the provider terminal, and the EFT component.
-ChocAn will interact with each system primarily through file transfer and sending
-data. Users will interact with the system through the provider’s terminal
