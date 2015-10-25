@@ -1,0 +1,12 @@
+In 150 words argue why our design is "good".
+
+When designing computer programs cohesion refers to how well the class is focused on 
+its specific actions and coupling refers to how multiple modules are dependent on each
+other. The goal is to keep cohesion high to make the program maintainable and to also 
+keep coupling low enough that a single module can be changed without greatly effecting
+other modules. In our program, even though there are a lot of classes where each one
+has its distinct function there is limited interaction between them. Each class 
+interacts with only a few others. We do not have classes that have multiple unrelated
+functions, which helps us to keep cohesion high. The issue with coupling is that
+when you have coupling you want to make sure it is meaningful to the purpose of 
+your program. Though coupling exists in our design we have made sure it is meaningful. 
