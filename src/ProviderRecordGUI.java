@@ -93,6 +93,9 @@ public class ProviderRecordGUI extends JDialog implements ActionListener {
 		if (e.getSource() == BackButton){
 			setVisible(false);
 		}
+		else if (e.getSource() == AddButton){
+			ManageProviderRecord MPR = new ManageProviderRecord();
+		}
 		
 	}
 }

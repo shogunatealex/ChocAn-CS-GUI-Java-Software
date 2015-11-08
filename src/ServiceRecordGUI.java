@@ -93,6 +93,9 @@ public class ServiceRecordGUI extends JDialog implements ActionListener {
 		if (e.getSource() == BackButton){
 			setVisible(false);
 		}
+		else if (e.getSource() == AddButton){
+			ManageServiceRecord MSR = new ManageServiceRecord();
+		}
 	}
 
 }
