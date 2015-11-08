@@ -11,25 +11,28 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
+import java.awt.SystemColor;
+import javax.swing.UIManager;
+import java.awt.Font;
 
 public class ManageServiceRecord extends JDialog implements ActionListener{
 	private DefaultListModel results;
 	
 	private JButton OkButton;
 	private JButton BackButton = null;
-	private JTextField NameTextField;
-	private JTextField AddressTextField;
-	private JTextField CityTextField;
-	private JTextField StateTextField;
-	private JTextField MemNumTextField;
-	private JTextField ZipCodeTextField;
+	private JTextField DateTextField;
+	private JTextField CommentsTextField;
+	private JTextField MemberNumberTextField;
+	private JTextField ServiceCodeTextField;
+	private JTextField TimeTextField;
+	private JTextField ProviderNumberTextField;
 	
 	/**
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
 		try {
-			ManageProviderRecord dialog = new ManageProviderRecord();
+			ManageServiceRecord dialog = new ManageServiceRecord();
 			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 			dialog.setVisible(true);
 		} catch (Exception e) {
@@ -48,71 +51,84 @@ public class ManageServiceRecord extends JDialog implements ActionListener{
 		
 		OkButton = new JButton("Ok");
 		OkButton.addActionListener(this);
-		OkButton.setBounds(284, 242, 89, 23);
+		OkButton.setBounds(381, 242, 89, 23);
 		window.add(OkButton);
 		
 		BackButton = new JButton("Back");
-		BackButton.setBounds(383, 242, 89, 23);
+		BackButton.setBounds(480, 242, 89, 23);
 		BackButton.addActionListener(this);
 		window.add(BackButton);
 		
 	
 		
 		JLabel ServiceRecordsLabel = new JLabel("Service Records");
-		ServiceRecordsLabel.setBounds(21, 0, 100, 20);
+		ServiceRecordsLabel.setFont(new Font("Myriad Pro", Font.BOLD, 19));
+		ServiceRecordsLabel.setBounds(227, 0, 226, 20);
 		getContentPane().add(ServiceRecordsLabel);
 		
-		NameTextField = new JTextField();
-		NameTextField.setBounds(151, 31, 86, 20);
-		getContentPane().add(NameTextField);
-		NameTextField.setColumns(10);
+		DateTextField = new JTextField();
+		DateTextField.setBounds(95, 31, 142, 20);
+		getContentPane().add(DateTextField);
+		DateTextField.setColumns(10);
 		
-		AddressTextField = new JTextField();
-		AddressTextField.setBounds(363, 31, 142, 51);
-		getContentPane().add(AddressTextField);
-		AddressTextField.setColumns(10);
+		CommentsTextField = new JTextField();
+		CommentsTextField.setBounds(363, 31, 206, 69);
+		getContentPane().add(CommentsTextField);
+		CommentsTextField.setColumns(10);
 		
-		CityTextField = new JTextField();
-		CityTextField.setBounds(151, 162, 86, 20);
-		getContentPane().add(CityTextField);
-		CityTextField.setColumns(10);
+		MemberNumberTextField = new JTextField();
+		MemberNumberTextField.setBounds(95, 162, 142, 20);
+		getContentPane().add(MemberNumberTextField);
+		MemberNumberTextField.setColumns(10);
 		
-		StateTextField = new JTextField();
-		StateTextField.setBounds(379, 117, 62, 20);
-		getContentPane().add(StateTextField);
-		StateTextField.setColumns(10);
+		ServiceCodeTextField = new JTextField();
+		ServiceCodeTextField.setBounds(363, 117, 206, 20);
+		getContentPane().add(ServiceCodeTextField);
+		ServiceCodeTextField.setColumns(10);
 		
-		MemNumTextField = new JTextField();
-		MemNumTextField.setBounds(151, 73, 86, 20);
-		getContentPane().add(MemNumTextField);
-		MemNumTextField.setColumns(10);
+		TimeTextField = new JTextField();
+		TimeTextField.setBounds(95, 73, 142, 20);
+		getContentPane().add(TimeTextField);
+		TimeTextField.setColumns(10);
 		
-		ZipCodeTextField = new JTextField();
-		ZipCodeTextField.setBounds(151, 117, 86, 20);
-		getContentPane().add(ZipCodeTextField);
-		ZipCodeTextField.setColumns(10);
+		ProviderNumberTextField = new JTextField();
+		ProviderNumberTextField.setBounds(95, 117, 142, 20);
+		getContentPane().add(ProviderNumberTextField);
+		ProviderNumberTextField.setColumns(10);
 		
 		JLabel DateLabel = new JLabel("Date");
-		DateLabel.setBounds(10, 34, 46, 14);
+		DateLabel.setFont(new Font("Myriad Pro", Font.PLAIN, 11));
+		DateLabel.setForeground(UIManager.getColor("activeCaption"));
+		DateLabel.setBounds(10, 34, 75, 14);
 		getContentPane().add(DateLabel);
 		
 		JLabel TimeLabel = new JLabel("Time");
-		TimeLabel.setBounds(10, 76, 111, 14);
+		TimeLabel.setForeground(UIManager.getColor("activeCaption"));
+		TimeLabel.setFont(new Font("Myriad Pro", Font.PLAIN, 11));
+		TimeLabel.setBounds(10, 76, 75, 14);
 		getContentPane().add(TimeLabel);
 		
 		JLabel ProviderNumberLabel = new JLabel("Provider Number");
+		ProviderNumberLabel.setForeground(UIManager.getColor("activeCaption"));
+		ProviderNumberLabel.setFont(new Font("Myriad Pro", Font.PLAIN, 11));
 		ProviderNumberLabel.setBounds(10, 120, 111, 14);
 		getContentPane().add(ProviderNumberLabel);
 		
 		JLabel CommentsLabel = new JLabel("Comments");
+		CommentsLabel.setFont(new Font("Myriad Pro", Font.PLAIN, 11));
+		CommentsLabel.setForeground(UIManager.getColor("activeCaption"));
 		CommentsLabel.setBounds(284, 34, 68, 14);
 		getContentPane().add(CommentsLabel);
 		
 		JLabel MemberLabel = new JLabel("Member Number");
+		MemberLabel.setFont(new Font("Myriad Pro", Font.PLAIN, 11));
+		MemberLabel.setForeground(UIManager.getColor("activeCaption"));
 		MemberLabel.setBounds(10, 165, 111, 14);
 		getContentPane().add(MemberLabel);
 		
 		JLabel ServiceCodeLabel = new JLabel("Service Code");
+		ServiceCodeLabel.setForeground(UIManager.getColor("activeCaption"));
+		ServiceCodeLabel.setFont(new Font("Myriad Pro", Font.PLAIN, 11));
 		ServiceCodeLabel.setBounds(284, 120, 111, 14);
 		getContentPane().add(ServiceCodeLabel);
 		
