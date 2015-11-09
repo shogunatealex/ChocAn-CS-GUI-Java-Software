@@ -40,12 +40,12 @@ public class MainGUI {
 	private void initialize() {
 		MainMenu = new JFrame();
 		MainMenu.setTitle("Main Menu");
-		MainMenu.setBounds(100, 100, 450, 300);
+		MainMenu.setBounds(100, 100, 605, 346);
 		MainMenu.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		MainMenu.getContentPane().setLayout(null);
 		
 		JButton ProviderReport = new JButton("Provider Report");
-		ProviderReport.setBounds(134, 55, 149, 43);
+		ProviderReport.setBounds(10, 78, 149, 127);
 		MainMenu.getContentPane().add(ProviderReport);
 		
 		JButton EditRecord = new JButton("Edit Record");
@@ -57,17 +57,16 @@ public class MainGUI {
 				
 			}
 		});
-		EditRecord.setBounds(239, 136, 149, 43);
+		EditRecord.setBounds(430, 78, 149, 127);
 		MainMenu.getContentPane().add(EditRecord);
 		
 		JButton SwipeCardSimulation = new JButton("Swipe Card Simulation");
 		SwipeCardSimulation.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				CardSimulator = new CardSimulator(this, "Card Simulator");
 			}
 		});
-		SwipeCardSimulation.setBounds(39, 136, 149, 43);
-		SwipeCardSimulation.setBounds(39, 136, 149, 43);
+		SwipeCardSimulation.setBounds(218, 78, 149, 127);
 		MainMenu.getContentPane().add(SwipeCardSimulation);
 	}
 
