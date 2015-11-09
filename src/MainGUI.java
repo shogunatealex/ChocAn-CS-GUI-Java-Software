@@ -63,7 +63,7 @@ public class MainGUI {
 		JButton SwipeCardSimulation = new JButton("Swipe Card Simulation");
 		SwipeCardSimulation.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				CardSimulator = new CardSimulator(this, "Card Simulator");
+				CardSimulator test = new CardSimulator();
 			}
 		});
 		SwipeCardSimulation.setBounds(218, 78, 149, 127);

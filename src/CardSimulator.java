@@ -20,12 +20,12 @@ public class CardSimulator extends JDialog implements ActionListener {
 		return cancelled;
 	}
 	
-	public CardSimulator(JFrame owner, String title) {
-		super(owner, title, true);
-		init(owner);
+	public CardSimulator() {
+
+		init();
 	}
 	
-	public void init(JFrame owner){
+	public void init(){
 		Container c = getContentPane();
 		c.setLayout(null);
 		
@@ -49,7 +49,6 @@ public class CardSimulator extends JDialog implements ActionListener {
 		c.add(cancelButton);
 
 		setSize(600, 600);
-		setLocationRelativeTo(owner);
 		setVisible(true);
 		setResizable(false);
 	}
