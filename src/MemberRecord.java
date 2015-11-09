@@ -6,14 +6,14 @@ public class MemberRecord extends AbstractUserRecord {
 	private boolean active = false;
 	private int memNum = 0;
 
-	public MemberRecord(String n, int num, int z, boolean act, String add, String c, String s) {
-		this.setName(n);
-		this.setMemberNumber(num);
-		this.setZipCode(z);
-		this.setActive(act);
-		this.setAddress(add);
-		this.setCity(c);
-		this.setState(s);
+	public MemberRecord(String name, int number, int zipcode, boolean active, String address, String city, String state) {
+		this.setName(name);
+		this.setMemberNumber(number);
+		this.setZipCode(zipcode);
+		this.setActive(active);
+		this.setAddress(address);
+		this.setCity(city);
+		this.setState(state);
 	}
 
 	public void setMemberNumber(int num) {
