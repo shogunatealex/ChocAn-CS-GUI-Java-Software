@@ -27,7 +27,7 @@ public class ManageMemberRecord extends ManageRecordGUI implements ActionListene
 	 */
 	public static void main(String[] args) {
 		try {
-			ProviderRecordGUI dialog = new ProviderRecordGUI();
+			MemberRecordGUI dialog = new MemberRecordGUI();
 			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 			dialog.setVisible(true);
 		} catch (Exception e) {

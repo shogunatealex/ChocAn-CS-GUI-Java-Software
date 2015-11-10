@@ -10,7 +10,7 @@ import java.awt.event.ActionEvent;
 public class MainGUI {
 
 	private JFrame MainMenu;
-
+	public static MemberRecordCollection MRC = new MemberRecordCollection("Hello.txt");
 	/**
 	 * Launch the application.
 	 */
@@ -38,6 +38,18 @@ public class MainGUI {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
+		// To be switched over to main ChocAn System class when created
+		for (int i = 0; i < 20; i++)
+		{
+			MemberRecord temp = new MemberRecord("Alex Anderson", i, 19962, true, "Whereever I want", "Magnolia", "Delaware");
+			MRC.addRecord(temp);
+		}
+		for (MemberRecord record: MRC.retrieveRecords()){
+			System.out.println(record.getMemberNumber());
+		}
+
+		
+		
 		MainMenu = new JFrame();
 		MainMenu.setTitle("Main Menu");
 		MainMenu.setBounds(100, 100, 605, 346);

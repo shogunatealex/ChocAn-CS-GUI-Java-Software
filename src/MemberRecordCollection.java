@@ -12,25 +12,12 @@ public class MemberRecordCollection extends RecordCollection{
 	private ArrayList<MemberRecord> MemberArray = new ArrayList<MemberRecord>();
 	private File fileName;
 
-	public void main(String args[]) throws FileNotFoundException{
-		MemberRecordCollection MRC = new MemberRecordCollection("Testing.txt");
-		for (int i = 0; i < 20; i++)
-		{
-			MemberRecord temp = new MemberRecord("Alex Anderson", i, 19962, true, "Whereever I want", "Magnolia", "Delaware");
-			MRC.addRecord(temp);
-		}
-		for (MemberRecord record: MRC.retrieveRecords()){
-			System.out.println(record.getMemberNumber());
-		}
-
-		
-	}
 	
 	public ArrayList<MemberRecord> retrieveRecords(){
 		return MemberArray;
 	}
 	
-	public MemberRecordCollection(String FileName) throws FileNotFoundException {
+	public MemberRecordCollection(String FileName) {
 
 
    		fileName = new File(FileName);
@@ -117,7 +104,7 @@ public class MemberRecordCollection extends RecordCollection{
 			fileName.createNewFile();
 		}// end try 
 		catch (IOException e1) {
-			e1.printStackTrace();
+
 		}// end catch
 		ObjectOutputStream writer = null;
 		// writs to file
@@ -130,7 +117,6 @@ public class MemberRecordCollection extends RecordCollection{
 		    }// end for
 
 		} catch (IOException ex) {
-		  System.out.println("Supplied file was not found, please check that file " + fileName.getAbsolutePath() + " has been created");
 		}// end catch 
 		finally {
 
