@@ -26,6 +26,9 @@ public abstract class ManageRecordGUI extends JDialog implements ActionListener 
 	protected JTextField CityTextField;
 	protected JTextField StateTextField;
 	protected JTextField ZipCodeTextField;
+	protected JTextArea AddressTextField;
+	protected JDialog Owner;
+	protected Container window;
 	
 	/**
 	 * Launch the application.
@@ -43,11 +46,16 @@ public abstract class ManageRecordGUI extends JDialog implements ActionListener 
 	/**
 	 * Create the dialog.
 	 */
-	public ManageRecordGUI() {
-		Container window = getContentPane();
+	
+
+	
+	public void buildPane() {
+
+		window = getContentPane();
 		setTitle("Manage Record Editor");
 		setBounds(100, 100, 450, 300);
 		window.setLayout(null);
+		setModal(true);
 		
 		OkButton = new JButton("Ok");
 		OkButton.addActionListener(this);
@@ -109,7 +117,7 @@ public abstract class ManageRecordGUI extends JDialog implements ActionListener 
 		lblNewLabel_5.setBounds(331, 182, 116, 14);
 		getContentPane().add(lblNewLabel_5);
 		
-		JTextArea AddressTextField = new JTextArea();
+		AddressTextField = new JTextArea();
 		AddressTextField.setBackground(Color.WHITE);
 		AddressTextField.setBounds(457, 42, 149, 69);
 		getContentPane().add(AddressTextField);
@@ -119,9 +127,26 @@ public abstract class ManageRecordGUI extends JDialog implements ActionListener 
 		
 	    setSize( 700, 340 );
 	    setLocation( 100, 100 );
-	    setVisible(true);
 	}
 
+	public String getName(){
+		return NameTextField.getText();
+	}
+	public String getCity(){
+		return CityTextField.getText();
+	}
+	public String getState(){
+		return StateTextField.getText();
+	}
+	public int getZipCode(){
+		return Integer.parseInt(ZipCodeTextField.getText());
+	}
+	public String getAddress(){
+		return AddressTextField.getText();
+	}
+	
+	
+	
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == BackButton){

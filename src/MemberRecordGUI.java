@@ -16,6 +16,7 @@ import javax.swing.JList;
 import javax.swing.JLabel;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 
 public class MemberRecordGUI extends JDialog implements ActionListener {
 	private DefaultListModel results;
@@ -25,6 +26,7 @@ public class MemberRecordGUI extends JDialog implements ActionListener {
 	private JButton EditButton = null;
 	private JButton BackButton = null;
 	private JTable table;
+	private DefaultTableModel recs;
 	
 	/**
 	 * Launch the application.
@@ -83,7 +85,13 @@ public class MemberRecordGUI extends JDialog implements ActionListener {
 		
 		
 		ArrayList<MemberRecord> temp = MainGUI.MRC.retrieveRecords();
-		DefaultTableModel recs = new DefaultTableModel(0,0);
+		recs = new DefaultTableModel(){
+			// prevents users from editing the table, must use buttons
+			@Override
+			public boolean isCellEditable(int row, int column){
+				return false;
+			}
+		};
 		table = new JTable();
 		String header[] = new String[] {
 				"Name", "ID", "Zipcode", "Status", "Address", "City", "State"
@@ -93,7 +101,10 @@ public class MemberRecordGUI extends JDialog implements ActionListener {
 		for(MemberRecord record: temp){
 			recs.addRow((new Object[] { record.getName(), record.getMemberNumber(), record.getZipCode(), record.isActive(), record.getAddress(), record.getCity(), record.getState()}));
 		}
+		
+		scrollPane.setFocusable(false);
 		scrollPane.setViewportView(table);
+
 		
 	
 		
@@ -110,6 +121,13 @@ public class MemberRecordGUI extends JDialog implements ActionListener {
 		}
 		else if (e.getSource() == AddButton){
 			ManageMemberRecord MMR = new ManageMemberRecord();
+			MainGUI.MRC.addRecord(MMR.getName(), MMR.getMemberNumber(), MMR.getZipCode(), MMR.getActive(), MMR.getAddress(), MMR.getCity(), MMR.getState());
+			recs.addRow((new Object[] {MMR.getName(), MMR.getMemberNumber(), MMR.getZipCode(), MMR.getActive(), MMR.getAddress(), MMR.getCity(), MMR.getState()}));
+
+			
+		}
+		else if (e.getSource() == EditButton){
+			
 		}
 		
 	}

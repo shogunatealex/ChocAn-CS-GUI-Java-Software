@@ -37,22 +37,19 @@ public class ManageProviderRecord extends ManageRecordGUI implements ActionListe
 	 * Create the dialog.
 	 */
 	public ManageProviderRecord() {
-		Container window = getContentPane();
+		super.buildPane();
 		setTitle("Manage Provider Record Editor");
-		setBounds(100, 100, 450, 300);
-		window.setLayout(null);
-		
-	
+
 		
 		JLabel ProviderRecordsLabel = new JLabel("Provider Records");
 		ProviderRecordsLabel.setFont(new Font("Myriad Pro", Font.BOLD, 19));
 		ProviderRecordsLabel.setBounds(272, 11, 271, 20);
-		getContentPane().add(ProviderRecordsLabel);
+		window.add(ProviderRecordsLabel);
 		
 		
 		ProvNumTextField = new JTextField();
 		ProvNumTextField.setBounds(159, 105, 86, 20);
-		getContentPane().add(ProvNumTextField);
+		window.add(ProvNumTextField);
 		ProvNumTextField.setColumns(10);
 		
 
@@ -61,13 +58,9 @@ public class ManageProviderRecord extends ManageRecordGUI implements ActionListe
 		ProviderNumberLabel.setForeground(new Color(0, 100, 0));
 		ProviderNumberLabel.setFont(new Font("Myriad Pro", Font.PLAIN, 11));
 		ProviderNumberLabel.setBounds(43, 108, 111, 14);
-		getContentPane().add(ProviderNumberLabel);
+		window.add(ProviderNumberLabel);
 		
-	
-		
-		
-	    setSize( 700, 340 );
-	    setLocation( 100, 100 );
+
 	    setVisible(true);
 	}
 

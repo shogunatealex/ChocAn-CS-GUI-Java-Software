@@ -18,8 +18,9 @@ import java.awt.Color;
 public class ManageMemberRecord extends ManageRecordGUI implements ActionListener {
 
 
-	private JTextField NameTextField;
 	private JTextField MemNumTextField;
+	private JRadioButton YesRadioButton;
+	private JRadioButton NoRadioButton;
 
 	
 	/**
@@ -38,32 +39,29 @@ public class ManageMemberRecord extends ManageRecordGUI implements ActionListene
 	/**
 	 * Create the dialog.
 	 */
-	public ManageMemberRecord() {
-		Container window = getContentPane();
-		setTitle("Manage Member Record Editor");
-		setBounds(100, 100, 450, 300);
-		window.setLayout(null);
-		
 	
+	public ManageMemberRecord() {
+		super.buildPane();
+		setTitle("Manage Member Record Editor");
 		
 		JLabel MemberRecordsLabel = new JLabel("Member Records");
 		MemberRecordsLabel.setFont(new Font("Myriad Pro", Font.BOLD, 19));
 		MemberRecordsLabel.setBounds(278, 11, 207, 20);
-		getContentPane().add(MemberRecordsLabel);
+		window.add(MemberRecordsLabel);
 		
 
 		MemNumTextField = new JTextField();
 		MemNumTextField.setBounds(159, 103, 86, 20);
-		getContentPane().add(MemNumTextField);
+		window.add(MemNumTextField);
 		MemNumTextField.setColumns(10);
 		
-		JRadioButton YesRadioButton = new JRadioButton("Yes");
+		YesRadioButton = new JRadioButton("Yes");
 		YesRadioButton.setBounds(80, 215, 62, 23);
-		getContentPane().add(YesRadioButton);
+		window.add(YesRadioButton);
 		
-		JRadioButton NoRadioButton = new JRadioButton("No");
+		NoRadioButton = new JRadioButton("No");
 		NoRadioButton.setBounds(161, 215, 62, 23);
-		getContentPane().add(NoRadioButton);
+		window.add(NoRadioButton);
 		
 
 		
@@ -71,25 +69,37 @@ public class ManageMemberRecord extends ManageRecordGUI implements ActionListene
 		MemNumLabel.setFont(new Font("Myriad Pro", Font.PLAIN, 11));
 		MemNumLabel.setForeground(new Color(0, 100, 0));
 		MemNumLabel.setBounds(47, 107, 107, 14);
-		getContentPane().add(MemNumLabel);
+		window.add(MemNumLabel);
 		
 		JLabel ActiveLabel = new JLabel("Active");
 		ActiveLabel.setFont(new Font("Myriad Pro", Font.PLAIN, 11));
 		ActiveLabel.setForeground(new Color(0, 100, 0));
 		ActiveLabel.setBounds(47, 194, 46, 14);
-		getContentPane().add(ActiveLabel);
+		window.add(ActiveLabel);
 		
 	
-		
-		
-	    setSize( 700, 340 );
-	    setLocation( 100, 100 );
 	    setVisible(true);
 	}
-
+	public boolean getActive(){
+		if (YesRadioButton.isSelected()){
+			///return "Active";
+			return true;
+		}
+		else
+		{
+			//return "Suspended";
+			return false;
+		}
+	}
+	public int getMemberNumber(){ 
+		return Integer.parseInt(MemNumTextField.getText());
+	}
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == BackButton){
+			setVisible(false);
+		}
+		else if (e.getSource() == OkButton){
 			setVisible(false);
 		}
 		
