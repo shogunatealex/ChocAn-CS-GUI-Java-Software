@@ -106,9 +106,6 @@ public class MemberRecordGUI extends JDialog implements ActionListener {
 		scrollPane.setViewportView(table);
 
 		
-	
-		
-		
 	    setSize( 500, 310 );
 	    setLocation( 100, 100 );
 	    setVisible(true);
@@ -127,6 +124,17 @@ public class MemberRecordGUI extends JDialog implements ActionListener {
 			
 		}
 		else if (e.getSource() == EditButton){
+			int index = table.getSelectedRow();
+			MemberRecord toEdit = MainGUI.MRC.getSpecificRecord(index);
+			ManageMemberRecord MMR = new ManageMemberRecord(toEdit);
+			MainGUI.MRC.editRecord(index,MMR.getName(), MMR.getMemberNumber(), MMR.getZipCode(), MMR.getActive(), MMR.getAddress(), MMR.getCity(), MMR.getState());
+			recs.removeRow(index);
+			recs.insertRow(index, (new Object[] {MMR.getName(), MMR.getMemberNumber(), MMR.getZipCode(), MMR.getActive(), MMR.getAddress(), MMR.getCity(), MMR.getState()}));
+		}
+		else if (e.getSource() == DeleteButton){
+			int index = table.getSelectedRow();
+			MainGUI.MRC.removeRecord(index);
+			recs.removeRow(index);
 			
 		}
 		

@@ -1,8 +1,14 @@
+import java.io.Serializable;
+
 /*
  * Member record to hold members' info
  */
-public class MemberRecord extends AbstractUserRecord {
+public class MemberRecord extends AbstractUserRecord implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private boolean active = false;
 	private int memNum = 0;
 

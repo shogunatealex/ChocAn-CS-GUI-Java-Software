@@ -39,8 +39,31 @@ public class ManageMemberRecord extends ManageRecordGUI implements ActionListene
 	/**
 	 * Create the dialog.
 	 */
+	public ManageMemberRecord(MemberRecord MR){
+		buildLocalPane();
+		MemNumTextField.setText(String.format("%09d", MR.getMemberNumber()));
+		NameTextField.setText(MR.getName());
+		StateTextField.setText(MR.getState());
+		CityTextField.setText(MR.getCity());
+		ZipCodeTextField.setText(String.format("%d", MR.getZipCode()));
+		AddressTextField.setText(MR.getAddress());
+		if (MR.isActive()){
+			YesRadioButton.setSelected(true);
+		}
+		else{
+			NoRadioButton.setSelected(true);
+		}
+		
+	    setVisible(true);
+
+	}
 	
 	public ManageMemberRecord() {
+		buildLocalPane();
+		
+	    setVisible(true);
+	}
+	public void buildLocalPane(){
 		super.buildPane();
 		setTitle("Manage Member Record Editor");
 		
@@ -77,8 +100,6 @@ public class ManageMemberRecord extends ManageRecordGUI implements ActionListene
 		ActiveLabel.setBounds(47, 194, 46, 14);
 		window.add(ActiveLabel);
 		
-	
-	    setVisible(true);
 	}
 	public boolean getActive(){
 		if (YesRadioButton.isSelected()){

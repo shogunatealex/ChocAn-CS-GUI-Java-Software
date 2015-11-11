@@ -21,10 +21,12 @@ public class MemberRecordCollection extends RecordCollection{
 
 
    		fileName = new File(FileName);
+   		collectRecords();
 		// select file to input, read it in
 
 	}//End MemberRecordCollection
 	public void collectRecords(){
+		System.out.println(fileName.getAbsolutePath());
 		try{
 			MemberArray.clear();
 			ObjectInputStream input = null;
@@ -33,6 +35,7 @@ public class MemberRecordCollection extends RecordCollection{
 			}// end catch 
 			catch (FileNotFoundException e2) {
 				fileName.createNewFile();
+				input = new ObjectInputStream(new FileInputStream(fileName.getAbsoluteFile()));
 			}// end catch 
 			try {
 				while(input != null){
@@ -44,11 +47,11 @@ public class MemberRecordCollection extends RecordCollection{
 			}// end try 
 	
 			catch (ClassNotFoundException e1) {
+
 			}// end catch
 		}
 		catch (IOException e){
-			
-		}
+		}// end catch
 	}
 
 		
@@ -57,6 +60,7 @@ public class MemberRecordCollection extends RecordCollection{
 	public void addRecord(MemberRecord MR){
 		MemberArray.add(MR);
 		saveRecords();
+		collectRecords();
 	}// end addRecord
 	
 	public void addRecord(String name, int number, int zipcode, boolean active, String address, String city,  String state){
@@ -97,6 +101,10 @@ public class MemberRecordCollection extends RecordCollection{
 		MemberArray.add(index, temp);
 		saveRecords();
 	}
+	public MemberRecord getSpecificRecord(int index){
+		return MemberArray.get(index);
+	}
+	
 	
 	public void saveRecords(){
 		try {

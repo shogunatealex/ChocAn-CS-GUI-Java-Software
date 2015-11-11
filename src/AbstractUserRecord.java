@@ -1,5 +1,10 @@
+import java.io.Serializable;
 
-public abstract class AbstractUserRecord {
+public abstract class AbstractUserRecord implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	protected String name = "";
 	protected int zip = 0;
 	protected String address = "";
