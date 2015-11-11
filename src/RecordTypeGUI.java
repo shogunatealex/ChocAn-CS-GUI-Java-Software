@@ -35,6 +35,7 @@ public class RecordTypeGUI extends JDialog implements ActionListener{
 		setTitle("Record Type Selector");
 		setBounds(100, 100, 450, 300);
 		window.setLayout(null);
+		setModal(true);
 		
 		ProviderRecord = new JButton("Provider Record");
 		ProviderRecord.addActionListener(this);

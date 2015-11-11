@@ -11,6 +11,7 @@ public class MainGUI {
 
 	private JFrame MainMenu;
 	public static MemberRecordCollection MRC = new MemberRecordCollection("MemberRecords.txt");
+	public static ProviderRecordCollection PRC = new ProviderRecordCollection("ProviderRecords.txt");
 	/**
 	 * Launch the application.
 	 */

@@ -49,6 +49,7 @@ public class MemberRecordGUI extends JDialog implements ActionListener {
 		setTitle("Member Record Editor");
 		setBounds(100, 100, 450, 300);
 		window.setLayout(null);
+		setModal(true);
 		
 		AddButton = new JButton("Add");
 		AddButton.addActionListener(this);
@@ -118,18 +119,21 @@ public class MemberRecordGUI extends JDialog implements ActionListener {
 		}
 		else if (e.getSource() == AddButton){
 			ManageMemberRecord MMR = new ManageMemberRecord();
-			MainGUI.MRC.addRecord(MMR.getName(), MMR.getMemberNumber(), MMR.getZipCode(), MMR.getActive(), MMR.getAddress(), MMR.getCity(), MMR.getState());
-			recs.addRow((new Object[] {MMR.getName(), MMR.getMemberNumber(), MMR.getZipCode(), MMR.getActive(), MMR.getAddress(), MMR.getCity(), MMR.getState()}));
-
+			if (MMR.isCanceled() == false){
+				MainGUI.MRC.addRecord(MMR.getName(), MMR.getMemberNumber(), MMR.getZipCode(), MMR.getActive(), MMR.getAddress(), MMR.getCity(), MMR.getState());
+				recs.addRow((new Object[] {MMR.getName(), MMR.getMemberNumber(), MMR.getZipCode(), MMR.getActive(), MMR.getAddress(), MMR.getCity(), MMR.getState()}));
+			}
 			
 		}
 		else if (e.getSource() == EditButton){
 			int index = table.getSelectedRow();
 			MemberRecord toEdit = MainGUI.MRC.getSpecificRecord(index);
 			ManageMemberRecord MMR = new ManageMemberRecord(toEdit);
-			MainGUI.MRC.editRecord(index,MMR.getName(), MMR.getMemberNumber(), MMR.getZipCode(), MMR.getActive(), MMR.getAddress(), MMR.getCity(), MMR.getState());
-			recs.removeRow(index);
-			recs.insertRow(index, (new Object[] {MMR.getName(),String.format("%09d",MMR.getMemberNumber()), MMR.getZipCode(), MMR.getActive(), MMR.getAddress(), MMR.getCity(), MMR.getState()}));
+			if (MMR.isCanceled() == false){
+				MainGUI.MRC.editRecord(index,MMR.getName(), MMR.getMemberNumber(), MMR.getZipCode(), MMR.getActive(), MMR.getAddress(), MMR.getCity(), MMR.getState());
+				recs.removeRow(index);
+				recs.insertRow(index, (new Object[] {MMR.getName(),String.format("%09d",MMR.getMemberNumber()), MMR.getZipCode(), MMR.getActive(), MMR.getAddress(), MMR.getCity(), MMR.getState()}));
+			}
 		}
 		else if (e.getSource() == DeleteButton){
 			int index = table.getSelectedRow();

@@ -121,6 +121,7 @@ public class ManageMemberRecord extends ManageRecordGUI implements ActionListene
 			setVisible(false);
 		}
 		else if (e.getSource() == OkButton){
+			Cancel = false;
 			setVisible(false);
 		}
 		

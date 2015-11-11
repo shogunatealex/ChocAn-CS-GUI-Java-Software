@@ -8,13 +8,10 @@ import java.io.ObjectOutputStream;
 public abstract class RecordCollection {
 	public abstract void collectRecords();
 	
-	public abstract void addRecord(String name, int number, int zipcode, boolean active, String address, String city,  String state);
 
 	
 	public abstract void removeRecord(int index);
 
-	public abstract void editRecord(int index, String name, int number, int zipcode, boolean active, String address, String city,  String state);
-	
 	public abstract void saveRecords();
 
 	

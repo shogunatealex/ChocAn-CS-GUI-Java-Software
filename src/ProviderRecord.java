@@ -1,9 +1,10 @@
+import java.io.Serializable;
 
-public class ProviderRecord extends AbstractUserRecord {
+public class ProviderRecord extends AbstractUserRecord implements Serializable {
 	
 	private int provNum;
 	
-	public ProviderRecord(String n, int num, int z, int pNum, String add, String c, String s) {
+	public ProviderRecord(String n, int z, int pNum, String add, String c, String s) {
 		this.setName(n);
 		this.setZipCode(z);
 		this.setProviderNumber(pNum);

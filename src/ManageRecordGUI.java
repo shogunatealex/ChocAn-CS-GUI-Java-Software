@@ -29,7 +29,7 @@ public abstract class ManageRecordGUI extends JDialog implements ActionListener 
 	protected JTextArea AddressTextField;
 	protected JDialog Owner;
 	protected Container window;
-	
+	protected boolean Cancel = true;
 	/**
 	 * Launch the application.
 	 */
@@ -48,7 +48,9 @@ public abstract class ManageRecordGUI extends JDialog implements ActionListener 
 	 */
 	
 
-	
+	public boolean isCanceled(){
+		return Cancel;
+	}
 	public void buildPane() {
 
 		window = getContentPane();

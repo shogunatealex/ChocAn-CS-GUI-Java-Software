@@ -36,7 +36,25 @@ public class ManageProviderRecord extends ManageRecordGUI implements ActionListe
 	/**
 	 * Create the dialog.
 	 */
+	
+	public ManageProviderRecord(ProviderRecord PR){
+		buildLocalPane();
+		ProvNumTextField.setText(String.format("%09d", PR.getProviderNumber()));
+		NameTextField.setText(PR.getName());
+		StateTextField.setText(PR.getState());
+		CityTextField.setText(PR.getCity());
+		ZipCodeTextField.setText(String.format("%d", PR.getZipCode()));
+		AddressTextField.setText(PR.getAddress());
+		setVisible(true);
+	}
+	
 	public ManageProviderRecord() {
+		buildLocalPane();
+		setVisible(true);
+		
+	}
+	
+	private void buildLocalPane(){
 		super.buildPane();
 		setTitle("Manage Provider Record Editor");
 
@@ -60,12 +78,17 @@ public class ManageProviderRecord extends ManageRecordGUI implements ActionListe
 		ProviderNumberLabel.setBounds(43, 108, 111, 14);
 		window.add(ProviderNumberLabel);
 		
-
-	    setVisible(true);
+	}
+	public int getProviderNumber(){ 
+		return Integer.parseInt(ProvNumTextField.getText());
 	}
 
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == BackButton){
+			setVisible(false);
+		}
+		else if (e.getSource() == OkButton){
+			Cancel = false;
 			setVisible(false);
 		}
 		
