@@ -99,7 +99,7 @@ public class MemberRecordGUI extends JDialog implements ActionListener {
 		recs.setColumnIdentifiers(header);
 		table.setModel(recs);
 		for(MemberRecord record: temp){
-			recs.addRow((new Object[] { record.getName(), record.getMemberNumber(), record.getZipCode(), record.isActive(), record.getAddress(), record.getCity(), record.getState()}));
+			recs.addRow((new Object[] { record.getName(), String.format("%09d",record.getMemberNumber()), record.getZipCode(), record.isActive(), record.getAddress(), record.getCity(), record.getState()}));
 		}
 		
 		scrollPane.setFocusable(false);
@@ -129,7 +129,7 @@ public class MemberRecordGUI extends JDialog implements ActionListener {
 			ManageMemberRecord MMR = new ManageMemberRecord(toEdit);
 			MainGUI.MRC.editRecord(index,MMR.getName(), MMR.getMemberNumber(), MMR.getZipCode(), MMR.getActive(), MMR.getAddress(), MMR.getCity(), MMR.getState());
 			recs.removeRow(index);
-			recs.insertRow(index, (new Object[] {MMR.getName(), MMR.getMemberNumber(), MMR.getZipCode(), MMR.getActive(), MMR.getAddress(), MMR.getCity(), MMR.getState()}));
+			recs.insertRow(index, (new Object[] {MMR.getName(),String.format("%09d",MMR.getMemberNumber()), MMR.getZipCode(), MMR.getActive(), MMR.getAddress(), MMR.getCity(), MMR.getState()}));
 		}
 		else if (e.getSource() == DeleteButton){
 			int index = table.getSelectedRow();

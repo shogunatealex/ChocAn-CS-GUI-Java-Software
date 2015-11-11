@@ -10,7 +10,7 @@ import java.awt.event.ActionEvent;
 public class MainGUI {
 
 	private JFrame MainMenu;
-	public static MemberRecordCollection MRC = new MemberRecordCollection("Hello.txt");
+	public static MemberRecordCollection MRC = new MemberRecordCollection("MemberRecords.txt");
 	/**
 	 * Launch the application.
 	 */
