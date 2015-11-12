@@ -19,7 +19,6 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 
 public class MemberRecordGUI extends JDialog implements ActionListener {
-	private DefaultListModel results;
 	
 	private JButton AddButton = null;
 	private JButton DeleteButton = null;
@@ -47,40 +46,36 @@ public class MemberRecordGUI extends JDialog implements ActionListener {
 	public MemberRecordGUI() {
 		Container window = getContentPane();
 		setTitle("Member Record Editor");
-		setBounds(100, 100, 450, 300);
 		window.setLayout(null);
 		setModal(true);
 		
 		AddButton = new JButton("Add");
 		AddButton.addActionListener(this);
-		AddButton.setBounds(31, 209, 98, 33);
+		AddButton.setBounds(60, 209, 150, 33);
 		window.add(AddButton);
 		
 		DeleteButton = new JButton("Delete");
 		DeleteButton.addActionListener(this);
-		DeleteButton.setBounds(247, 209, 100, 32);
+		DeleteButton.setBounds(405, 209, 150, 32);
 		window.add(DeleteButton);
 		
 		EditButton = new JButton("Edit");
 		EditButton.addActionListener(this);
-		EditButton.setBounds(139, 209, 98, 33);
+		EditButton.setBounds(230, 209, 150, 33);
 		window.add(EditButton);
 		
 		BackButton = new JButton("Back");
-		BackButton.setBounds(357, 209, 100, 33);
+		BackButton.setBounds(580, 209, 150, 33);
 		BackButton.addActionListener(this);
 		window.add(BackButton);
 		
-		results = new DefaultListModel();
-		Font font = new Font("Courier", Font.BOLD,  12);
 	
-		
 		JLabel MemberRecordsLabel = new JLabel("Member Records");
 		MemberRecordsLabel.setBounds(21, 0, 100, 20);
 		window.add(MemberRecordsLabel);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(21, 31, 451, 167);
+		scrollPane.setBounds(21, 31, 745, 167);
 		window.add(scrollPane);
 		
 		
@@ -100,14 +95,20 @@ public class MemberRecordGUI extends JDialog implements ActionListener {
 		recs.setColumnIdentifiers(header);
 		table.setModel(recs);
 		for(MemberRecord record: temp){
-			recs.addRow((new Object[] { record.getName(), String.format("%09d",record.getMemberNumber()), record.getZipCode(), record.isActive(), record.getAddress(), record.getCity(), record.getState()}));
+			String formatter = "";
+			if (record.isActive())
+				formatter = "Active";
+			else{
+				formatter = "Suspended";
+			}
+			recs.addRow((new Object[] { record.getName(), String.format("%09d",record.getMemberNumber()), record.getZipCode(), formatter, record.getAddress(), record.getCity(), record.getState()}));
 		}
 		
 		scrollPane.setFocusable(false);
 		scrollPane.setViewportView(table);
 
 		
-	    setSize( 500, 310 );
+	    setSize( 800, 310 );
 	    setLocation( 100, 100 );
 	    setVisible(true);
 	}
@@ -120,8 +121,14 @@ public class MemberRecordGUI extends JDialog implements ActionListener {
 		else if (e.getSource() == AddButton){
 			ManageMemberRecord MMR = new ManageMemberRecord();
 			if (MMR.isCanceled() == false){
+				String formatter = "";
+				if (MMR.getActive())
+					formatter = "Active";
+				else{
+					formatter = "Suspended";
+				}
 				MainGUI.MRC.addRecord(MMR.getName(), MMR.getMemberNumber(), MMR.getZipCode(), MMR.getActive(), MMR.getAddress(), MMR.getCity(), MMR.getState());
-				recs.addRow((new Object[] {MMR.getName(), MMR.getMemberNumber(), MMR.getZipCode(), MMR.getActive(), MMR.getAddress(), MMR.getCity(), MMR.getState()}));
+				recs.addRow((new Object[] {MMR.getName(), MMR.getMemberNumber(), MMR.getZipCode(), formatter, MMR.getAddress(), MMR.getCity(), MMR.getState()}));
 			}
 			
 		}
@@ -130,9 +137,15 @@ public class MemberRecordGUI extends JDialog implements ActionListener {
 			MemberRecord toEdit = MainGUI.MRC.getSpecificRecord(index);
 			ManageMemberRecord MMR = new ManageMemberRecord(toEdit);
 			if (MMR.isCanceled() == false){
+				String formatter = "";
+				if (MMR.getActive())
+					formatter = "Active";
+				else{
+					formatter = "Suspended";
+				}
 				MainGUI.MRC.editRecord(index,MMR.getName(), MMR.getMemberNumber(), MMR.getZipCode(), MMR.getActive(), MMR.getAddress(), MMR.getCity(), MMR.getState());
 				recs.removeRow(index);
-				recs.insertRow(index, (new Object[] {MMR.getName(),String.format("%09d",MMR.getMemberNumber()), MMR.getZipCode(), MMR.getActive(), MMR.getAddress(), MMR.getCity(), MMR.getState()}));
+				recs.insertRow(index, (new Object[] {MMR.getName(),String.format("%09d",MMR.getMemberNumber()), MMR.getZipCode(), formatter, MMR.getAddress(), MMR.getCity(), MMR.getState()}));
 			}
 		}
 		else if (e.getSource() == DeleteButton){

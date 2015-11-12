@@ -4,12 +4,14 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.ButtonGroup;
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import javax.swing.JRadioButton;
@@ -21,6 +23,7 @@ public class ManageMemberRecord extends ManageRecordGUI implements ActionListene
 	private JTextField MemNumTextField;
 	private JRadioButton YesRadioButton;
 	private JRadioButton NoRadioButton;
+	private ButtonGroup ActiveGroup;
 
 	
 	/**
@@ -86,6 +89,9 @@ public class ManageMemberRecord extends ManageRecordGUI implements ActionListene
 		NoRadioButton.setBounds(161, 215, 62, 23);
 		window.add(NoRadioButton);
 		
+		ActiveGroup = new ButtonGroup();
+		ActiveGroup.add(YesRadioButton);
+		ActiveGroup.add(NoRadioButton);
 
 		
 		JLabel MemNumLabel = new JLabel("Member Number");
@@ -118,10 +124,19 @@ public class ManageMemberRecord extends ManageRecordGUI implements ActionListene
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == BackButton){
+			Cancel = true;
 			setVisible(false);
 		}
 		else if (e.getSource() == OkButton){
 			Cancel = false;
+			if (MemNumTextField.getText().equals("")){
+				JOptionPane.showMessageDialog(this, "Please enter a Member Number");
+				return;
+			}
+			if (ZipCodeTextField.getText().equals("")){
+				JOptionPane.showMessageDialog(this, "Please enter a ZipCode");
+				return;
+			}
 			setVisible(false);
 		}
 		

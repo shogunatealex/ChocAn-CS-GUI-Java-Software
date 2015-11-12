@@ -26,7 +26,6 @@ public class ProviderRecordCollection extends RecordCollection{
 
 		}//End MemberRecordCollection
 		public void collectRecords(){
-			System.out.println(fileName.getAbsolutePath());
 			try{
 				ProviderArray.clear();
 				ObjectInputStream input = null;

@@ -69,22 +69,22 @@ public abstract class ManageRecordGUI extends JDialog implements ActionListener 
 		BackButton.addActionListener(this);
 		window.add(BackButton);
 		
-		NameTextField = new JTextField();
+		NameTextField = new JTextField("");
 		NameTextField.setBounds(159, 62, 86, 20);
 		getContentPane().add(NameTextField);
 		NameTextField.setColumns(10);
 		
-		CityTextField = new JTextField();
+		CityTextField = new JTextField("");
 		CityTextField.setBounds(457, 135, 142, 20);
 		getContentPane().add(CityTextField);
 		CityTextField.setColumns(10);
 		
-		StateTextField = new JTextField();
+		StateTextField = new JTextField("");
 		StateTextField.setBounds(457, 179, 62, 20);
 		getContentPane().add(StateTextField);
 		StateTextField.setColumns(10);
 		
-		ZipCodeTextField = new JTextField();
+		ZipCodeTextField = new JTextField("");
 		ZipCodeTextField.setBounds(159, 148, 86, 20);
 		getContentPane().add(ZipCodeTextField);
 		ZipCodeTextField.setColumns(10);
@@ -151,9 +151,7 @@ public abstract class ManageRecordGUI extends JDialog implements ActionListener 
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if (e.getSource() == BackButton){
-			setVisible(false);
-		}
+
 		
 	}
 }
