@@ -17,7 +17,7 @@ public class ProviderDirectoryCollection {
 		return pArray;
 	}
 
-	public ProviderDirectoryCollection(String FileName) throws FileNotFoundException {
+	public ProviderDirectoryCollection(String FileName){
 
 		fileName = new File(FileName);
 		collectRecords();
