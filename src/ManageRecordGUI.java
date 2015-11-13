@@ -122,6 +122,7 @@ public abstract class ManageRecordGUI extends JDialog implements ActionListener 
 		AddressTextField = new JTextArea();
 		AddressTextField.setBackground(Color.WHITE);
 		AddressTextField.setBounds(457, 42, 149, 69);
+		AddressTextField.setLineWrap(true);
 		getContentPane().add(AddressTextField);
 		
 	
