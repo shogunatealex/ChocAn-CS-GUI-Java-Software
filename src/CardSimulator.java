@@ -12,6 +12,8 @@ public class CardSimulator extends JFrame implements ActionListener {
 	private JButton enterButton;
 	private JButton cancelButton;
 	private JLabel cardNumLabel = null;
+	private int readCardNumber;
+	
 	private Font font = new Font("Times New Roman", Font.PLAIN, 20);
 
 	private boolean cancelled;
@@ -47,7 +49,7 @@ public class CardSimulator extends JFrame implements ActionListener {
 		c.add(cancelButton);
 
 		// TextField
-		cardNum = new JTextField(" ");
+		cardNum = new JTextField("");
 		cardNum.addActionListener(this);
 		cardNum.setSize(200, 30);
 		cardNum.setLocation(100, 85);
@@ -62,7 +64,14 @@ public class CardSimulator extends JFrame implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == enterButton) {
-
+			this.readCardNumber = Integer.parseInt(cardNum.getText());
+			
+			if(MainGUI.MRC.isCardValid(readCardNumber)){
+				
+			}else{ //Invalid card number
+				JOptionPane.showMessageDialog(this, "Invalid Member Number");
+			}
+				
 		}
 
 		else if (e.getSource() == cancelButton) {
