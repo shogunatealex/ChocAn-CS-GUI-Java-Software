@@ -12,6 +12,7 @@ public class MainGUI {
 	private JFrame MainMenu;
 	public static MemberRecordCollection MRC = new MemberRecordCollection("MemberRecords.txt");
 	public static ProviderRecordCollection PRC = new ProviderRecordCollection("ProviderRecords.txt");
+	public static ServiceRecordCollection SRC = new ServiceRecordCollection("ServiceRecords.txt");
 	/**
 	 * Launch the application.
 	 */

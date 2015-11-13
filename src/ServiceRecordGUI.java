@@ -3,6 +3,7 @@ import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
@@ -11,24 +12,27 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 public class ServiceRecordGUI extends JDialog implements ActionListener {
 
-	private JList SRCList;
+
 	private DefaultListModel results;
-	private JScrollPane scrollPane;
-	
+
 	private JButton AddButton = null;
 	private JButton DeleteButton = null;
 	private JButton EditButton = null;
 	private JButton BackButton = null;
-	
+	private JTable table;
+	private DefaultTableModel recs;
+
 	/**
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
 		try {
-			ServiceRecordGUI dialog = new ServiceRecordGUI();
+			ProviderRecordGUI dialog = new ProviderRecordGUI();
 			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 			dialog.setVisible(true);
 		} catch (Exception e) {
@@ -44,6 +48,7 @@ public class ServiceRecordGUI extends JDialog implements ActionListener {
 		setTitle("Service Record Editor");
 		setBounds(100, 100, 450, 300);
 		window.setLayout(null);
+		setModal(true);
 		
 		AddButton = new JButton("Add");
 		AddButton.addActionListener(this);
@@ -65,20 +70,37 @@ public class ServiceRecordGUI extends JDialog implements ActionListener {
 		BackButton.addActionListener(this);
 		window.add(BackButton);
 		
-		results = new DefaultListModel();
-		SRCList = new JList(results);
-		Font font = new Font("Courier", Font.BOLD,  12);
-		SRCList.setFont(font);
-		scrollPane = new JScrollPane(SRCList);
-		scrollPane.setSize(425, 170);
-		scrollPane.setLocation(30, 30);
-		SRCList.setBounds(21, 30, 425, 159);
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(21, 31, 451, 167);
 		window.add(scrollPane);
+		
+		results = new DefaultListModel();
+
+		ArrayList<ServiceRecord> temp = MainGUI.SRC.retrieveRecords();
+		recs = new DefaultTableModel(){
+			// prevents users from editing the table, must use buttons
+			@Override
+			public boolean isCellEditable(int row, int column){
+				return false;
+			}
+		};
+		table = new JTable();
+		String header[] = new String[] {
+				"Date", "Time", "Provider Number", "Member Number", "Service Code", "Comment"
+			};
+		recs.setColumnIdentifiers(header);
+		table.setModel(recs);
+		for(ServiceRecord record: temp){
+			recs.addRow((new Object[] {record.getDate(), record.getTime(),  String.format("%09d",record.getProviderNumber()),String.format("%09d",record.getMemberNumber()), String.format("%06d",record.getMemberNumber()), record.getComments()}));
+		}
+		
+		scrollPane.setFocusable(false);
+		scrollPane.setViewportView(table);
 	
 		
-		JLabel MemberRecordsLabel = new JLabel("Service Records");
-		MemberRecordsLabel.setBounds(21, 0, 100, 20);
-		getContentPane().add(MemberRecordsLabel);
+		JLabel ProviderRecordsLabel = new JLabel("Provider Records");
+		ProviderRecordsLabel.setBounds(21, 0, 100, 20);
+		getContentPane().add(ProviderRecordsLabel);
 		
 	
 		
@@ -94,8 +116,37 @@ public class ServiceRecordGUI extends JDialog implements ActionListener {
 			setVisible(false);
 		}
 		else if (e.getSource() == AddButton){
-			ManageServiceRecord MSR = new ManageServiceRecord();
+			ManageProviderRecord PMR = new ManageProviderRecord();
+			if(PMR.isCanceled() == false){
+				MainGUI.PRC.addRecord(PMR.getName(), PMR.getProviderNumber(), PMR.getZipCode(), PMR.getAddress(), PMR.getCity(), PMR.getState());
+				recs.addRow((new Object[] {PMR.getName(), PMR.getProviderNumber(), PMR.getZipCode(),  PMR.getAddress(), PMR.getCity(), PMR.getState()}));
+			}
+			
 		}
+		else if (e.getSource() == EditButton){
+		    try {
+		    	int index = table.getSelectedRow();	
+		    
+		        ProviderRecord toEdit = MainGUI.PRC.getSpecificRecord(index);
+		 	    ManageProviderRecord PMR = new ManageProviderRecord(toEdit);
+			    if (PMR.isCanceled() == false){
+			        MainGUI.PRC.editRecord(index,PMR.getName(), PMR.getProviderNumber(), PMR.getZipCode(), PMR.getAddress(), PMR.getCity(), PMR.getState());
+			        recs.removeRow(index);
+			        recs.insertRow(index, (new Object[] {PMR.getName(),String.format("%09d",PMR.getProviderNumber()), PMR.getZipCode(), PMR.getAddress(), PMR.getCity(), PMR.getState()}));
+			        }
+		    }
+	        catch(ArrayIndexOutOfBoundsException e1) { //catches the exception for no selected row
+	        }
+		}
+		else if (e.getSource() == DeleteButton){
+			try {
+			    int index = table.getSelectedRow();
+			    MainGUI.MRC.removeRecord(index);
+			    recs.removeRow(index);
+			}
+			catch(ArrayIndexOutOfBoundsException e1) { // catches the exception for no selected row
+			}
+		}
+		
 	}
-
 }
