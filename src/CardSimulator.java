@@ -71,6 +71,7 @@ public class CardSimulator extends JFrame implements ActionListener {
 			}else{ //Invalid card number
 				JOptionPane.showMessageDialog(this, "Invalid Member Number");
 			}
+			//TODO implement check for suspended member
 				
 		}
 

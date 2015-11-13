@@ -114,7 +114,7 @@ public class MemberRecordCollection extends RecordCollection{
 
 		}// end catch
 		ObjectOutputStream writer = null;
-		// writs to file
+		// writes to file
 		try {
 		    writer = new ObjectOutputStream(
 		          new FileOutputStream(fileName.getAbsoluteFile()));
