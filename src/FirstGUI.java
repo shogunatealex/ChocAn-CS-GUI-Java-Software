@@ -40,25 +40,28 @@ public class FirstGUI extends JFrame implements ActionListener {
 		ChocAn2.setFont(font);
 		c.add(ChocAn2);
 
-		// Implement Buttons
+		// Provider Button
 		pButton = new JButton("Provider");
 		pButton.addActionListener(this);
 		pButton.setSize(200, 100);
 		pButton.setLocation(100, 150);
 		c.add(pButton);
-
+		
+		// Operator Button
 		oButton = new JButton("Operator");
 		oButton.addActionListener(this);
 		oButton.setSize(200, 100);
 		oButton.setLocation(100, 300);
 		c.add(oButton);
-
+		
+		// Manager Button
 		mButton = new JButton("Manager");
 		mButton.addActionListener(this);
 		mButton.setSize(200, 100);
 		mButton.setLocation(100, 450);
 		c.add(mButton);
 
+		//screen size
 		setSize(400, 600);
 		setVisible(true);
 		setResizable(false);
@@ -72,8 +75,8 @@ public class FirstGUI extends JFrame implements ActionListener {
 			providerActions.MainMenu.setVisible(true);
 		}
 		else if (e.getSource() == oButton) {
-			MainGUI operatorActions = new MainGUI();
-			operatorActions.MainMenu.setVisible(true);
+			RecordTypeGUI operatorActions = new RecordTypeGUI();
+			operatorActions.setVisible(true);
 		}
 		else if (e.getSource() == mButton){
 			MainGUI managerActions = new MainGUI();
