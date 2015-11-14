@@ -27,6 +27,7 @@ public class ManageServiceRecord extends JDialog implements ActionListener{
 	private JTextField ServiceCodeTextField;
 	private JTextField TimeTextField;
 	private JTextField ProviderNumberTextField;
+	protected boolean Cancel = true;
 	
 	/**
 	 * Launch the application.
@@ -44,10 +45,40 @@ public class ManageServiceRecord extends JDialog implements ActionListener{
 	/**
 	 * Create the dialog.
 	 */
-	public ManageServiceRecord() {
+	public String getDate(){
+		return DateTextField.getText();
+	}
+	
+	public String getComments(){
+		return CommentsTextField.getText();
+	}
+	
+	public int getMemberNumber(){
+		return Integer.parseInt(MemberNumberTextField.getText());
+	}
+	
+	public int getServiceCode(){
+		return Integer.parseInt(ServiceCodeTextField.getText());
+		
+	}
+	
+	public String getTime(){
+		return TimeTextField.getText();
+	}
+	
+	public int getProviderNumber(){
+		return Integer.parseInt(ProviderNumberTextField.getText());
+	}
+
+	public boolean isCanceled(){
+		return Cancel;
+	}
+	
+	private void buildLocalPane(){
 		Container window = getContentPane();
 		setTitle("Manage Service Record Editor");
 		setBounds(100, 100, 450, 300);
+		setModal(true);
 		window.setLayout(null);
 		
 		OkButton = new JButton("Ok");
@@ -138,11 +169,29 @@ public class ManageServiceRecord extends JDialog implements ActionListener{
 		
 	    setSize( 595, 322 );
 	    setLocation( 100, 100 );
-	    setVisible(true);
+	}
+	public ManageServiceRecord() {
+		buildLocalPane();
+		setVisible(true);
+	}
+	public ManageServiceRecord(ServiceRecord SR){
+		buildLocalPane();
+		DateTextField.setText(SR.getDate());
+		TimeTextField.setText(SR.getTime());
+		ProviderNumberTextField.setText(String.format("%09d", SR.getProviderNumber()));
+		MemberNumberTextField.setText(String.format("%09d", SR.getMemberNumber()));
+		ServiceCodeTextField.setText(String.format("06d", SR.getServiceCode()));
+		CommentsTextField.setText(SR.getComments());
+		setVisible(true);
 	}
 
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == BackButton){
+			Cancel = true;
+			setVisible(false);
+		}
+		else if ( e.getSource() == OkButton){
+			Cancel = false;
 			setVisible(false);
 		}
 		

@@ -32,7 +32,7 @@ public class ServiceRecordGUI extends JDialog implements ActionListener {
 	 */
 	public static void main(String[] args) {
 		try {
-			ProviderRecordGUI dialog = new ProviderRecordGUI();
+			ServiceRecordGUI dialog = new ServiceRecordGUI();
 			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 			dialog.setVisible(true);
 		} catch (Exception e) {
@@ -98,7 +98,7 @@ public class ServiceRecordGUI extends JDialog implements ActionListener {
 		scrollPane.setViewportView(table);
 	
 		
-		JLabel ProviderRecordsLabel = new JLabel("Provider Records");
+		JLabel ProviderRecordsLabel = new JLabel("Service Records");
 		ProviderRecordsLabel.setBounds(21, 0, 100, 20);
 		getContentPane().add(ProviderRecordsLabel);
 		
@@ -116,10 +116,10 @@ public class ServiceRecordGUI extends JDialog implements ActionListener {
 			setVisible(false);
 		}
 		else if (e.getSource() == AddButton){
-			ManageProviderRecord PMR = new ManageProviderRecord();
-			if(PMR.isCanceled() == false){
-				MainGUI.PRC.addRecord(PMR.getName(), PMR.getProviderNumber(), PMR.getZipCode(), PMR.getAddress(), PMR.getCity(), PMR.getState());
-				recs.addRow((new Object[] {PMR.getName(), PMR.getProviderNumber(), PMR.getZipCode(),  PMR.getAddress(), PMR.getCity(), PMR.getState()}));
+			ManageServiceRecord MSR = new ManageServiceRecord();
+			if(MSR.isCanceled() == false){
+				MainGUI.SRC.addRecord(MSR.getDate(), MSR.getTime(),  MSR.getProviderNumber(),MSR.getMemberNumber(), MSR.getServiceCode(), MSR.getComments());
+				recs.addRow((new Object[] {MSR.getDate(), MSR.getTime(),  String.format("%09d",MSR.getProviderNumber()),String.format("%09d",MSR.getMemberNumber()), String.format("%06d",MSR.getServiceCode()), MSR.getComments()}));
 			}
 			
 		}
@@ -127,12 +127,12 @@ public class ServiceRecordGUI extends JDialog implements ActionListener {
 		    try {
 		    	int index = table.getSelectedRow();	
 		    
-		        ProviderRecord toEdit = MainGUI.PRC.getSpecificRecord(index);
-		 	    ManageProviderRecord PMR = new ManageProviderRecord(toEdit);
-			    if (PMR.isCanceled() == false){
-			        MainGUI.PRC.editRecord(index,PMR.getName(), PMR.getProviderNumber(), PMR.getZipCode(), PMR.getAddress(), PMR.getCity(), PMR.getState());
+		        ServiceRecord toEdit = MainGUI.SRC.getSpecificRecord(index);
+		        ManageServiceRecord MSR = new ManageServiceRecord(toEdit);
+			    if (MSR.isCanceled() == false){
+			        MainGUI.SRC.editRecord(index,MSR.getDate(), MSR.getTime(),  MSR.getProviderNumber(),MSR.getMemberNumber(), MSR.getServiceCode(), MSR.getComments());
 			        recs.removeRow(index);
-			        recs.insertRow(index, (new Object[] {PMR.getName(),String.format("%09d",PMR.getProviderNumber()), PMR.getZipCode(), PMR.getAddress(), PMR.getCity(), PMR.getState()}));
+			        recs.insertRow(index, (new Object[] {MSR.getDate(), MSR.getTime(),  String.format("%09d",MSR.getProviderNumber()),String.format("%09d",MSR.getMemberNumber()), String.format("%06d",MSR.getServiceCode()), MSR.getComments()}));
 			        }
 		    }
 	        catch(ArrayIndexOutOfBoundsException e1) { //catches the exception for no selected row

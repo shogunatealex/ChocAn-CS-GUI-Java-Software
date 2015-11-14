@@ -85,7 +85,9 @@ public class ManageProviderRecord extends ManageRecordGUI implements ActionListe
 
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == BackButton){
+			Cancel = true;
 			setVisible(false);
+			
 		}
 		else if (e.getSource() == OkButton){
 			Cancel = false;

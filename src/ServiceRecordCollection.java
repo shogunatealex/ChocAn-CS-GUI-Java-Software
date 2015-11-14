@@ -57,8 +57,8 @@ public class ServiceRecordCollection {
 			
 		
 
-		public void addRecord(ServiceRecord MR){
-			ServiceArray.add(MR);
+		public void addRecord(ServiceRecord SR){
+			ServiceArray.add(SR);
 			saveRecords();
 			collectRecords();
 		}// end addRecord

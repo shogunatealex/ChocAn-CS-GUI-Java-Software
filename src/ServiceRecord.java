@@ -1,5 +1,6 @@
+import java.io.Serializable;
 
-public class ServiceRecord {
+public class ServiceRecord implements Serializable{
     private String date;
     private String time;
     private int providerNumber;
