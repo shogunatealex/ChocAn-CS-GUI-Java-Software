@@ -76,7 +76,7 @@ public class ServiceRecordGUI extends JDialog implements ActionListener {
 		
 		results = new DefaultListModel();
 
-		ArrayList<ServiceRecord> temp = MainGUI.SRC.retrieveRecords();
+		ArrayList<ServiceRecord> temp = FirstGUI.SRC.retrieveRecords();
 		recs = new DefaultTableModel(){
 			// prevents users from editing the table, must use buttons
 			@Override
@@ -118,7 +118,7 @@ public class ServiceRecordGUI extends JDialog implements ActionListener {
 		else if (e.getSource() == AddButton){
 			ManageServiceRecord MSR = new ManageServiceRecord();
 			if(MSR.isCanceled() == false){
-				MainGUI.SRC.addRecord(MSR.getDate(), MSR.getTime(),  MSR.getProviderNumber(),MSR.getMemberNumber(), MSR.getServiceCode(), MSR.getComments());
+				FirstGUI.SRC.addRecord(MSR.getDate(), MSR.getTime(),  MSR.getProviderNumber(),MSR.getMemberNumber(), MSR.getServiceCode(), MSR.getComments());
 				recs.addRow((new Object[] {MSR.getDate(), MSR.getTime(),  String.format("%09d",MSR.getProviderNumber()),String.format("%09d",MSR.getMemberNumber()), String.format("%06d",MSR.getServiceCode()), MSR.getComments()}));
 			}
 			
@@ -127,10 +127,10 @@ public class ServiceRecordGUI extends JDialog implements ActionListener {
 		    try {
 		    	int index = table.getSelectedRow();	
 		    
-		        ServiceRecord toEdit = MainGUI.SRC.getSpecificRecord(index);
+		        ServiceRecord toEdit = FirstGUI.SRC.getSpecificRecord(index);
 		        ManageServiceRecord MSR = new ManageServiceRecord(toEdit);
 			    if (MSR.isCanceled() == false){
-			        MainGUI.SRC.editRecord(index,MSR.getDate(), MSR.getTime(),  MSR.getProviderNumber(),MSR.getMemberNumber(), MSR.getServiceCode(), MSR.getComments());
+			        FirstGUI.SRC.editRecord(index,MSR.getDate(), MSR.getTime(),  MSR.getProviderNumber(),MSR.getMemberNumber(), MSR.getServiceCode(), MSR.getComments());
 			        recs.removeRow(index);
 			        recs.insertRow(index, (new Object[] {MSR.getDate(), MSR.getTime(),  String.format("%09d",MSR.getProviderNumber()),String.format("%09d",MSR.getMemberNumber()), String.format("%06d",MSR.getServiceCode()), MSR.getComments()}));
 			        }
@@ -141,7 +141,7 @@ public class ServiceRecordGUI extends JDialog implements ActionListener {
 		else if (e.getSource() == DeleteButton){
 			try {
 			    int index = table.getSelectedRow();
-			    MainGUI.MRC.removeRecord(index);
+			    FirstGUI.MRC.removeRecord(index);
 			    recs.removeRow(index);
 			}
 			catch(ArrayIndexOutOfBoundsException e1) { // catches the exception for no selected row

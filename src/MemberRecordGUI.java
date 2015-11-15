@@ -80,7 +80,7 @@ public class MemberRecordGUI extends JDialog implements ActionListener {
 		
 		
 		
-		ArrayList<MemberRecord> temp = MainGUI.MRC.retrieveRecords();
+		ArrayList<MemberRecord> temp = FirstGUI.MRC.retrieveRecords();
 		recs = new DefaultTableModel(){
 			// prevents users from editing the table, must use buttons
 			@Override
@@ -127,7 +127,7 @@ public class MemberRecordGUI extends JDialog implements ActionListener {
 				else{
 					formatter = "Suspended";
 				}
-				MainGUI.MRC.addRecord(MMR.getName(), MMR.getMemberNumber(), MMR.getZipCode(), MMR.getActive(), MMR.getAddress(), MMR.getCity(), MMR.getState());
+				FirstGUI.MRC.addRecord(MMR.getName(), MMR.getMemberNumber(), MMR.getZipCode(), MMR.getActive(), MMR.getAddress(), MMR.getCity(), MMR.getState());
 				recs.addRow((new Object[] {MMR.getName(), MMR.getMemberNumber(), MMR.getZipCode(), formatter, MMR.getAddress(), MMR.getCity(), MMR.getState()}));
 			}
 			
@@ -135,7 +135,7 @@ public class MemberRecordGUI extends JDialog implements ActionListener {
 		else if (e.getSource() == EditButton){
 			try {
 			    int index = table.getSelectedRow();
-			    MemberRecord toEdit = MainGUI.MRC.getSpecificRecord(index);
+			    MemberRecord toEdit = FirstGUI.MRC.getSpecificRecord(index);
 			    ManageMemberRecord MMR = new ManageMemberRecord(toEdit);
 			    if (MMR.isCanceled() == false){
 				    String formatter = "";
@@ -144,7 +144,7 @@ public class MemberRecordGUI extends JDialog implements ActionListener {
 				    else{
 					    formatter = "Suspended";
 				    }
-				    MainGUI.MRC.editRecord(index,MMR.getName(), MMR.getMemberNumber(), MMR.getZipCode(), MMR.getActive(), MMR.getAddress(), MMR.getCity(), MMR.getState());
+				    FirstGUI.MRC.editRecord(index,MMR.getName(), MMR.getMemberNumber(), MMR.getZipCode(), MMR.getActive(), MMR.getAddress(), MMR.getCity(), MMR.getState());
 				    recs.removeRow(index);
 				    recs.insertRow(index, (new Object[] {MMR.getName(),String.format("%09d",MMR.getMemberNumber()), MMR.getZipCode(), formatter, MMR.getAddress(), MMR.getCity(), MMR.getState()}));
 			
@@ -156,7 +156,7 @@ public class MemberRecordGUI extends JDialog implements ActionListener {
 		else if (e.getSource() == DeleteButton){
 			try {
 			    int index = table.getSelectedRow();
-			    MainGUI.MRC.removeRecord(index);
+			    FirstGUI.MRC.removeRecord(index);
 			    recs.removeRow(index);
 			}
 			catch(ArrayIndexOutOfBoundsException e1) { //catches the exception for no selected row

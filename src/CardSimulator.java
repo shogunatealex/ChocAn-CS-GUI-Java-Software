@@ -66,8 +66,8 @@ public class CardSimulator extends JFrame implements ActionListener {
 		if (e.getSource() == enterButton) {
 			this.readCardNumber = Integer.parseInt(cardNum.getText());
 			
-			if(MainGUI.MRC.isCardValid(readCardNumber)){
-				
+			if(FirstGUI.MRC.isCardValid(readCardNumber)){
+				CreateServiceRecordGUI CSR = new CreateServiceRecordGUI();
 			}else{ //Invalid card number
 				JOptionPane.showMessageDialog(this, "Invalid Member Number");
 			}

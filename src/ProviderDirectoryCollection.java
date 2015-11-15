@@ -24,6 +24,7 @@ public class ProviderDirectoryCollection {
 
 	}
 
+	
 	public void collectRecords() {
 		try {
 			pArray.clear();
@@ -56,6 +57,13 @@ public class ProviderDirectoryCollection {
 		saveRecords();
 		collectRecords();
 	}// end removeRecord
+	
+	public void addRecord( int sNumbers, String Services, double costs){
+		ProviderDirectory temp = new ProviderDirectory(sNumbers,Services,costs);
+		pArray.add(temp);
+		saveRecords();
+		collectRecords();
+	}
 
 	public void removeRecord(int index) {
 		pArray.remove(index);

@@ -110,7 +110,7 @@ public class CreateServiceRecordGUI extends JDialog implements ActionListener {
 		scrollPane.setBounds(21, 31, 745, 167);
 		window.add(scrollPane);
 
-		ArrayList<MemberRecord> temp = MainGUI.MRC.retrieveRecords();
+		ArrayList<ProviderDirectory> temp = FirstGUI.PDC.retrieveRecords();
 		recs = new DefaultTableModel() {
 			// prevents users from editing the table, must use buttons
 			@Override
@@ -122,16 +122,10 @@ public class CreateServiceRecordGUI extends JDialog implements ActionListener {
 		String header[] = new String[] { "Service", "Number", "Cost"  };
 		recs.setColumnIdentifiers(header);
 		table.setModel(recs);
-//		for (MemberRecord record : temp) {
-//			String formatter = "";
-//			if (record.isActive())
-//				formatter = "Active";
-//			else {
-//				formatter = "Suspended";
-//			}
-//			recs.addRow((new Object[] { record.getName(), String.format("%09d", record.getNumber(),
-//					formatter}));
-//		}
+		for (ProviderDirectory record : temp) {
+			recs.addRow((new Object[] { record.get_Service(), String.format("%06d", record.get_sNumber()),
+				record.get_Cost()}));
+		}
 
 		scrollPane.setFocusable(false);
 		scrollPane.setViewportView(table);

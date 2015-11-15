@@ -1,8 +1,9 @@
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.Serializable;
 import java.util.*;
 
-public class ProviderDirectory {
+public class ProviderDirectory implements Serializable {
 	private int sNumber;
 	private String Service;
 	private double cost;

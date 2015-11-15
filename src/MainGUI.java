@@ -11,10 +11,6 @@ import java.awt.event.ActionEvent;
 public class MainGUI {
 	
 	protected JFrame MainMenu;
-	public static MemberRecordCollection MRC = new MemberRecordCollection("MemberRecords.txt");
-	public static ProviderRecordCollection PRC = new ProviderRecordCollection("ProviderRecords.txt");
-	public static ServiceRecordCollection SRC = new ServiceRecordCollection("ServiceRecords.txt");
-	public static ProviderDirectoryCollection PDC = new ProviderDirectoryCollection("ProviderDirectory.txt");
 	/**
 	 * Launch the application.
 	 */
@@ -22,6 +18,9 @@ public class MainGUI {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
+					for(int i = 0; i < 20; i++){
+						FirstGUI.PDC.addRecord(i, "Something Important", i * 5);
+					}
 					MainGUI window = new MainGUI();
 					window.MainMenu.setVisible(true);
 				} catch (Exception e) {

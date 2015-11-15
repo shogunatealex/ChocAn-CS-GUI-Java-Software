@@ -74,7 +74,7 @@ public class ProviderRecordCollection extends RecordCollection{
 			saveRecords();
 		}// end removeRecord
 		
-		public boolean isCardValid(int provNumber){
+		public boolean isProvider(int provNumber){
 			for (ProviderRecord record: ProviderArray){
 				if (record.getProviderNumber() == provNumber){
 					return true;

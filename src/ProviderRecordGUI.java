@@ -76,7 +76,7 @@ public class ProviderRecordGUI extends JDialog implements ActionListener {
 		
 		results = new DefaultListModel();
 
-		ArrayList<ProviderRecord> temp = MainGUI.PRC.retrieveRecords();
+		ArrayList<ProviderRecord> temp = FirstGUI.PRC.retrieveRecords();
 		recs = new DefaultTableModel(){
 			// prevents users from editing the table, must use buttons
 			@Override
@@ -118,7 +118,7 @@ public class ProviderRecordGUI extends JDialog implements ActionListener {
 		else if (e.getSource() == AddButton){
 			ManageProviderRecord PMR = new ManageProviderRecord();
 			if(PMR.isCanceled() == false){
-				MainGUI.PRC.addRecord(PMR.getName(), PMR.getProviderNumber(), PMR.getZipCode(), PMR.getAddress(), PMR.getCity(), PMR.getState());
+				FirstGUI.PRC.addRecord(PMR.getName(), PMR.getProviderNumber(), PMR.getZipCode(), PMR.getAddress(), PMR.getCity(), PMR.getState());
 				recs.addRow((new Object[] {PMR.getName(), PMR.getProviderNumber(), PMR.getZipCode(),  PMR.getAddress(), PMR.getCity(), PMR.getState()}));
 			}
 			
@@ -127,10 +127,10 @@ public class ProviderRecordGUI extends JDialog implements ActionListener {
 		    try {
 		    	int index = table.getSelectedRow();	
 		    
-		        ProviderRecord toEdit = MainGUI.PRC.getSpecificRecord(index);
+		        ProviderRecord toEdit = FirstGUI.PRC.getSpecificRecord(index);
 		 	    ManageProviderRecord PMR = new ManageProviderRecord(toEdit);
 			    if (PMR.isCanceled() == false){
-			        MainGUI.PRC.editRecord(index,PMR.getName(), PMR.getProviderNumber(), PMR.getZipCode(), PMR.getAddress(), PMR.getCity(), PMR.getState());
+			        FirstGUI.PRC.editRecord(index,PMR.getName(), PMR.getProviderNumber(), PMR.getZipCode(), PMR.getAddress(), PMR.getCity(), PMR.getState());
 			        recs.removeRow(index);
 			        recs.insertRow(index, (new Object[] {PMR.getName(),String.format("%09d",PMR.getProviderNumber()), PMR.getZipCode(), PMR.getAddress(), PMR.getCity(), PMR.getState()}));
 			        }
@@ -141,7 +141,7 @@ public class ProviderRecordGUI extends JDialog implements ActionListener {
 		else if (e.getSource() == DeleteButton){
 			try {
 			    int index = table.getSelectedRow();
-			    MainGUI.MRC.removeRecord(index);
+			    FirstGUI.MRC.removeRecord(index);
 			    recs.removeRow(index);
 			}
 			catch(ArrayIndexOutOfBoundsException e1) { // catches the exception for no selected row

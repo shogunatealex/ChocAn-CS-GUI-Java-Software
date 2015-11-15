@@ -15,6 +15,11 @@ public class FirstGUI extends JFrame implements ActionListener {
 	private JButton mButton;
 	private JLabel ChocAn1 = null;
 	private JLabel ChocAn2 = null;
+	public static MemberRecordCollection MRC = new MemberRecordCollection("MemberRecords.txt");
+	public static ProviderRecordCollection PRC = new ProviderRecordCollection("ProviderRecords.txt");
+	public static ServiceRecordCollection SRC = new ServiceRecordCollection("ServiceRecords.txt");
+	public static ProviderDirectoryCollection PDC = new ProviderDirectoryCollection("ProviderDirectory.txt");
+	public static int providerNumber;
 
 	private Font font = new Font("Cooper Black", Font.PLAIN, 40);
 
@@ -71,8 +76,22 @@ public class FirstGUI extends JFrame implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == pButton) {
-			MainGUI providerActions = new MainGUI();
-			providerActions.MainMenu.setVisible(true);
+			providerNumber = Integer.parseInt(JOptionPane.showInputDialog("Please enter Provider Number"));
+
+			while(true){
+				if (PRC.isProvider(providerNumber)){
+					MainGUI providerActions = new MainGUI();
+					providerActions.MainMenu.setVisible(true);
+					return;
+				}
+				else{
+					JOptionPane.showMessageDialog(this, "Not a valid Provider Number");
+					providerNumber = Integer.parseInt(JOptionPane.showInputDialog("Please enter Provider Number"));
+				}
+			}
+
+
+
 		}
 		else if (e.getSource() == oButton) {
 			RecordTypeGUI operatorActions = new RecordTypeGUI();
