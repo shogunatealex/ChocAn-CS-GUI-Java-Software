@@ -171,5 +171,9 @@ public class MemberRecordCollection extends RecordCollection {
 		MemberRecord temp = MemberArray.get(index);
 		temp.setActive(!temp.isActive());
 	}// end toggleUserStatus
-
+	
+	public void createReport(){
+	
+	}
+	
 }// end MemberRecordCollection

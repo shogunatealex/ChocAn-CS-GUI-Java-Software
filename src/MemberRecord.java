@@ -15,7 +15,8 @@ public class MemberRecord extends AbstractUserRecord implements Serializable {
 	private boolean active = false;
 	private int memNum = 0;
 
-	public MemberRecord(String name, int number, int zipcode, boolean active, String address, String city, String state) {
+	public MemberRecord(String name, int number, int zipcode, boolean active,
+			String address, String city, String state) {
 		this.setName(name);
 		this.setMemberNumber(number);
 		this.setZipCode(zipcode);
@@ -23,6 +24,22 @@ public class MemberRecord extends AbstractUserRecord implements Serializable {
 		this.setAddress(address);
 		this.setCity(city);
 		this.setState(state);
+	}
+	
+	public String printLine(){
+		String result;
+		String active;
+		if(this.isActive()){
+			active="active";
+		}else{
+			active="Suspended";
+		}
+		
+		result =String.format("%s %d %d %s %s %s", 
+				this.getName(),this.getMemberNumber(),this.getZipCode()
+				, active, this.getAddress(),this.getCity(),this.getState());
+		
+		return result;
 	}
 
 	public void setMemberNumber(int num) {
