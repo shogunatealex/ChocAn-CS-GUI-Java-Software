@@ -11,7 +11,8 @@ public class AccountingController {
     }
     public void createMemberReport(int memberNumber) {
     	MemberRecord Record = FirstGUI.MRC.getSpecificRecordByMemberNumber(memberNumber);
-    	System.out.println(Record.getName());
+    	MemberReport Report = new MemberReport(Record);
+    	Report.saveReports();
     }
     public void createProviderReport(int providerNumber) {
     	ProviderRecord Record = FirstGUI.PRC.getSpecificRecordByProviderNumber(providerNumber);
