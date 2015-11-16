@@ -2,7 +2,7 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 import org.junit.Before;
 
-public class MemberRecordTest {
+public class NewTest {
 		
 	
 	@Before
