@@ -32,7 +32,8 @@ public class ServiceRecordCollection {
 		// select file to input, read it in
 
 	}// End MemberRecordCollection
-	/*
+
+	/**
 	 * Read service records from a file.
 	 */
 
@@ -63,18 +64,26 @@ public class ServiceRecordCollection {
 		} // end catch
 	}
 
-	/*
-	 * @param SR service record Add service record.
+	/**
+	 * @param SR
+	 *            service record Add service record.
 	 */
 	public void addRecord(ServiceRecord SR) {
 		ServiceArray.add(SR);
 		saveRecords();
 		collectRecords();
 	}// end addRecord
-	/*
-	 * Add service record, given information of provider.
-	 */
 
+	/**
+	 * Add service record given information.
+	 * 
+	 * @param date
+	 * @param time
+	 * @param providerNumber
+	 * @param memberNumber
+	 * @param ServiceCode
+	 * @param Comments
+	 */
 	public void addRecord(String date, String time, int providerNumber, int memberNumber, int ServiceCode,
 			String Comments) {
 		ServiceRecord temp = new ServiceRecord(date, time, providerNumber, memberNumber, ServiceCode, Comments);
@@ -82,7 +91,8 @@ public class ServiceRecordCollection {
 		saveRecords();
 
 	}// end addRecord
-	/*
+
+	/**
 	 * Remove selected service record.
 	 */
 
@@ -90,7 +100,8 @@ public class ServiceRecordCollection {
 		ServiceArray.remove(index);
 		saveRecords();
 	}// end removeRecord
-	/*
+
+	/**
 	 * Edit selected service record.
 	 */
 
@@ -102,14 +113,14 @@ public class ServiceRecordCollection {
 		saveRecords();
 	}
 
-	/*
-	 * @return selected service record
+	/**
+	 * @return serviceRecord selected
 	 */
 	public ServiceRecord getSpecificRecord(int index) {
 		return ServiceArray.get(index);
 	}
 
-	/*
+	/**
 	 * Save service records to a file.
 	 */
 	public void saveRecords() {
@@ -139,28 +150,31 @@ public class ServiceRecordCollection {
 				/* ignore */}
 		} // end finally...finally
 	}// end saveRecords
-	public void createReport(){
-		JFrame window= new JFrame();
+
+	/**
+	 * Create new service record.
+	 */
+	public void createReport() {
+		JFrame window = new JFrame();
 		JFileChooser chooser = new JFileChooser();
 		int returnVal = chooser.showSaveDialog(window);
-		
-		if(returnVal == JFileChooser.APPROVE_OPTION){
+
+		if (returnVal == JFileChooser.APPROVE_OPTION) {
 			String fileName = chooser.getSelectedFile().getAbsolutePath();
-			
-			try{
-				ObjectOutputStream output = new ObjectOutputStream( new FileOutputStream(fileName));
+
+			try {
+				ObjectOutputStream output = new ObjectOutputStream(new FileOutputStream(fileName));
 				PrintStream printStream = new PrintStream(output);
-				for( ServiceRecord record : this.ServiceArray){
+				for (ServiceRecord record : this.ServiceArray) {
 					printStream.print(record.printLine());
 				}
 				printStream.close();
 				output.close();
-			}catch(FileNotFoundException e1){
+			} catch (FileNotFoundException e1) {
 				e1.printStackTrace();
-			}catch(IOException e1){
+			} catch (IOException e1) {
 				e1.printStackTrace();
 			}
 		}
 	}
-
 }// end MemberRecordCollection
