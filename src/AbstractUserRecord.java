@@ -13,55 +13,65 @@ public abstract class AbstractUserRecord implements Serializable{
 	protected String address = "";
 	protected String city = "";
 	protected String state = "";
-
+/**
+ * @param n name
+ */
 	public void setName(String n) {
 		name = n;
 	}
-
+/**
+ * 
+ * @param z zipCode
+ */
 	public void setZipCode(int z) {
 		zip = z;
 	}
-
+/**
+ * 
+ * @param add address
+ */
 	public void setAddress(String add) {
 		address = add;
 	}
-
+/**
+ * 
+ * @param c city
+ */
 	public void setCity(String c) {
 		city = c;
 	}
-
+/**
+ * 
+ * @param s state
+ */
 	public void setState(String s) {
 		state = s;
 	}
-/*
+/**
  * @return name
  */
 	public String getName() {
 		return name;
 	}
-	/*
-	 * (non-Javadoc)
+	/**
 	 * @return zipCode
 	 */
 	public int getZipCode() {
 		return zip;
 	}
-	/*
-	 * (non-Javadoc)
+	/**
 	 * @return address
 	 */
 	public String getAddress() {
 		return address;
 	}
-	/*
-	 * (non-Javadoc)
+	/**
 	 * @return city
 	 */
 	public String getCity() {
 		return city;
 	}
-	/*
-	 * (non-Javadoc)
+	/**
 	 * @return state
 	 */
 	public String getState() {
