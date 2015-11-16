@@ -7,9 +7,6 @@ import java.io.Serializable;
  *
  */
 public abstract class AbstractUserRecord implements Serializable{
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	protected String name = "";
 	protected int zip = 0;
@@ -36,23 +33,37 @@ public abstract class AbstractUserRecord implements Serializable{
 	public void setState(String s) {
 		state = s;
 	}
-
+/*
+ * @return name
+ */
 	public String getName() {
 		return name;
 	}
-
+	/*
+	 * (non-Javadoc)
+	 * @return zipCode
+	 */
 	public int getZipCode() {
 		return zip;
 	}
-
+	/*
+	 * (non-Javadoc)
+	 * @return address
+	 */
 	public String getAddress() {
 		return address;
 	}
-
+	/*
+	 * (non-Javadoc)
+	 * @return city
+	 */
 	public String getCity() {
 		return city;
 	}
-
+	/*
+	 * (non-Javadoc)
+	 * @return state
+	 */
 	public String getState() {
 		return state;
 	}
