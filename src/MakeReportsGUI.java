@@ -8,6 +8,13 @@ import java.awt.Font;
 import java.awt.event.*;
 import javax.swing.*;
 
+/**
+ * @author David Glenn
+ * Selection for creating member report, provider report,
+ * EFT report, or summary report, or
+ * create all reports with run main accounting procedure.
+ *
+ */
 public class MakeReportsGUI extends JFrame implements ActionListener {
 
 	private JButton memberButton;
@@ -65,7 +72,11 @@ public class MakeReportsGUI extends JFrame implements ActionListener {
 		setResizable(false);
 
 	}
-
+/*
+ * (non-Javadoc)
+ * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
+ * Creates report based on which button is selected.
+ */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == memberButton) {

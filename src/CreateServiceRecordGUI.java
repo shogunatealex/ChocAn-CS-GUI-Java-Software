@@ -23,6 +23,14 @@ import javax.swing.table.TableModel;
 
 //JTable holds provider Directory, service record values
 
+/**
+ * @author Alex Anderson
+ * Display service records
+ * Add service record
+ * Adds date, time, and comments to service records
+ * Based on selected member record
+ *
+ */
 public class CreateServiceRecordGUI extends JDialog implements ActionListener {
 
 	private JButton SubmitButton = null;
@@ -37,7 +45,7 @@ public class CreateServiceRecordGUI extends JDialog implements ActionListener {
 	private DefaultTableModel recs;
 
 	/**
-	 * Launch the application.
+	 * Mainly used for testing, stand-alone launch
 	 */
 	public static void main(String[] args) {
 		try {
@@ -51,6 +59,8 @@ public class CreateServiceRecordGUI extends JDialog implements ActionListener {
 
 	/**
 	 * Create the dialog.
+	 * Text fields for date, time, and comments.
+	 * Creates new service record
 	 */
 	public CreateServiceRecordGUI() {
 		Container window = getContentPane();
@@ -134,7 +144,12 @@ public class CreateServiceRecordGUI extends JDialog implements ActionListener {
 		setLocation(100, 100);
 		setVisible(true);
 	}
-
+/*
+ * (non-Javadoc)
+ * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
+ * If back button selected, no new service record.
+ * If submitted, create new service record.
+ */
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == BackButton) {
 			setVisible(false);

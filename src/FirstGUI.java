@@ -8,6 +8,13 @@ import java.awt.Font;
 import java.awt.event.*;
 import javax.swing.*;
 
+/**
+ * @author Haylie Helmold
+ * Holds collections of the different records.
+ * Allows for selection of which type of employee is accessing records,
+ * provider, operator, or manager.
+ *
+ */
 public class FirstGUI extends JFrame implements ActionListener {
 
 	private JButton pButton;
@@ -22,7 +29,9 @@ public class FirstGUI extends JFrame implements ActionListener {
 	public static int providerNumber;
 
 	private Font font = new Font("Cooper Black", Font.PLAIN, 40);
-
+/*
+ * Display options for type of employee accessing terminal.
+ */
 	public FirstGUI() {
 		super("Welcome to Chocoholics Anonymous!");
 
@@ -72,7 +81,13 @@ public class FirstGUI extends JFrame implements ActionListener {
 		setResizable(false);
 
 	}
-
+/*
+ * (non-Javadoc)
+ * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
+ * If provider selected, prompt for provider number.
+ * If operator, display operator options.
+ * If manager, display manager options.
+ */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == pButton) {

@@ -6,6 +6,13 @@ import java.awt.Font;
 import java.awt.event.*;
 import javax.swing.*;
 
+/**
+ * @author Haylie Helmold
+ * If valid member number, create new service record
+ * otherwise displays "Invalid
+ * Member Number"
+ *
+ */
 public class CardSimulator extends JFrame implements ActionListener {
 
 	private JTextField cardNum;
@@ -21,7 +28,10 @@ public class CardSimulator extends JFrame implements ActionListener {
 	public boolean isCancelled() {
 		return cancelled;
 	}
-
+/*
+ * Initialize CardSimulator to intake
+ * card/member number
+ */
 	public CardSimulator() {
 		super("Card Swipe Simulator");
 
@@ -60,7 +70,13 @@ public class CardSimulator extends JFrame implements ActionListener {
 		setResizable(false);
 
 	}
-
+/*
+ * (non-Javadoc)
+ * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
+ * If Enter button selected, checks validity of member number
+ * If valid, create a new service record
+ * If not valid, displays error message, prompts new member number entered
+ */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == enterButton) {
@@ -71,7 +87,6 @@ public class CardSimulator extends JFrame implements ActionListener {
 			}else{ //Invalid card number
 				JOptionPane.showMessageDialog(this, "Invalid Member Number");
 			}
-			//TODO implement check for suspended member
 				
 		}
 
