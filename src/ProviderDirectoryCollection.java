@@ -10,9 +10,9 @@ import java.util.Scanner;;
 
 //Trevor
 /**
- * @author Trevor Gentner Collection of Provider records. Allowing for reading,
- *         saving, adding, editing, and removing provider provider record.
- * @return ProviderDirectoryCollection collection of provider records
+ * @author Trevor Gentner Collection of Provider directories. Allowing for reading,
+ *         saving, adding, editing, and removing provider provider directory.
+ * @return ProviderDirectoryCollection collection of provider directories
  */
 public class ProviderDirectoryCollection {
 
@@ -31,7 +31,7 @@ public class ProviderDirectoryCollection {
 	}
 
 	/*
-	 * Read in provider records from file.
+	 * Read in provider directories from file.
 	 */
 	public void collectRecords() {
 		try {
@@ -61,7 +61,7 @@ public class ProviderDirectoryCollection {
 	}
 
 	/*
-	 * Add provider record, given provider record.
+	 * Add provider directory, given provider directory.
 	 */
 	public void addRecord(ProviderDirectory PD) {
 		pArray.add(PD);
@@ -69,7 +69,7 @@ public class ProviderDirectoryCollection {
 		collectRecords();
 	}// end removeRecord
 	/*
-	 * Add provider record, given information of a provider.
+	 * Add provider directory, given information of a provider.
 	 */
 
 	public void addRecord(int sNumbers, String Services, double costs) {
@@ -80,14 +80,14 @@ public class ProviderDirectoryCollection {
 	}
 
 	/*
-	 * Remove selected provider record.
+	 * Remove selected provider directory.
 	 */
 	public void removeRecord(int index) {
 		pArray.remove(index);
 		saveRecords();
 	}// end removeRecord
 	/*
-	 * Edit selected provider record.
+	 * Edit selected provider directory.
 	 */
 
 	public void editRecord(int index, int sNumbers, String Services, double costs) {
@@ -97,7 +97,7 @@ public class ProviderDirectoryCollection {
 	}
 
 	/*
-	 * @return providerRecord selected provider record.
+	 * @return providerDirectory selected provider directory.
 	 */
 	public ProviderDirectory getSpecificRecord(int index) {
 		return pArray.get(index);

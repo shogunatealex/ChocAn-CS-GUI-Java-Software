@@ -5,7 +5,7 @@ import java.util.*;
 
 //Trevor
 /**
- * @author Trevor Gentner Provider record information.
+ * @author Trevor Gentner Provider directory information.
  *
  */
 public class ProviderDirectory implements Serializable {
