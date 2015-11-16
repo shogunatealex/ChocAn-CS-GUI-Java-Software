@@ -29,6 +29,12 @@ public class CardSimulator extends JFrame implements ActionListener {
 	public boolean isCancelled() {
 		return cancelled;
 	}
+	
+
+	public String getCardNum(){
+		return this.cardNum.getText();
+	}
+	
 /*
  * Initialize CardSimulator to intake
  * card/member number
