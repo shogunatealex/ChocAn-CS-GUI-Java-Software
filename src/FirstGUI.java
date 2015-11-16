@@ -9,10 +9,9 @@ import java.awt.event.*;
 import javax.swing.*;
 
 /**
- * @author Haylie Helmold
- * Holds collections of the different records.
- * Allows for selection of which type of employee is accessing records,
- * provider, operator, or manager.
+ * @author Haylie Helmold Holds collections of the different records. Allows for
+ *         selection of which type of employee is accessing records, provider,
+ *         operator, or manager.
  *
  */
 public class FirstGUI extends JFrame implements ActionListener {
@@ -29,9 +28,10 @@ public class FirstGUI extends JFrame implements ActionListener {
 	public static int providerNumber;
 
 	private Font font = new Font("Cooper Black", Font.PLAIN, 40);
-/*
- * Display options for type of employee accessing terminal.
- */
+
+	/**
+	 * Display options for type of employee accessing terminal.
+	 */
 	public FirstGUI() {
 		super("Welcome to Chocoholics Anonymous!");
 
@@ -60,14 +60,14 @@ public class FirstGUI extends JFrame implements ActionListener {
 		pButton.setSize(200, 100);
 		pButton.setLocation(100, 150);
 		c.add(pButton);
-		
+
 		// Operator Button
 		oButton = new JButton("Operator");
 		oButton.addActionListener(this);
 		oButton.setSize(200, 100);
 		oButton.setLocation(100, 300);
 		c.add(oButton);
-		
+
 		// Manager Button
 		mButton = new JButton("Manager");
 		mButton.addActionListener(this);
@@ -75,54 +75,51 @@ public class FirstGUI extends JFrame implements ActionListener {
 		mButton.setLocation(100, 450);
 		c.add(mButton);
 
-		//screen size
+		// screen size
 		setSize(400, 600);
 		setVisible(true);
 		setResizable(false);
 
 	}
-/*
- * (non-Javadoc)
- * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
- * If provider selected, prompt for provider number.
- * If operator, display operator options.
- * If manager, display manager options.
- */
+
+	/**
+	 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
+	 *      If provider selected, prompt for provider number. If operator,
+	 *      display operator options. If manager, display manager options.
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == pButton) {
 			try {
 				providerNumber = Integer.parseInt(JOptionPane.showInputDialog("Please enter Provider Number"));
-			
 
-			    while(true){
-				    if (PRC.isProvider(providerNumber)){
-					    MainGUI providerActions = new MainGUI();
-					    providerActions.MainMenu.setVisible(true);
-					    return;
-				    }
-				    else{
-					    JOptionPane.showMessageDialog(this, "Not a valid Provider Number");
-					    providerNumber = Integer.parseInt(JOptionPane.showInputDialog("Please enter Provider Number"));
-				    }
-			    }
-		    }
-			catch(NumberFormatException e1) {	
+				while (true) {
+					if (PRC.isProvider(providerNumber)) {
+						MainGUI providerActions = new MainGUI();
+						providerActions.MainMenu.setVisible(true);
+						return;
+					} else {
+						JOptionPane.showMessageDialog(this, "Not a valid Provider Number");
+						providerNumber = Integer.parseInt(JOptionPane.showInputDialog("Please enter Provider Number"));
+					}
+				}
+			} catch (NumberFormatException e1) {
 			}
-		}
-		else if (e.getSource() == oButton) {
+		} else if (e.getSource() == oButton) {
 			RecordTypeGUI operatorActions = new RecordTypeGUI();
 			operatorActions.setVisible(true);
-		}
-		else if (e.getSource() == mButton){
+		} else if (e.getSource() == mButton) {
 			MainGUI managerActions = new MainGUI();
 			managerActions.MainMenu.setVisible(true);
 		}
 	}
 
+	/**
+	 * 
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		FirstGUI titleScreen = new FirstGUI();
 		titleScreen.setVisible(true);
 	}
-
 }
