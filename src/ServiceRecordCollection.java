@@ -5,7 +5,11 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.PrintStream;
 import java.util.ArrayList;
+
+import javax.swing.JFileChooser;
+import javax.swing.JFrame;
 
 /**
  * @author Alex Anderson Collection of service records. Allows for reading,
@@ -135,5 +139,28 @@ public class ServiceRecordCollection {
 				/* ignore */}
 		} // end finally...finally
 	}// end saveRecords
+	public void createReport(){
+		JFrame window= new JFrame();
+		JFileChooser chooser = new JFileChooser();
+		int returnVal = chooser.showSaveDialog(window);
+		
+		if(returnVal == JFileChooser.APPROVE_OPTION){
+			String fileName = chooser.getSelectedFile().getAbsolutePath();
+			
+			try{
+				ObjectOutputStream output = new ObjectOutputStream( new FileOutputStream(fileName));
+				PrintStream printStream = new PrintStream(output);
+				for( ServiceRecord record : this.ServiceArray){
+					printStream.print(record.printLine());
+				}
+				printStream.close();
+				output.close();
+			}catch(FileNotFoundException e1){
+				e1.printStackTrace();
+			}catch(IOException e1){
+				e1.printStackTrace();
+			}
+		}
+	}
 
 }// end MemberRecordCollection

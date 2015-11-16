@@ -22,6 +22,16 @@ public class ServiceRecord implements Serializable {
 		serviceCode = ServiceCode;
 		comments = Comments;
 	}
+	
+	public String printLine(){
+		String result;
+		
+		result = String.format("%s %s %d %d %d %s", 
+				this.date, this.time, this.providerNumber, this.memberNumber,
+				this.serviceCode, this.comments);
+		
+		return result;
+	}
 
 	/*
 	 * @return date
