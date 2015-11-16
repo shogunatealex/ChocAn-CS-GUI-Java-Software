@@ -181,7 +181,7 @@ public class ProviderRecordCollection extends RecordCollection {
 	/**
 	 * Create a new provider record.
 	 */
-	
+
 	public void createReport() {
 		JFrame window = new JFrame();
 		JFileChooser chooser = new JFileChooser();
@@ -205,11 +205,16 @@ public class ProviderRecordCollection extends RecordCollection {
 			}
 		}
 	}
-	
+
+	/**
+	 * 
+	 * @param providerNumber
+	 * @return providerRecord containing provider number
+	 */
 	public ProviderRecord getSpecificRecordByProviderNumber(int providerNumber) {
-		if(this.isProvider(providerNumber)) {
-			for(ProviderRecord record : ProviderArray) {
-				if(record.getProviderNumber() == providerNumber) {
+		if (this.isProvider(providerNumber)) {
+			for (ProviderRecord record : ProviderArray) {
+				if (record.getProviderNumber() == providerNumber) {
 					return record;
 				}
 			}
