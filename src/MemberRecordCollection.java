@@ -25,7 +25,7 @@ public class MemberRecordCollection extends RecordCollection {
 		return MemberArray;
 	}
 
-	/*
+	/**
 	 * Initialize collection with contents of FileName.
 	 */
 	public MemberRecordCollection(String FileName) {
@@ -35,8 +35,9 @@ public class MemberRecordCollection extends RecordCollection {
 		// select file to input, read it in
 
 	}// End MemberRecordCollection
-	/*
-	 * (non-Javadoc) Read in member records from a file.
+
+	/**
+	 * Read in member records from a file.
 	 */
 
 	public void collectRecords() {
@@ -66,18 +67,29 @@ public class MemberRecordCollection extends RecordCollection {
 		} // end catch
 	}
 
-	/*
-	 * Add a member record, given a member record.
+	/**
+	 * Add member record given record.
+	 * 
+	 * @param MR
+	 *            memberRecord
 	 */
 	public void addRecord(MemberRecord MR) {
 		MemberArray.add(MR);
 		saveRecords();
 		collectRecords();
 	}// end addRecord
-	/*
-	 * Add a member record, given the information of a member.
-	 */
 
+	/**
+	 * Add member record given information.
+	 * 
+	 * @param name
+	 * @param number
+	 * @param zipcode
+	 * @param active
+	 * @param address
+	 * @param city
+	 * @param state
+	 */
 	public void addRecord(String name, int number, int zipcode, boolean active, String address, String city,
 			String state) {
 		MemberRecord temp = new MemberRecord(name, number, zipcode, active, address, city, state);
@@ -85,16 +97,18 @@ public class MemberRecordCollection extends RecordCollection {
 		saveRecords();
 
 	}// end addRecord
-	/*
-	 * (non-Javadoc) Remove selected member record.
+
+	/**
+	 * Remove selected member record.
 	 */
 
 	public void removeRecord(int index) {
 		MemberArray.remove(index);
 		saveRecords();
 	}// end removeRecord
-	/*
-	 * @return validation of member number.
+
+	/**
+	 * @return validation validation of member number.
 	 */
 
 	public boolean isCardValid(int memNumber) {
@@ -175,29 +189,29 @@ public class MemberRecordCollection extends RecordCollection {
 		MemberRecord temp = MemberArray.get(index);
 		temp.setActive(!temp.isActive());
 	}// end toggleUserStatus
-	
-	public void createReport(){
-		JFrame window= new JFrame();
+
+	public void createReport() {
+		JFrame window = new JFrame();
 		JFileChooser chooser = new JFileChooser();
 		int returnVal = chooser.showSaveDialog(window);
-		
-		if(returnVal == JFileChooser.APPROVE_OPTION){
+
+		if (returnVal == JFileChooser.APPROVE_OPTION) {
 			String fileName = chooser.getSelectedFile().getAbsolutePath();
-			
-			try{
-				ObjectOutputStream output = new ObjectOutputStream( new FileOutputStream(fileName));
+
+			try {
+				ObjectOutputStream output = new ObjectOutputStream(new FileOutputStream(fileName));
 				PrintStream printStream = new PrintStream(output);
-				for( MemberRecord record : this.MemberArray){
+				for (MemberRecord record : this.MemberArray) {
 					printStream.print(record.printLine());
 				}
 				printStream.close();
 				output.close();
-			}catch(FileNotFoundException e1){
+			} catch (FileNotFoundException e1) {
 				e1.printStackTrace();
-			}catch(IOException e1){
+			} catch (IOException e1) {
 				e1.printStackTrace();
 			}
 		}
 	}
-	
+
 }// end MemberRecordCollection
