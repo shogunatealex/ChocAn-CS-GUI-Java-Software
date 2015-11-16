@@ -8,9 +8,12 @@ import org.junit.Before;
 public class CardSimulatorTest {
 	
 	private int numberEntered;
+	CardSimulator test = new CardSimulator();
 	
 	@Before
 	public void setUp(){
+		numberEntered = 100000;
+		test.cardNum.getText();
 		
 	}
 	
