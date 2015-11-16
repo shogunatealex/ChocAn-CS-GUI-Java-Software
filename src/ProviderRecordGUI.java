@@ -109,14 +109,13 @@ public class ProviderRecordGUI extends JDialog implements ActionListener {
 		setVisible(true);
 	}
 
-	/*
-	 * (non-Javadoc)
+	/**
 	 * 
-	 * @see
-	 * java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
-	 * If back selected, do not update provider record. If edit selected, edit
-	 * selected provider record. If add selected, add provider record. If delete
-	 * selected, delete selected provider record.
+	 * 
+	 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
+	 *      If back selected, do not update provider record. If edit selected,
+	 *      edit selected provider record. If add selected, add provider record.
+	 *      If delete selected, delete selected provider record.
 	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
@@ -158,6 +157,5 @@ public class ProviderRecordGUI extends JDialog implements ActionListener {
 															// selected row
 			}
 		}
-
 	}
 }
