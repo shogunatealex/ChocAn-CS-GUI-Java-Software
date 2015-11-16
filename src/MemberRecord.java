@@ -1,5 +1,5 @@
 import java.io.Serializable;
-
+//Alex
 /*
  * Member record to hold members' info
  */
