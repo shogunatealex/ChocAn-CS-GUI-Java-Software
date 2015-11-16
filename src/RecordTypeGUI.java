@@ -67,14 +67,13 @@ public class RecordTypeGUI extends JDialog implements ActionListener {
 		setVisible(true);
 	}
 
-	/*
-	 * (non-Javadoc)
+	/**
 	 * 
-	 * @see
-	 * java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
-	 * If memberRecord selected, display member record collection. If
-	 * serviceRecord selected, display service record collection. If
-	 * providerRecord selected, display provider record collection.
+	 * 
+	 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
+	 *      If memberRecord selected, display member record collection. If
+	 *      serviceRecord selected, display service record collection. If
+	 *      providerRecord selected, display provider record collection.
 	 */
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == BackButton) {
