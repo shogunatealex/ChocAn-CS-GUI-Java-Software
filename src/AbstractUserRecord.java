@@ -1,5 +1,11 @@
 import java.io.Serializable;
 
+/**
+ * @author Alex Anderson
+ * Holds common fields of member and 
+ * provider records
+ *
+ */
 public abstract class AbstractUserRecord implements Serializable{
 	/**
 	 * 
