@@ -180,7 +180,7 @@ public class ManageServiceRecord extends JDialog implements ActionListener{
 		TimeTextField.setText(SR.getTime());
 		ProviderNumberTextField.setText(String.format("%09d", SR.getProviderNumber()));
 		MemberNumberTextField.setText(String.format("%09d", SR.getMemberNumber()));
-		ServiceCodeTextField.setText(String.format("06d", SR.getServiceCode()));
+		ServiceCodeTextField.setText(String.format("%06d", SR.getServiceCode()));
 		CommentsTextField.setText(SR.getComments());
 		setVisible(true);
 	}
