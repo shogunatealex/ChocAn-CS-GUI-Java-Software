@@ -17,6 +17,13 @@ public class ProviderRecord extends AbstractUserRecord implements Serializable {
 		this.setCity(c);
 		this.setState(s);
 	}
+	
+	public String printLine(){
+		String result;
+		result = String.format("%s %d %d %s %s %s", 
+				this.getName(),this.zip,this.provNum,this.address, this.city,this.state);
+		return result;
+	}
 
 	public void setProviderNumber(int num) {
 		provNum = num;

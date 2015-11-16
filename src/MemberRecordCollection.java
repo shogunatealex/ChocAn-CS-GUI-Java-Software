@@ -9,6 +9,7 @@ import java.io.PrintStream;
 import java.util.ArrayList;
 
 import javax.swing.JFileChooser;
+import javax.swing.JFrame;
 
 /**
  * @author Alex Anderson Extends RecordCollection. Holds collection of member
@@ -176,8 +177,9 @@ public class MemberRecordCollection extends RecordCollection {
 	}// end toggleUserStatus
 	
 	public void createReport(){
+		JFrame window= new JFrame();
 		JFileChooser chooser = new JFileChooser();
-		int returnVal = chooser.showSaveDialog(this);
+		int returnVal = chooser.showSaveDialog(window);
 		
 		if(returnVal == JFileChooser.APPROVE_OPTION){
 			String fileName = chooser.getSelectedFile().getAbsolutePath();
