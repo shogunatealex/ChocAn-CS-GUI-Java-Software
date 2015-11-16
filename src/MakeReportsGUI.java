@@ -27,42 +27,42 @@ public class MakeReportsGUI extends JFrame implements ActionListener {
 		Container c = getContentPane();
 		c.setLayout(null);
 
-		// Member Report Button
+		//Member Report Button
 		memberButton = new JButton("Member Report");
 		memberButton.addActionListener(this);
 		memberButton.setSize(200, 100);
 		memberButton.setLocation(50, 50);
 		c.add(memberButton);
-
-		// Provider Report Button
+		
+		//Provider Report Button
 		providerButton = new JButton("Provider Report");
 		providerButton.addActionListener(this);
 		providerButton.setSize(200, 100);
 		providerButton.setLocation(50, 200);
 		c.add(providerButton);
-
-		// EFT Report Button
+		
+		//EFT Report Button
 		EFTButton = new JButton("EFT Report");
 		EFTButton.addActionListener(this);
 		EFTButton.setSize(200, 100);
 		EFTButton.setLocation(300, 50);
 		c.add(EFTButton);
 
-		// Summary Report Button
+		//Summary Report Button
 		summaryButton = new JButton("Summary Report");
 		summaryButton.addActionListener(this);
 		summaryButton.setSize(200, 100);
 		summaryButton.setLocation(300, 200);
 		c.add(summaryButton);
-
-		// Run All Reports Button
+		
+		//Run All Reports Button
 		allButton = new JButton("Run Main Accounting Procedure");
 		allButton.addActionListener(this);
 		allButton.setSize(450, 100);
 		allButton.setLocation(50, 350);
 		c.add(allButton);
-
-		// screen size
+		
+		//screen size
 		setSize(600, 600);
 		setVisible(true);
 		setResizable(false);
@@ -76,15 +76,50 @@ public class MakeReportsGUI extends JFrame implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == memberButton) {
-			System.out.println("Member reports not yet implemented");
-		} else if (e.getSource() == providerButton) {
-			System.out.println("Provider reports not yet implemented");
-		} else if (e.getSource() == EFTButton) {
-			System.out.println("EFT reports not yet implemented");
-		} else if (e.getSource() == summaryButton) {
-			System.out.println("Summary reports not yet implemented");
-		} else if (e.getSource() == allButton) {
-			System.out.println("Main accounting procedure not yet implemented");
+			try {
+				int memberNumber = Integer.parseInt(JOptionPane.showInputDialog("Please enter Member Number"));
+				if (FirstGUI.MRC.isMember(memberNumber)){
+                    AccountingController AC = new AccountingController();
+                    AC.createMemberReport(memberNumber);
+     		    }
+			    else{	
+			    	JOptionPane.showMessageDialog(this, "Not a valid Member Number");
+			        memberNumber = Integer.parseInt(JOptionPane.showInputDialog("Please enter Member Number"));
+				}
+		    }
+			catch(NumberFormatException e1) {	
+			}
+		}
+		
+		else if (e.getSource() == providerButton) {
+			try {
+				int providerNumber = Integer.parseInt(JOptionPane.showInputDialog("Please enter Provider Number"));
+				if (FirstGUI.PRC.isProvider(providerNumber)){
+                    AccountingController AC = new AccountingController();
+                    AC.createProviderReport(providerNumber);
+     		    }
+			    else{	
+			    	JOptionPane.showMessageDialog(this, "Not a valid Provider Number");
+			        providerNumber = Integer.parseInt(JOptionPane.showInputDialog("Please enter Provider Number"));
+				}
+		    }
+			catch(NumberFormatException e1) {	
+			}
+		}
+		
+		else if (e.getSource() == EFTButton){
+		    AccountingController AC = new AccountingController();
+		    AC.createEFTReport();			
+		}
+		
+		else if (e.getSource() == summaryButton) {
+		    AccountingController AC = new AccountingController();
+		    AC.createSummaryReport();     
+		}
+		
+		else if (e.getSource() == allButton) {
+		    AccountingController AC = new AccountingController();
+		    AC.createReports();
 		}
 	}
 
