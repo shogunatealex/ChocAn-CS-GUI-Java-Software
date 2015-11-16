@@ -45,7 +45,7 @@ public class MemberRecordTest {
 	
 	@Test //Need to figure out how to delete the Record
 	public void testIsCardValidFalse() {
-		test.removeRecord(0);
+		//test.removeRecord(8);
 		System.out.print(test.retrieveRecords().size());
 		System.out.print(MRtest.getMemberNumber());
 		System.out.print(test.isCardValid(MRtest.getMemberNumber()));

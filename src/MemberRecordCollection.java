@@ -104,6 +104,7 @@ public class MemberRecordCollection extends RecordCollection {
 
 	public void removeRecord(int index) {
 		MemberArray.remove(index);
+		MemberArray.trimToSize();
 		saveRecords();
 	}// end removeRecord
 
