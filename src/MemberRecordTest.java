@@ -38,9 +38,18 @@ public class MemberRecordTest {
 	}
 	
 	@Test
-	public void testIsCardValid() {
+	public void testIsCardValidTrue() {
 		test.addRecord(MRtest);
 		assertTrue("Member Number should be Valid", test.isCardValid(MRtest.getMemberNumber()));
+	}
+	
+	@Test //Need to figure out how to delete the Record
+	public void testIsCardValidFalse() {
+		test.removeRecord(0);
+		System.out.print(test.retrieveRecords().size());
+		System.out.print(MRtest.getMemberNumber());
+		System.out.print(test.isCardValid(MRtest.getMemberNumber()));
+		assertFalse("Member Number should not be Valid", test.isCardValid(MRtest.getMemberNumber()));
 	}
 
 }
