@@ -4,7 +4,7 @@ import org.junit.Before;
 
 public class MemberRecordTest {
 	
-	private String filename = "MemberRecords.txt";
+	private String filename = "MemberRecords2.txt";
 	private MemberRecordCollection test = new MemberRecordCollection(filename);
 	private MemberRecord MRtest;
 	
@@ -45,10 +45,7 @@ public class MemberRecordTest {
 	
 	@Test //Need to figure out how to delete the Record
 	public void testIsCardValidFalse() {
-		//test.removeRecord(8);
-		System.out.print(test.retrieveRecords().size());
-		System.out.print(MRtest.getMemberNumber());
-		System.out.print(test.isCardValid(MRtest.getMemberNumber()));
+		test.removeRecord(0);
 		assertFalse("Member Number should not be Valid", test.isCardValid(MRtest.getMemberNumber()));
 	}
 
