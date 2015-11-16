@@ -34,6 +34,8 @@ public class MemberRecordGUI extends JDialog implements ActionListener {
 
 	/**
 	 * Used primarily for testing/ independent launching
+	 * 
+	 * @param args
 	 */
 	public static void main(String[] args) {
 		try {
@@ -113,14 +115,12 @@ public class MemberRecordGUI extends JDialog implements ActionListener {
 		setVisible(true);
 	}
 
-	/*
-	 * (non-Javadoc)
+	/**
 	 * 
-	 * @see
-	 * java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
-	 * If back selected, do not update record. If add selected, add new member
-	 * record. If edit selected, edit selected member record. If delete
-	 * selected, delete selected member record.
+	 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
+	 *      If back selected, do not update record. If add selected, add new
+	 *      member record. If edit selected, edit selected member record. If
+	 *      delete selected, delete selected member record.
 	 */
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == BackButton) {
@@ -172,8 +172,6 @@ public class MemberRecordGUI extends JDialog implements ActionListener {
 															// exception for no
 															// selected row
 			}
-
 		}
-
 	}
 }
