@@ -64,6 +64,12 @@ public class MainGUI {
 		MainMenu.getContentPane().add(mMenu);
 		
 		JButton ProviderReport = new JButton("Provider Report");
+		ProviderReport.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				MakeReportsGUI ReportGUI = new MakeReportsGUI();
+				ReportGUI.setVisible(true);
+			}
+		});
 		//ProviderReport.setBounds(10, 78, 149, 127);
 		ProviderReport.setSize(150, 50);
 		ProviderReport.setLocation(25, 100);
