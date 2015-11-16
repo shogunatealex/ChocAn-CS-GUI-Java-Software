@@ -21,15 +21,18 @@ public class ProviderRecordCollection extends RecordCollection {
 	private ArrayList<ProviderRecord> ProviderArray = new ArrayList<ProviderRecord>();
 	private File fileName;
 
-	/*
+	/**
 	 * @return ProviderRecordCollection
 	 */
 	public ArrayList<ProviderRecord> retrieveRecords() {
 		return ProviderArray;
 	}
 
-	/*
+	/**
 	 * Initialize collection with file.
+	 * 
+	 * @param FileName
+	 *            file to be read from
 	 */
 	public ProviderRecordCollection(String FileName) {
 
@@ -38,8 +41,9 @@ public class ProviderRecordCollection extends RecordCollection {
 		// select file to input, read it in
 
 	}// End MemberRecordCollection
-	/*
-	 * (non-Javadoc) Reads provider records from a file.
+
+	/**
+	 * Reads provider records from a file.
 	 */
 
 	public void collectRecords() {
@@ -69,34 +73,45 @@ public class ProviderRecordCollection extends RecordCollection {
 		} // end catch
 	}
 
-	/*
-	 * @param PR provider record Adds a provider record.
+	/**
+	 * @param PR
+	 *            provider record Adds a provider record.
 	 */
 	public void addRecord(ProviderRecord PR) {
 		ProviderArray.add(PR);
 		saveRecords();
 		collectRecords();
 	}// end addRecord
-	/*
-	 * Adds a provider record, given the information of a provider.
-	 */
 
+	/**
+	 * Add a provider record given information.
+	 * 
+	 * @param name
+	 * @param number
+	 * @param zipcode
+	 * @param address
+	 * @param city
+	 * @param state
+	 */
 	public void addRecord(String name, int number, int zipcode, String address, String city, String state) {
 		ProviderRecord temp = new ProviderRecord(name, number, zipcode, address, city, state);
 		ProviderArray.add(temp);
 		saveRecords();
 
 	}// end addRecord
-	/*
-	 * (non-Javadoc) Remove selected provider record.
+
+	/**
+	 * Remove selected provider record.
 	 */
 
 	public void removeRecord(int index) {
 		ProviderArray.remove(index);
 		saveRecords();
 	}// end removeRecord
-	/*
-	 * @param provNumber provider number
+
+	/**
+	 * @param provNumber
+	 *            provider number
 	 * 
 	 * @return valid if valid provider number, otherwise false.
 	 */
@@ -110,7 +125,8 @@ public class ProviderRecordCollection extends RecordCollection {
 		return false;
 
 	}// end isCardValid
-	/*
+
+	/**
 	 * Edit selected provider record.
 	 */
 
@@ -121,15 +137,18 @@ public class ProviderRecordCollection extends RecordCollection {
 		saveRecords();
 	}
 
-	/*
-	 * @return selected provider record.
+	/**
+	 * Return selected provider record.
+	 * 
+	 * @param index
+	 * @return providerRecord
 	 */
 	public ProviderRecord getSpecificRecord(int index) {
 		return ProviderArray.get(index);
 	}
 
-	/*
-	 * (non-Javadoc) Save provider records to a file.
+	/**
+	 * Save provider records to a file.
 	 */
 	public void saveRecords() {
 		try {
@@ -158,25 +177,29 @@ public class ProviderRecordCollection extends RecordCollection {
 				/* ignore */}
 		} // end finally...finally
 	}// end saveRecords
-	public void createReport(){
-		JFrame window= new JFrame();
+
+	/**
+	 * Create a new provider record.
+	 */
+	public void createReport() {
+		JFrame window = new JFrame();
 		JFileChooser chooser = new JFileChooser();
 		int returnVal = chooser.showSaveDialog(window);
-		
-		if(returnVal == JFileChooser.APPROVE_OPTION){
+
+		if (returnVal == JFileChooser.APPROVE_OPTION) {
 			String fileName = chooser.getSelectedFile().getAbsolutePath();
-			
-			try{
-				ObjectOutputStream output = new ObjectOutputStream( new FileOutputStream(fileName));
+
+			try {
+				ObjectOutputStream output = new ObjectOutputStream(new FileOutputStream(fileName));
 				PrintStream printStream = new PrintStream(output);
-				for( ProviderRecord record : this.ProviderArray){
+				for (ProviderRecord record : this.ProviderArray) {
 					printStream.print(record.printLine());
 				}
 				printStream.close();
 				output.close();
-			}catch(FileNotFoundException e1){
+			} catch (FileNotFoundException e1) {
 				e1.printStackTrace();
-			}catch(IOException e1){
+			} catch (IOException e1) {
 				e1.printStackTrace();
 			}
 		}
