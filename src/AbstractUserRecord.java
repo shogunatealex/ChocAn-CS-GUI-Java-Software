@@ -1,7 +1,7 @@
 import java.io.Serializable;
 
 /**
- * @author Alex Anderson
+ * @author Evan Dwyer
  * Holds common fields of member and 
  * provider records
  *

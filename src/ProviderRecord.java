@@ -1,7 +1,7 @@
 import java.io.Serializable;
 
 /**
- * @author Alex Anderson Extends AbstractUserRecord. Holds fields for provider
+ * @author Evan Dwyer Extends AbstractUserRecord. Holds fields for provider
  *         record.
  *
  */
