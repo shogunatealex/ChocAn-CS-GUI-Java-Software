@@ -63,7 +63,7 @@ public class MainGUI {
 		mMenu.setFont(font);
 		MainMenu.getContentPane().add(mMenu);
 		
-		JButton ProviderReport = new JButton("Provider Report");
+		JButton ProviderReport = new JButton("Make Reports");
 		ProviderReport.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				MakeReportsGUI ReportGUI = new MakeReportsGUI();
