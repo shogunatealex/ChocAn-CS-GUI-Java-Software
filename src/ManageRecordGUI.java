@@ -18,6 +18,12 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JTextArea;
 import java.awt.Color;
 
+/**
+ * @author Alex Anderson
+ * Allow for adding, editing, and deleting provider records.
+ * Displays provider records.
+ *
+ */
 public abstract class ManageRecordGUI extends JDialog implements ActionListener {
 
 	protected JButton OkButton;
@@ -31,7 +37,7 @@ public abstract class ManageRecordGUI extends JDialog implements ActionListener 
 	protected Container window;
 	protected boolean Cancel = true;
 	/**
-	 * Launch the application.
+	 * Used primarily for testing/ independent launching
 	 */
 	public static void main(String[] args) {
 		try {
@@ -43,14 +49,15 @@ public abstract class ManageRecordGUI extends JDialog implements ActionListener 
 		}
 	}
 
-	/**
-	 * Create the dialog.
-	 */
-	
-
+/*
+ * @return canceled if canceled.	
+ */
 	public boolean isCanceled(){
 		return Cancel;
 	}
+	/*
+	 * Display contents.
+	 */
 	public void buildPane() {
 
 		window = getContentPane();
@@ -131,19 +138,43 @@ public abstract class ManageRecordGUI extends JDialog implements ActionListener 
 	    setSize( 700, 340 );
 	    setLocation( 100, 100 );
 	}
-
+/*
+ * (non-Javadoc)
+ * @see java.awt.Component#getName()
+ * @return name
+ */
 	public String getName(){
 		return NameTextField.getText();
 	}
+	/*
+	 * (non-Javadoc)
+	 * @see java.awt.Component#getName()
+	 * @return city
+	 */
 	public String getCity(){
 		return CityTextField.getText();
 	}
+	/*
+	 * (non-Javadoc)
+	 * @see java.awt.Component#getName()
+	 * @return state
+	 */
 	public String getState(){
 		return StateTextField.getText();
 	}
+	/*
+	 * (non-Javadoc)
+	 * @see java.awt.Component#getName()
+	 * @return zipCode
+	 */
 	public int getZipCode(){
 		return Integer.parseInt(ZipCodeTextField.getText());
 	}
+	/*
+	 * (non-Javadoc)
+	 * @see java.awt.Component#getName()
+	 * @return address
+	 */
 	public String getAddress(){
 		return AddressTextField.getText();
 	}

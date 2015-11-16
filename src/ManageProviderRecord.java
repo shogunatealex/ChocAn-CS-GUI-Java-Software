@@ -15,6 +15,12 @@ import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 import java.awt.Color;
 
+/**
+ * @author Alex Anderson
+ * Allows for entering/ editing information in
+ * provider record.
+ *
+ */
 public class ManageProviderRecord extends ManageRecordGUI implements ActionListener{
 
 	private JTextField ProvNumTextField;
@@ -53,7 +59,9 @@ public class ManageProviderRecord extends ManageRecordGUI implements ActionListe
 		setVisible(true);
 		
 	}
-	
+	/*
+	 * Display components and fields of provider record.
+	 */
 	private void buildLocalPane(){
 		super.buildPane();
 		setTitle("Manage Provider Record Editor");
@@ -79,10 +87,16 @@ public class ManageProviderRecord extends ManageRecordGUI implements ActionListe
 		window.add(ProviderNumberLabel);
 		
 	}
+	/*
+	 * @return provider number
+	 */
 	public int getProviderNumber(){ 
 		return Integer.parseInt(ProvNumTextField.getText());
 	}
-
+/*
+ * (non-Javadoc)
+ * @see ManageRecordGUI#actionPerformed(java.awt.event.ActionEvent)
+ */
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == BackButton){
 			Cancel = true;

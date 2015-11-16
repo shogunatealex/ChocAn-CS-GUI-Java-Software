@@ -17,6 +17,11 @@ import javax.swing.JTextField;
 import javax.swing.JRadioButton;
 import java.awt.Color;
 
+/**
+ * @author Alex Anderson
+ * Allow for adding, editing, and deleting of member records.
+ *
+ */
 public class ManageMemberRecord extends ManageRecordGUI implements ActionListener {
 
 
@@ -27,7 +32,7 @@ public class ManageMemberRecord extends ManageRecordGUI implements ActionListene
 
 	
 	/**
-	 * Launch the application.
+	 * Used primarily for testing/launching independently
 	 */
 	public static void main(String[] args) {
 		try {
@@ -66,6 +71,9 @@ public class ManageMemberRecord extends ManageRecordGUI implements ActionListene
 		
 	    setVisible(true);
 	}
+	/*
+	 * Display memeber records and modification buttons.
+	 */
 	public void buildLocalPane(){
 		super.buildPane();
 		setTitle("Manage Member Record Editor");
@@ -107,6 +115,9 @@ public class ManageMemberRecord extends ManageRecordGUI implements ActionListene
 		window.add(ActiveLabel);
 		
 	}
+	/*
+	 * @return member status
+	 */
 	public boolean getActive(){
 		if (YesRadioButton.isSelected()){
 			///return "Active";
@@ -118,9 +129,17 @@ public class ManageMemberRecord extends ManageRecordGUI implements ActionListene
 			return false;
 		}
 	}
+	/*
+	 * @return member number
+	 */
 	public int getMemberNumber(){ 
 		return Integer.parseInt(MemNumTextField.getText());
 	}
+	/*
+	 * (non-Javadoc)
+	 * @see ManageRecordGUI#actionPerformed(java.awt.event.ActionEvent)
+	 * If OK selected, update member record collection.
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == BackButton){
