@@ -10,13 +10,16 @@ public class SystemStatus {
 		interactive = true;
 	}
 
-	/*
+	/**
 	 * @return systemStatus
 	 */
 	public boolean checkMode() {
 		return this.interactive;
 	}
 
+	/**
+	 * Toggle system status.
+	 */
 	public void toggleInteractiveMode() {
 		if (this.interactive) {
 			this.interactive = false;
