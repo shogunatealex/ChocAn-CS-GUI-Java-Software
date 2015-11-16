@@ -19,7 +19,7 @@ public class CardSimulatorTest {
 		assertFalse("Cannot have a negative ID Number", FirstGUI.MRC.isCardValid(numberEntered));
 	}
 
-	@Test	//needs to be fixed, returning false should be returning true
+	@Test
 	public void testIsValid() {
 		numberEntered = 12345;
 		assertTrue("Number is in Member Record Collection", FirstGUI.MRC.isCardValid(numberEntered));
