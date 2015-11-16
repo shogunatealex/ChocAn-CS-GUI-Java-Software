@@ -91,7 +91,7 @@ public class ServiceRecordGUI extends JDialog implements ActionListener {
 		recs.setColumnIdentifiers(header);
 		table.setModel(recs);
 		for(ServiceRecord record: temp){
-			recs.addRow((new Object[] {record.getDate(), record.getTime(),  String.format("%09d",record.getProviderNumber()),String.format("%09d",record.getMemberNumber()), String.format("%06d",record.getMemberNumber()), record.getComments()}));
+			recs.addRow((new Object[] {record.getDate(), record.getTime(),  String.format("%09d",record.getProviderNumber()),String.format("%09d",record.getMemberNumber()), String.format("%06d",record.getServiceCode()), record.getComments()}));
 		}
 		
 		scrollPane.setFocusable(false);
@@ -105,7 +105,7 @@ public class ServiceRecordGUI extends JDialog implements ActionListener {
 	
 		
 		
-	    setSize( 500, 310 );
+	    setSize( 700, 310 );
 	    setLocation( 100, 100 );
 	    setVisible(true);
 	}
