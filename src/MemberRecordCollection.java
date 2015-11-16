@@ -214,5 +214,24 @@ public class MemberRecordCollection extends RecordCollection {
 			}
 		}
 	}
+	public MemberRecord getSpecificRecordByMemberNumber(int memberNumber) {
+		if(this.isMember(memberNumber)) {
+			for(MemberRecord record : MemberArray) {
+				if(record.getMemberNumber() == memberNumber) {
+					return record;
+				}
+			}
+		}
+		return null;
+	}
+	
+	public boolean isMember(int memberNumber) {
+		for (MemberRecord record : MemberArray) {
+			if (record.getMemberNumber() == memberNumber) {
+				return true;
+			} // end if
+		} // end for
+		return false;
+	}
 
 }// end MemberRecordCollection
