@@ -47,57 +47,57 @@ public class ManageServiceRecord extends JDialog implements ActionListener {
 		}
 	}
 
-	/*
+	/**
 	 * @return date
 	 */
 	public String getDate() {
 		return DateTextField.getText();
 	}
 
-	/*
+	/**
 	 * @return comments
 	 */
 	public String getComments() {
 		return CommentsTextField.getText();
 	}
 
-	/*
-	 * @return member number
+	/**
+	 * @return memberNumber
 	 */
 	public int getMemberNumber() {
 		return Integer.parseInt(MemberNumberTextField.getText());
 	}
 
-	/*
-	 * @return service code
+	/**
+	 * @return serviceCode
 	 */
 	public int getServiceCode() {
 		return Integer.parseInt(ServiceCodeTextField.getText());
 
 	}
 
-	/*
+	/**
 	 * @return time
 	 */
 	public String getTime() {
 		return TimeTextField.getText();
 	}
 
-	/*
-	 * @return provider number
+	/**
+	 * @return providerNumber
 	 */
 	public int getProviderNumber() {
 		return Integer.parseInt(ProviderNumberTextField.getText());
 	}
 
-	/*
+	/**
 	 * @return canceled if canceled
 	 */
 	public boolean isCanceled() {
 		return Cancel;
 	}
 
-	/*
+	/**
 	 * Display contents.
 	 */
 	private void buildLocalPane() {
@@ -197,6 +197,11 @@ public class ManageServiceRecord extends JDialog implements ActionListener {
 		setVisible(true);
 	}
 
+	/**
+	 * 
+	 * @param SR
+	 *            serviceRecord
+	 */
 	public ManageServiceRecord(ServiceRecord SR) {
 		buildLocalPane();
 		DateTextField.setText(SR.getDate());
@@ -208,12 +213,11 @@ public class ManageServiceRecord extends JDialog implements ActionListener {
 		setVisible(true);
 	}
 
-	/*
-	 * (non-Javadoc)
+	/**
 	 * 
-	 * @see
-	 * java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
-	 * Remove window.
+	 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
+	 *      Remove window. If back selected, do not update service record. If Ok
+	 *      selected, update service record.
 	 */
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == BackButton) {
