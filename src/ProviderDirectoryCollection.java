@@ -7,7 +7,13 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Scanner;;
+
 //Trevor
+/**
+ * @author Trevor Gentner Collection of Provider directories. Allowing for reading,
+ *         saving, adding, editing, and removing provider provider directory.
+ * @return ProviderDirectoryCollection collection of provider directories
+ */
 public class ProviderDirectoryCollection {
 
 	private ArrayList<ProviderDirectory> pArray = new ArrayList<ProviderDirectory>();
@@ -17,14 +23,16 @@ public class ProviderDirectoryCollection {
 		return pArray;
 	}
 
-	public ProviderDirectoryCollection(String FileName){
+	public ProviderDirectoryCollection(String FileName) {
 
 		fileName = new File(FileName);
 		collectRecords();
 
 	}
 
-	
+	/*
+	 * Read in provider directories from file.
+	 */
 	public void collectRecords() {
 		try {
 			pArray.clear();
@@ -52,23 +60,35 @@ public class ProviderDirectoryCollection {
 		} // end catch
 	}
 
+	/*
+	 * Add provider directory, given provider directory.
+	 */
 	public void addRecord(ProviderDirectory PD) {
 		pArray.add(PD);
 		saveRecords();
 		collectRecords();
 	}// end removeRecord
-	
-	public void addRecord( int sNumbers, String Services, double costs){
-		ProviderDirectory temp = new ProviderDirectory(sNumbers,Services,costs);
+	/*
+	 * Add provider directory, given information of a provider.
+	 */
+
+	public void addRecord(int sNumbers, String Services, double costs) {
+		ProviderDirectory temp = new ProviderDirectory(sNumbers, Services, costs);
 		pArray.add(temp);
 		saveRecords();
 		collectRecords();
 	}
 
+	/*
+	 * Remove selected provider directory.
+	 */
 	public void removeRecord(int index) {
 		pArray.remove(index);
 		saveRecords();
 	}// end removeRecord
+	/*
+	 * Edit selected provider directory.
+	 */
 
 	public void editRecord(int index, int sNumbers, String Services, double costs) {
 		ProviderDirectory temp = new ProviderDirectory(sNumbers, Services, costs);
@@ -76,6 +96,9 @@ public class ProviderDirectoryCollection {
 		pArray.add(index, temp);
 	}
 
+	/*
+	 * @return providerDirectory selected provider directory.
+	 */
 	public ProviderDirectory getSpecificRecord(int index) {
 		return pArray.get(index);
 	}
@@ -103,7 +126,7 @@ public class ProviderDirectoryCollection {
 				writer.close();
 			} catch (Exception ex) {
 				/* ignore */}
-		}//end finally...finally
+		} // end finally...finally
 	}// end saveRecords
 
 }

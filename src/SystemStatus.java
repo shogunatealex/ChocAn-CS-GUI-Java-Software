@@ -1,20 +1,26 @@
 //David 
+/**
+ * @author David Glenn Holds status of the system, either interactive or
+ *         non-interactive. Toggles status.
+ */
 public class SystemStatus {
 	private boolean interactive;
-	
-	public SystemStatus(){
+
+	public SystemStatus() {
 		interactive = true;
 	}
-	
-	public boolean checkMode(){
+
+	/*
+	 * @return systemStatus
+	 */
+	public boolean checkMode() {
 		return this.interactive;
 	}
-	
-	public void toggleInteractiveMode(){
-		if(this.interactive){
-			this.interactive=false;
-		}
-		else 
-			this.interactive=true;
+
+	public void toggleInteractiveMode() {
+		if (this.interactive) {
+			this.interactive = false;
+		} else
+			this.interactive = true;
 	}
 }

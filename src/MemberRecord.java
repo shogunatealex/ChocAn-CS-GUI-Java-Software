@@ -4,7 +4,7 @@ import java.io.Serializable;
  * Member record to hold members' info
  */
 /**
- * @author Alex
+ * @author Evan Dwyer
  * Extends AbstractUserRecord.
  * Holds fields of member record.
  *
