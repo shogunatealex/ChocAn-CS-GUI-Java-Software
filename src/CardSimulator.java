@@ -1,3 +1,4 @@
+
 //Haylie Helmold
 
 import java.awt.Color;
@@ -7,10 +8,8 @@ import java.awt.event.*;
 import javax.swing.*;
 
 /**
- * @author Haylie Helmold
- * If valid member number, create new service record
- * otherwise displays "Invalid
- * Member Number"
+ * @author Haylie Helmold If valid member number, create new service record
+ *         otherwise displays "Invalid Member Number"
  *
  */
 
@@ -21,24 +20,30 @@ public class CardSimulator extends JFrame implements ActionListener {
 	private JButton cancelButton;
 	private JLabel cardNumLabel = null;
 	private int readCardNumber;
-	
+
 	private Font font = new Font("Times New Roman", Font.PLAIN, 20);
 
 	private boolean cancelled;
 
+	/**
+	 * 
+	 * @return cancelled if canceled
+	 */
 	public boolean isCancelled() {
 		return cancelled;
 	}
-	
 
-	public String getCardNum(){
+	/**
+	 * 
+	 * @return cardNumber
+	 */
+	public String getCardNum() {
 		return this.cardNum.getText();
 	}
-	
-/*
- * Initialize CardSimulator to intake
- * card/member number
- */
+
+	/**
+	 * Initialize CardSimulator to intake card/member number
+	 */
 	public CardSimulator() {
 		super("Card Swipe Simulator");
 
@@ -77,30 +82,26 @@ public class CardSimulator extends JFrame implements ActionListener {
 		setResizable(false);
 
 	}
-/*
- * (non-Javadoc)
- * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
- * If Enter button selected, checks validity of member number
- * If valid, create a new service record
- * If not valid, displays error message, prompts new member number entered
- */
+
+	/**
+	 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
+	 *      If Enter button selected, checks validity of member number If valid,
+	 *      create a new service record If not valid, displays error message,
+	 *      prompts new member number entered
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == enterButton) {
 			this.readCardNumber = Integer.parseInt(cardNum.getText());
-			
-			if(FirstGUI.MRC.isCardValid(readCardNumber)){
+
+			if (FirstGUI.MRC.isCardValid(readCardNumber)) {
 				CreateServiceRecordGUI CSR = new CreateServiceRecordGUI();
-			}else{ //Invalid card number
+			} else { // Invalid card number
 				JOptionPane.showMessageDialog(this, "Invalid Member Number");
 			}
-				
-		}
-
-		else if (e.getSource() == cancelButton) {
+		} else if (e.getSource() == cancelButton) {
 			cancelled = true;
 			setVisible(false);
 		}
-
 	}
 }
