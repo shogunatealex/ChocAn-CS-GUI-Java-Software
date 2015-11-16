@@ -3,11 +3,14 @@ import java.io.Serializable;
 /*
  * Member record to hold members' info
  */
+/**
+ * @author Alex
+ * Extends AbstractUserRecord.
+ * Holds fields of member record.
+ *
+ */
 public class MemberRecord extends AbstractUserRecord implements Serializable {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	private boolean active = false;
 	private int memNum = 0;
@@ -29,11 +32,15 @@ public class MemberRecord extends AbstractUserRecord implements Serializable {
 	public void setActive(boolean a) {
 		active = a;
 	}
-
+/*
+ * @return member number
+ */
 	public int getMemberNumber() {
 		return memNum;
 	}
-
+/*
+ * @return status active or suspended
+ */
 	public boolean isActive() {
 		return active;
 	}
