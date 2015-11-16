@@ -50,7 +50,7 @@ public class ManageProviderRecord extends ManageRecordGUI implements ActionListe
 		NameTextField.setText(PR.getName());
 		StateTextField.setText(PR.getState());
 		CityTextField.setText(PR.getCity());
-		ZipCodeTextField.setText(String.format("%d", PR.getZipCode()));
+		ZipCodeTextField.setText(String.format("%05d", PR.getZipCode()));
 		AddressTextField.setText(PR.getAddress());
 		setVisible(true);
 	}

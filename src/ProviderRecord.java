@@ -18,7 +18,7 @@ public class ProviderRecord extends AbstractUserRecord implements Serializable {
 	 * @param c
 	 * @param s
 	 */
-	public ProviderRecord(String n, int z, int pNum, String add, String c, String s) {
+	public ProviderRecord(String n, int pNum, int z,  String add, String c, String s) {
 		this.setName(n);
 		this.setZipCode(z);
 		this.setProviderNumber(pNum);

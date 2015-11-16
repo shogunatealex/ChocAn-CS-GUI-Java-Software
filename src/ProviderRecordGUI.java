@@ -127,7 +127,7 @@ public class ProviderRecordGUI extends JDialog implements ActionListener {
 				FirstGUI.PRC.addRecord(PMR.getName(), PMR.getProviderNumber(), PMR.getZipCode(), PMR.getAddress(),
 						PMR.getCity(), PMR.getState());
 				recs.addRow((new Object[] { PMR.getName(), PMR.getProviderNumber(), PMR.getZipCode(), PMR.getAddress(),
-						PMR.getCity(), PMR.getState() }));
+						PMR.getCity(), PMR.getState()}));
 			}
 
 		} else if (e.getSource() == EditButton) {
