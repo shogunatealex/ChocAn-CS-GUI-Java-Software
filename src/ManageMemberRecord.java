@@ -115,6 +115,9 @@ public class ManageMemberRecord extends ManageRecordGUI implements ActionListene
 		window.add(ActiveLabel);
 		
 	}
+	/*
+	 * @return member status
+	 */
 	public boolean getActive(){
 		if (YesRadioButton.isSelected()){
 			///return "Active";
@@ -126,6 +129,9 @@ public class ManageMemberRecord extends ManageRecordGUI implements ActionListene
 			return false;
 		}
 	}
+	/*
+	 * @return member number
+	 */
 	public int getMemberNumber(){ 
 		return Integer.parseInt(MemNumTextField.getText());
 	}
