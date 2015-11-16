@@ -24,11 +24,8 @@ import javax.swing.table.TableModel;
 //JTable holds provider Directory, service record values
 
 /**
- * @author Alex Anderson
- * Display service records
- * Add service record
- * Adds date, time, and comments to service records
- * Based on selected member record
+ * @author Alex Anderson Display service records Add service record Adds date,
+ *         time, and comments to service records Based on selected member record
  *
  */
 public class CreateServiceRecordGUI extends JDialog implements ActionListener {
@@ -58,9 +55,8 @@ public class CreateServiceRecordGUI extends JDialog implements ActionListener {
 	}
 
 	/**
-	 * Create the dialog.
-	 * Text fields for date, time, and comments.
-	 * Creates new service record
+	 * Create the dialog. Text fields for date, time, and comments. Creates new
+	 * service record.
 	 */
 	public CreateServiceRecordGUI() {
 		Container window = getContentPane();
@@ -82,30 +78,30 @@ public class CreateServiceRecordGUI extends JDialog implements ActionListener {
 		date.setSize(70, 35);
 		date.setLocation(75, 225);
 		window.add(date);
-		
+
 		dateLabel = new JLabel("Date:");
 		dateLabel.setSize(200, 50);
 		dateLabel.setLocation(25, 215);
 		dateLabel.setForeground(Color.blue);
 		window.add(dateLabel);
-		
+
 		time = new JTextField();
 		time.setSize(70, 35);
 		time.setLocation(75, 275);
 		window.add(time);
-		
+
 		timeLabel = new JLabel("Time:");
 		timeLabel.setSize(200, 50);
 		timeLabel.setLocation(25, 260);
 		timeLabel.setForeground(Color.blue);
 		window.add(timeLabel);
-		
+
 		comments = new JTextArea();
 		comments.setSize(200, 100);
 		comments.setLocation(250, 225);
 		comments.setLineWrap(true);
 		window.add(comments);
-		
+
 		commentsLabel = new JLabel("Comment:");
 		commentsLabel.setSize(200, 50);
 		commentsLabel.setLocation(175, 225);
@@ -129,12 +125,12 @@ public class CreateServiceRecordGUI extends JDialog implements ActionListener {
 			}
 		};
 		table = new JTable();
-		String header[] = new String[] { "Service", "Number", "Cost"  };
+		String header[] = new String[] { "Service", "Number", "Cost" };
 		recs.setColumnIdentifiers(header);
 		table.setModel(recs);
 		for (ProviderDirectory record : temp) {
 			recs.addRow((new Object[] { record.get_Service(), String.format("%06d", record.get_sNumber()),
-				record.get_Cost()}));
+					record.get_Cost() }));
 		}
 
 		scrollPane.setFocusable(false);
@@ -144,12 +140,12 @@ public class CreateServiceRecordGUI extends JDialog implements ActionListener {
 		setLocation(100, 100);
 		setVisible(true);
 	}
-/*
- * (non-Javadoc)
- * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
- * If back button selected, no new service record.
- * If submitted, create new service record.
- */
+
+	/**
+	 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
+	 *      If back button selected, no new service record. If submitted, create
+	 *      new service record.
+	 */
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == BackButton) {
 			setVisible(false);
