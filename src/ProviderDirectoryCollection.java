@@ -10,8 +10,9 @@ import java.util.Scanner;;
 
 //Trevor
 /**
- * @author Trevor Gentner Collection of Provider directories. Allowing for reading,
- *         saving, adding, editing, and removing provider provider directory.
+ * @author Trevor Gentner Collection of Provider directories. Allowing for
+ *         reading, saving, adding, editing, and removing provider provider
+ *         directory.
  * @return ProviderDirectoryCollection collection of provider directories
  */
 public class ProviderDirectoryCollection {
@@ -30,7 +31,7 @@ public class ProviderDirectoryCollection {
 
 	}
 
-	/*
+	/**
 	 * Read in provider directories from file.
 	 */
 	public void collectRecords() {
@@ -60,18 +61,24 @@ public class ProviderDirectoryCollection {
 		} // end catch
 	}
 
-	/*
-	 * Add provider directory, given provider directory.
+	/**
+	 * Add a provider directory given a record.
+	 * 
+	 * @param PD
 	 */
 	public void addRecord(ProviderDirectory PD) {
 		pArray.add(PD);
 		saveRecords();
 		collectRecords();
 	}// end removeRecord
-	/*
-	 * Add provider directory, given information of a provider.
-	 */
 
+	/**
+	 * Add a provider directory given information.
+	 * 
+	 * @param sNumbers
+	 * @param Services
+	 * @param costs
+	 */
 	public void addRecord(int sNumbers, String Services, double costs) {
 		ProviderDirectory temp = new ProviderDirectory(sNumbers, Services, costs);
 		pArray.add(temp);
@@ -79,14 +86,15 @@ public class ProviderDirectoryCollection {
 		collectRecords();
 	}
 
-	/*
+	/**
 	 * Remove selected provider directory.
 	 */
 	public void removeRecord(int index) {
 		pArray.remove(index);
 		saveRecords();
 	}// end removeRecord
-	/*
+
+	/**
 	 * Edit selected provider directory.
 	 */
 
@@ -96,13 +104,16 @@ public class ProviderDirectoryCollection {
 		pArray.add(index, temp);
 	}
 
-	/*
+	/**
 	 * @return providerDirectory selected provider directory.
 	 */
 	public ProviderDirectory getSpecificRecord(int index) {
 		return pArray.get(index);
 	}
 
+	/**
+	 * Save provider directories to a file.
+	 */
 	public void saveRecords() {
 		try {
 			fileName.delete();
@@ -128,5 +139,4 @@ public class ProviderDirectoryCollection {
 				/* ignore */}
 		} // end finally...finally
 	}// end saveRecords
-
 }
