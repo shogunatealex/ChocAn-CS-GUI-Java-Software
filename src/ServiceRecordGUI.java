@@ -110,14 +110,13 @@ public class ServiceRecordGUI extends JDialog implements ActionListener {
 		setVisible(true);
 	}
 
-	/*
-	 * (non-Javadoc)
+	/**
+	 * *
 	 * 
-	 * @see
-	 * java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
-	 * If back selected, do not update service record. If add selected, add a
-	 * service record. If edit selected, edit selected service record. If delete
-	 * selected, delete selected service record.
+	 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
+	 *      If back selected, do not update service record. If add selected, add
+	 *      a service record. If edit selected, edit selected service record. If
+	 *      delete selected, delete selected service record.
 	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
@@ -163,6 +162,5 @@ public class ServiceRecordGUI extends JDialog implements ActionListener {
 															// selected row
 			}
 		}
-
 	}
 }
