@@ -13,6 +13,7 @@ import javax.swing.*;
  * Member Number"
  *
  */
+
 public class CardSimulator extends JFrame implements ActionListener {
 
 	private JTextField cardNum;
