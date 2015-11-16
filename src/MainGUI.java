@@ -8,6 +8,14 @@ import javax.swing.JLabel;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
+/**
+ * @author Alex Anderson
+ * Launch the entire program.
+ * Populate record collections with test data.
+ * Allows for making the various reports, 
+ * swiping a member's card, or editing a record.
+ *
+ */
 public class MainGUI {
 	
 	protected JFrame MainMenu;
