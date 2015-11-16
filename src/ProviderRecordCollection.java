@@ -181,17 +181,6 @@ public class ProviderRecordCollection extends RecordCollection {
 	/**
 	 * Create a new provider record.
 	 */
-	public ProviderRecord getSpecificRecordByProviderNumber(int providerNumber) {
-		if(this.isProvider(providerNumber)) {
-			for(ProviderRecord record : ProviderArray) {
-				if(record.getProviderNumber() == providerNumber) {
-					return record;
-				}
-			}
-		}
-		return null;
-	}
-
 	
 	public void createReport() {
 		JFrame window = new JFrame();
@@ -215,5 +204,16 @@ public class ProviderRecordCollection extends RecordCollection {
 				e1.printStackTrace();
 			}
 		}
+	}
+	
+	public ProviderRecord getSpecificRecordByProviderNumber(int providerNumber) {
+		if(this.isProvider(providerNumber)) {
+			for(ProviderRecord record : ProviderArray) {
+				if(record.getProviderNumber() == providerNumber) {
+					return record;
+				}
+			}
+		}
+		return null;
 	}
 }// end ProviderRecordCollection
