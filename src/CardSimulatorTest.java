@@ -21,16 +21,15 @@ public class CardSimulatorTest {
 
 	@Test	//needs to be fixed, returning false should be returning true
 	public void testIsValid() {
-		numberEntered = 000012345;
-		boolean x = FirstGUI.MRC.isCardValid(numberEntered);
-		System.out.print(x);
-		assertTrue("Number is in Member Record Collection", x);
+		numberEntered = 12345;
+		assertTrue("Number is in Member Record Collection", FirstGUI.MRC.isCardValid(numberEntered));
 	}
-
+/*
 	@Test
 	public void testisCancelled() {
 		test.
 		assertTrue("Action is cancelled", test.isCancelled() == true);
 	}
-
+*/
+	
 }
