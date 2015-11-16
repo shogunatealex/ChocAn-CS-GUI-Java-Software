@@ -2,7 +2,12 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.Serializable;
 import java.util.*;
+
 //Trevor
+/**
+ * @author Trevor Gentner Provider record information.
+ *
+ */
 public class ProviderDirectory implements Serializable {
 	private int sNumber;
 	private String Service;
@@ -14,6 +19,9 @@ public class ProviderDirectory implements Serializable {
 		this.cost = costs;
 	}
 
+	/*
+	 * @return cost
+	 */
 	public double get_Cost() {
 		return this.cost;
 	}
@@ -22,6 +30,9 @@ public class ProviderDirectory implements Serializable {
 		this.cost = newCost;
 	}
 
+	/*
+	 * @return serviceName
+	 */
 	public String get_Service() {
 		return this.Service;
 	}
@@ -30,6 +41,9 @@ public class ProviderDirectory implements Serializable {
 		this.Service = newService;
 	}
 
+	/*
+	 * @return serviceCode
+	 */
 	public int get_sNumber() {
 		return this.sNumber;
 	}
@@ -37,9 +51,17 @@ public class ProviderDirectory implements Serializable {
 	public void set_sNumber(int num) {
 		this.sNumber = num;
 	}
-	
-	public String getString(){
-		String result = String.format("%s\t\t%15s\t\t%15s", this.get_sNumber(),this.get_Service(),this.get_Cost());
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#toString()
+	 * 
+	 * @return providerDirectory string representation.
+	 */
+	@Override
+	public String toString() {
+		String result = String.format("%s\t\t%15s\t\t%15s", this.get_sNumber(), this.get_Service(), this.get_Cost());
 		return result;
 	}
 
