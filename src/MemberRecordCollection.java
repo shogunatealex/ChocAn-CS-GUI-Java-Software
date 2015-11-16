@@ -5,7 +5,10 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.PrintStream;
 import java.util.ArrayList;
+
+import javax.swing.JFileChooser;
 
 /**
  * @author Alex Anderson Extends RecordCollection. Holds collection of member
@@ -173,7 +176,26 @@ public class MemberRecordCollection extends RecordCollection {
 	}// end toggleUserStatus
 	
 	public void createReport(){
-	
+		JFileChooser chooser = new JFileChooser();
+		int returnVal = chooser.showSaveDialog(this);
+		
+		if(returnVal == JFileChooser.APPROVE_OPTION){
+			String fileName = chooser.getSelectedFile().getAbsolutePath();
+			
+			try{
+				ObjectOutputStream output = new ObjectOutputStream( new FileOutputStream(fileName));
+				PrintStream printStream = new PrintStream(output);
+				for( MemberRecord record : this.MemberArray){
+					printStream.print(record.printLine());
+				}
+				printStream.close();
+				output.close();
+			}catch(FileNotFoundException e1){
+				e1.printStackTrace();
+			}catch(IOException e1){
+				e1.printStackTrace();
+			}
+		}
 	}
 	
 }// end MemberRecordCollection
