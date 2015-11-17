@@ -111,6 +111,15 @@ public class ProviderDirectoryCollection {
 		return pArray.get(index);
 	}
 
+	public ProviderDirectory getSpecificRecordByServiceNumber(int sNumber) {
+        for(int i = 0; i < pArray.size(); i ++) {
+        	if(pArray.get(i).get_sNumber() == sNumber) {
+        		return pArray.get(i);
+        	}
+        }
+        return null;
+	}
+	
 	/**
 	 * Save provider directories to a file.
 	 */
