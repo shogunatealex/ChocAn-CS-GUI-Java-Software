@@ -4,11 +4,10 @@ import org.junit.Before;
 
 public class ProviderRecordTest {
 	
-	private String filename = "ProviderRecords.txt";
+	private String filename = "ProviderRecords2.txt";
 	private ProviderRecordCollection prCollection = new 
 			ProviderRecordCollection(filename);
 	private ProviderRecord PR;
-	
 	
 	@Before
 	public void setUp(){
