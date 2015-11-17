@@ -177,4 +177,8 @@ public class ServiceRecordCollection {
 			}
 		}
 	}
+
+	public int size() {
+        return ServiceArray.size();
+	}
 }// end MemberRecordCollection

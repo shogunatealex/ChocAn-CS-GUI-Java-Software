@@ -99,9 +99,12 @@ public class MakeReportsGUI extends JFrame implements ActionListener {
                     AC.createProviderReport(providerNumber);
      		    }
 			    else{	
-			    	JOptionPane.showMessageDialog(this, "Not a valid Provider Number");
-			        providerNumber = Integer.parseInt(JOptionPane.showInputDialog("Please enter Provider Number"));
-				}
+			    	while(!FirstGUI.PRC.isProvider(providerNumber)) {
+			    		JOptionPane.showMessageDialog(this, "Not a valid Provider Number");
+				        providerNumber = Integer.parseInt(JOptionPane.showInputDialog("Please enter Provider Number"));
+							
+			    	}
+			    }
 		    }
 			catch(NumberFormatException e1) {	
 			}

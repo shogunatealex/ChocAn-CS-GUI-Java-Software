@@ -16,7 +16,8 @@ public class AccountingController {
     }
     public void createProviderReport(int providerNumber) {
     	ProviderRecord Record = FirstGUI.PRC.getSpecificRecordByProviderNumber(providerNumber);
-    	System.out.println(Record.getName());
+    	ProviderReport Report = new ProviderReport(Record);
+    	Report.saveReports();
     }
     public void createEFTReport() {
     	System.out.println("EFT reports not yet implemented");
