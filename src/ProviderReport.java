@@ -2,9 +2,14 @@ import java.util.Iterator;
 
 public class ProviderReport {
     private ProviderRecord record;
+    private double fee;
+    private int services;
 	public ProviderReport(ProviderRecord Record) {
     	record = Record;
+    	fee = 0;
+    	services = 0;
     }
+	
 	public void collectReports() {
 		
 	}
@@ -23,10 +28,12 @@ public class ProviderReport {
 	        	System.out.println("Member Name:     " + FirstGUI.MRC.getSpecificRecordByMemberNumber(sRecord.getMemberNumber()).getName());
 	        	System.out.println("Member Number:   " + String.format("%09d", sRecord.getMemberNumber()));
 	        	System.out.println("Service Code:    " + sRecord.getServiceCode());
-	        	//print fee
+	        	System.out.println("Service Fee:     " + FirstGUI.PDC.getSpecificRecordByServiceNumber(sRecord.getServiceCode()).get_Cost());
+	        	fee += FirstGUI.PDC.getSpecificRecordByServiceNumber(sRecord.getServiceCode()).get_Cost();
+	        	services += 1;
 	        }
 		}
-        //print total services
-		//print total fee
+        System.out.println("Total services: " + services);
+		System.out.println("Total fee:      " + fee);
 	}
 }

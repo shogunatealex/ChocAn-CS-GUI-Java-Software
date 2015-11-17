@@ -19,7 +19,7 @@ public class MemberReport {
 	        if(sRecord.getMemberNumber() == record.getMemberNumber()) {
 	        	System.out.println("Date:          " + sRecord.getDate());
 	        	System.out.println("Provider Name: " + FirstGUI.PRC.getSpecificRecordByProviderNumber(sRecord.getProviderNumber()).getName());
-	        	System.out.println("Service Name:  " + sRecord.getServiceCode());	        			
+	        	System.out.println("Service Name:  " + FirstGUI.PDC.getSpecificRecordByServiceNumber(sRecord.getServiceCode()).get_Service());	        			
 	        }
 		}
 	}
