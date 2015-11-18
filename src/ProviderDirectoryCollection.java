@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;;
 
 //Trevor
@@ -30,7 +31,9 @@ public class ProviderDirectoryCollection {
 		collectRecords();
 
 	}
-
+	public void sorter(){
+		Collections.sort(pArray, new ProviderComparator());
+	}
 	/**
 	 * Read in provider directories from file.
 	 */
