@@ -40,10 +40,10 @@ public class CreateServiceRecordGUI extends JDialog implements ActionListener {
 	private JLabel commentsLabel;
 	private JTable table;
 	private DefaultTableModel recs;
-
+/*
 	/**
 	 * Mainly used for testing, stand-alone launch
-	 */
+	 /
 	public static void main(String[] args) {
 		try {
 			CreateServiceRecordGUI dialog = new CreateServiceRecordGUI();
@@ -53,7 +53,7 @@ public class CreateServiceRecordGUI extends JDialog implements ActionListener {
 			e.printStackTrace();
 		}
 	}
-
+*/
 	/**
 	 * Create the dialog. Text fields for date, time, and comments. Creates new
 	 * service record.

@@ -23,10 +23,10 @@ import java.awt.Color;
 public class ManageProviderRecord extends ManageRecordGUI implements ActionListener {
 
 	private JTextField ProvNumTextField;
-
+/*
 	/**
 	 * Launch the application.
-	 */
+	 /
 	public static void main(String[] args) {
 		try {
 			ManageProviderRecord dialog = new ManageProviderRecord();
@@ -36,7 +36,7 @@ public class ManageProviderRecord extends ManageRecordGUI implements ActionListe
 			e.printStackTrace();
 		}
 	}
-
+*/
 	/**
 	 * Create the dialog.
 	 * 

@@ -35,10 +35,10 @@ public abstract class ManageRecordGUI extends JDialog implements ActionListener 
 	protected JDialog Owner;
 	protected Container window;
 	protected boolean Cancel = true;
-
+/*
 	/**
 	 * Used primarily for testing/ independent launching
-	 */
+	 /
 	public static void main(String[] args) {
 		try {
 			ProviderRecordGUI dialog = new ProviderRecordGUI();
@@ -48,7 +48,7 @@ public abstract class ManageRecordGUI extends JDialog implements ActionListener 
 			e.printStackTrace();
 		}
 	}
-
+*/
 	/**
 	 * @return canceled if canceled.
 	 */

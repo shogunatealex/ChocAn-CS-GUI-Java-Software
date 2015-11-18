@@ -125,15 +125,15 @@ public class MakeReportsGUI extends JFrame implements ActionListener {
 		    AC.createReports();
 		}
 	}
-
+/*
 	/**
 	 * Used primarily for testing/independent launching.
 	 * 
 	 * @param args
-	 */
+	 /
 	public static void main(String[] args) {
 		MakeReportsGUI makeReportsScreen = new MakeReportsGUI();
 		makeReportsScreen.setVisible(true);
 	}
-
+*/
 }

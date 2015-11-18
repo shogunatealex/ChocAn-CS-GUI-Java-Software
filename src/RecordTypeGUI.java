@@ -20,10 +20,10 @@ public class RecordTypeGUI extends JDialog implements ActionListener {
 	private JButton ProviderRecord = null;
 	private JButton ServiceRecord = null;
 	private JButton MemberRecord = null;
-
+/*
 	/**
 	 * Used primarily for testing/ independent launching.
-	 */
+	 /
 	public static void main(String[] args) {
 		try {
 			RecordTypeGUI dialog = new RecordTypeGUI();
@@ -31,7 +31,7 @@ public class RecordTypeGUI extends JDialog implements ActionListener {
 			e.printStackTrace();
 		}
 	}
-
+*/
 	/**
 	 * Create the dialog with contents.
 	 */

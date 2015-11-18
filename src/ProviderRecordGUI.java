@@ -30,10 +30,10 @@ public class ProviderRecordGUI extends JDialog implements ActionListener {
 	private JButton BackButton = null;
 	private JTable table;
 	private DefaultTableModel recs;
-
+/*
 	/**
 	 * Used primarily for testing/ independently launching.
-	 */
+	 /
 	public static void main(String[] args) {
 		try {
 			ProviderRecordGUI dialog = new ProviderRecordGUI();
@@ -43,7 +43,7 @@ public class ProviderRecordGUI extends JDialog implements ActionListener {
 			e.printStackTrace();
 		}
 	}
-
+*/
 	/**
 	 * Create the dialog with contents.
 	 */

@@ -18,9 +18,9 @@ import java.awt.event.ActionEvent;
 public class MainGUI {
 	
 	protected JFrame MainMenu;
-	/**
+/*	/**
 	 * Launch the application.
-	 */
+	 /
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -36,7 +36,7 @@ public class MainGUI {
 			}
 		});
 	}
-
+*/
 	/**
 	 * Create the application.
 	 */

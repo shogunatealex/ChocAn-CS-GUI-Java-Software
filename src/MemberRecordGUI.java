@@ -31,12 +31,12 @@ public class MemberRecordGUI extends JDialog implements ActionListener {
 	private JButton BackButton = null;
 	private JTable table;
 	private DefaultTableModel recs;
-
+/*
 	/**
 	 * Used primarily for testing/ independent launching
 	 * 
 	 * @param args
-	 */
+	 /
 	public static void main(String[] args) {
 		try {
 			MemberRecordGUI dialog = new MemberRecordGUI();
@@ -46,7 +46,7 @@ public class MemberRecordGUI extends JDialog implements ActionListener {
 			e.printStackTrace();
 		}
 	}
-
+*/
 	/**
 	 * Create the dialog with GUI components.
 	 */

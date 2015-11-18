@@ -29,10 +29,10 @@ public class ServiceRecordGUI extends JDialog implements ActionListener {
 	private JButton BackButton = null;
 	private JTable table;
 	private DefaultTableModel recs;
-
+/*
 	/**
 	 * Used primarily for testing/ independently launching.
-	 */
+	 /
 	public static void main(String[] args) {
 		try {
 			ServiceRecordGUI dialog = new ServiceRecordGUI();
@@ -42,7 +42,7 @@ public class ServiceRecordGUI extends JDialog implements ActionListener {
 			e.printStackTrace();
 		}
 	}
-
+*/
 	/**
 	 * Create the dialog with contents.
 	 */

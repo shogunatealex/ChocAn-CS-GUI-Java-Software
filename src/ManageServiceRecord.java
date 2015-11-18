@@ -33,10 +33,10 @@ public class ManageServiceRecord extends JDialog implements ActionListener {
 	private JTextField TimeTextField;
 	private JTextField ProviderNumberTextField;
 	protected boolean Cancel = true;
-
+/*
 	/**
 	 * Used primarily for testing/ independently launching.
-	 */
+	 /
 	public static void main(String[] args) {
 		try {
 			ManageServiceRecord dialog = new ManageServiceRecord();
@@ -46,7 +46,7 @@ public class ManageServiceRecord extends JDialog implements ActionListener {
 			e.printStackTrace();
 		}
 	}
-
+*/
 	/**
 	 * @return date
 	 */

@@ -28,10 +28,10 @@ public class ManageMemberRecord extends ManageRecordGUI implements ActionListene
 	private JRadioButton YesRadioButton;
 	private JRadioButton NoRadioButton;
 	private ButtonGroup ActiveGroup;
-
+/*
 	/**
 	 * Used primarily for testing/launching independently
-	 */
+	 /
 	public static void main(String[] args) {
 		try {
 			MemberRecordGUI dialog = new MemberRecordGUI();
@@ -41,7 +41,7 @@ public class ManageMemberRecord extends ManageRecordGUI implements ActionListene
 			e.printStackTrace();
 		}
 	}
-
+*/
 	/**
 	 * Create the dialog.
 	 * 
