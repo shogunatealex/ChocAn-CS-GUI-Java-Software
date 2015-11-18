@@ -62,6 +62,7 @@ public class ProviderDirectoryCollection {
 			} // end catch
 		} catch (IOException e) {
 		} // end catch
+		this.sorter();
 	}
 
 	/**
@@ -105,6 +106,7 @@ public class ProviderDirectoryCollection {
 		ProviderDirectory temp = new ProviderDirectory(sNumbers, Services, costs);
 		pArray.remove(index);
 		pArray.add(index, temp);
+		this.sorter();
 	}
 
 	/**
@@ -150,5 +152,7 @@ public class ProviderDirectoryCollection {
 			} catch (Exception ex) {
 				/* ignore */}
 		} // end finally...finally
+		this.sorter();
 	}// end saveRecords
+	
 }
