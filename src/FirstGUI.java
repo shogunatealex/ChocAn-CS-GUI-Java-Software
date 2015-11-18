@@ -96,8 +96,8 @@ public class FirstGUI extends JFrame implements ActionListener {
 
 				while (true) {
 					if (PRC.isProvider(providerNumber)) {
-						MainGUI providerActions = new MainGUI();
-						providerActions.MainMenu.setVisible(true);
+						ProviderMainMenu providerActions = new ProviderMainMenu();
+						providerActions.MainMenu1.setVisible(true);
 						return;
 					} else {
 						JOptionPane.showMessageDialog(this, "Not a valid Provider Number");
