@@ -9,10 +9,6 @@ public class MemberRecordTest {
 	private MemberRecord MRtest;
 	
 	@Before
-	public void setUp(){
-		MRtest = new MemberRecord("Haylie Helmold", 7276, 60585, true,
-				"12351 Falcon Drive", "Plainfield", "Illinois");
-	}
 	
 	@Test
 	public void testGetMemNum() {
