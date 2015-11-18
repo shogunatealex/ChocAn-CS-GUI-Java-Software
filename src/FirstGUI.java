@@ -12,6 +12,7 @@ import javax.swing.*;
  * @author Haylie Helmold Holds collections of the different records. Allows for
  *         selection of which type of employee is accessing records, provider,
  *         operator, or manager.
+ *         Launches entire program.
  *
  */
 public class FirstGUI extends JFrame implements ActionListener {
