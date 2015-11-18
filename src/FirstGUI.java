@@ -17,9 +17,9 @@ import javax.swing.*;
  */
 public class FirstGUI extends JFrame implements ActionListener {
 
-	private JButton pButton;
-	private JButton oButton;
-	private JButton mButton;
+	private JButton providerButton;
+	private JButton operatorButton;
+	private JButton managerButton;
 	private JLabel ChocAn1 = null;
 	private JLabel ChocAn2 = null;
 	public static MemberRecordCollection MRC = new MemberRecordCollection("MemberRecords.txt");
@@ -56,25 +56,25 @@ public class FirstGUI extends JFrame implements ActionListener {
 		c.add(ChocAn2);
 
 		// Provider Button
-		pButton = new JButton("Provider");
-		pButton.addActionListener(this);
-		pButton.setSize(200, 100);
-		pButton.setLocation(100, 150);
-		c.add(pButton);
+		providerButton = new JButton("Provider");
+		providerButton.addActionListener(this);
+		providerButton.setSize(200, 100);
+		providerButton.setLocation(100, 150);
+		c.add(providerButton);
 
 		// Operator Button
-		oButton = new JButton("Operator");
-		oButton.addActionListener(this);
-		oButton.setSize(200, 100);
-		oButton.setLocation(100, 300);
-		c.add(oButton);
+		operatorButton = new JButton("Operator");
+		operatorButton.addActionListener(this);
+		operatorButton.setSize(200, 100);
+		operatorButton.setLocation(100, 300);
+		c.add(operatorButton);
 
 		// Manager Button
-		mButton = new JButton("Manager");
-		mButton.addActionListener(this);
-		mButton.setSize(200, 100);
-		mButton.setLocation(100, 450);
-		c.add(mButton);
+		managerButton = new JButton("Manager");
+		managerButton.addActionListener(this);
+		managerButton.setSize(200, 100);
+		managerButton.setLocation(100, 450);
+		c.add(managerButton);
 
 		// screen size
 		setSize(400, 600);
@@ -90,7 +90,7 @@ public class FirstGUI extends JFrame implements ActionListener {
 	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if (e.getSource() == pButton) {
+		if (e.getSource() == providerButton) {
 			try {
 				providerNumber = Integer.parseInt(JOptionPane.showInputDialog("Please enter Provider Number"));
 
@@ -106,10 +106,10 @@ public class FirstGUI extends JFrame implements ActionListener {
 				}
 			} catch (NumberFormatException e1) {
 			}
-		} else if (e.getSource() == oButton) {
+		} else if (e.getSource() == operatorButton) {
 			RecordTypeGUI operatorActions = new RecordTypeGUI();
 			operatorActions.setVisible(true);
-		} else if (e.getSource() == mButton) {
+		} else if (e.getSource() == managerButton) {
 			MainGUI managerActions = new MainGUI();
 			managerActions.MainMenu.setVisible(true);
 		}
