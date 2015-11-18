@@ -7,6 +7,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.PrintStream;
 import java.util.ArrayList;
+import java.util.*;
 
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
@@ -62,6 +63,10 @@ public class ServiceRecordCollection {
 			} // end catch
 		} catch (IOException e) {
 		} // end catch
+		this.sorter();
+	}
+	public void sorter(){
+		Collections.sort(this.ServiceArray, new CustomComparator());
 	}
 
 	/**
@@ -84,6 +89,7 @@ public class ServiceRecordCollection {
 	 * @param ServiceCode
 	 * @param Comments
 	 */
+	
 	public void addRecord(String date, String time, int providerNumber, int memberNumber, int ServiceCode,
 			String Comments) {
 		ServiceRecord temp = new ServiceRecord(date, time, providerNumber, memberNumber, ServiceCode, Comments);
@@ -149,6 +155,7 @@ public class ServiceRecordCollection {
 			} catch (Exception ex) {
 				/* ignore */}
 		} // end finally...finally
+		this.sorter();
 	}// end saveRecords
 
 	/**

@@ -1,5 +1,7 @@
 import java.io.Serializable;
 
+import java.util.Comparator;
+
 //Trevor
 /**
  * @author Trevor Gentner Hold information of service record.
@@ -131,5 +133,6 @@ public class ServiceRecord implements Serializable {
 	public void setComments(String newComments) {
 		comments = newComments;
 	}
+	
 
 }
