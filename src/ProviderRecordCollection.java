@@ -179,6 +179,15 @@ public class ProviderRecordCollection extends RecordCollection {
 	}// end saveRecords
 
 	/**
+	 * Return the number of provider records in the collection
+	 * @return
+	 */
+	
+	public int size() {
+		return ProviderArray.size();
+	}
+	
+	/**
 	 * Create a new provider record.
 	 */
 

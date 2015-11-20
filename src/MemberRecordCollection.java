@@ -191,6 +191,16 @@ public class MemberRecordCollection extends RecordCollection {
 		temp.setActive(!temp.isActive());
 	}// end toggleUserStatus
 
+	/**
+	 * Return the number of provider records in the collection
+	 * @return
+	 */
+	
+	public int size() {
+		return MemberArray.size();
+	}
+
+	
 	public void createReport() {
 		JFrame window = new JFrame();
 		JFileChooser chooser = new JFileChooser();

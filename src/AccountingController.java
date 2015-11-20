@@ -7,7 +7,22 @@ public class AccountingController {
     	
     }
     public void createReports() {
-    	System.out.println("Main accounting procedure not yet implemented");
+        for(int i = 0; i < FirstGUI.MRC.size(); i++) {
+        	MemberRecord Record = FirstGUI.MRC.getSpecificRecord(i);
+        	MemberReport mReport = new MemberReport(Record);
+        	mReport.saveReports();
+        }
+        for(int i = 0; i < FirstGUI.PRC.size(); i++) {
+            ProviderRecord Record = FirstGUI.PRC.getSpecificRecord(i);
+            ProviderReport pReport = new ProviderReport(Record);
+            pReport.saveReports();
+        }
+        EFTReport eReport = new EFTReport();
+        eReport.saveReports();
+        
+        SummaryReport sReport = new SummaryReport();
+        sReport.saveReports();
+        
     }
     public void createMemberReport(int memberNumber) {
     	MemberRecord Record = FirstGUI.MRC.getSpecificRecordByMemberNumber(memberNumber);
@@ -20,10 +35,12 @@ public class AccountingController {
     	Report.saveReports();
     }
     public void createEFTReport() {
-    	System.out.println("EFT reports not yet implemented");
+    	EFTReport Report = new EFTReport();
+    	Report.saveReports();
     }
     public void createSummaryReport() {
-    	System.out.println("Summary reports not yet implemented");
+        SummaryReport Report = new SummaryReport();
+        Report.saveReports();
     }
     
 }
