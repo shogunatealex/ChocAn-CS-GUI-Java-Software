@@ -79,7 +79,7 @@ public class ServiceRecordGUI extends JDialog implements ActionListener {
 
 		results = new DefaultListModel();
 
-		ArrayList<ServiceRecord> temp = FirstGUI.SRC.retrieveRecords();
+		ArrayList<ServiceRecord> temp = ChocAnSystem.SRC.retrieveRecords();
 		recs = new DefaultTableModel() {
 			// prevents users from editing the table, must use buttons
 			@Override
@@ -125,7 +125,7 @@ public class ServiceRecordGUI extends JDialog implements ActionListener {
 		} else if (e.getSource() == AddButton) {
 			ManageServiceRecord MSR = new ManageServiceRecord();
 			if (MSR.isCanceled() == false) {
-				FirstGUI.SRC.addRecord(MSR.getDate(), MSR.getTime(), MSR.getProviderNumber(), MSR.getMemberNumber(),
+				ChocAnSystem.SRC.addRecord(MSR.getDate(), MSR.getTime(), MSR.getProviderNumber(), MSR.getMemberNumber(),
 						MSR.getServiceCode(), MSR.getComments());
 				recs.addRow((new Object[] { MSR.getDate(), MSR.getTime(),
 						String.format("%09d", MSR.getProviderNumber()), String.format("%09d", MSR.getMemberNumber()),
@@ -136,10 +136,10 @@ public class ServiceRecordGUI extends JDialog implements ActionListener {
 			try {
 				int index = table.getSelectedRow();
 
-				ServiceRecord toEdit = FirstGUI.SRC.getSpecificRecord(index);
+				ServiceRecord toEdit = ChocAnSystem.SRC.getSpecificRecord(index);
 				ManageServiceRecord MSR = new ManageServiceRecord(toEdit);
 				if (MSR.isCanceled() == false) {
-					FirstGUI.SRC.editRecord(index, MSR.getDate(), MSR.getTime(), MSR.getProviderNumber(),
+					ChocAnSystem.SRC.editRecord(index, MSR.getDate(), MSR.getTime(), MSR.getProviderNumber(),
 							MSR.getMemberNumber(), MSR.getServiceCode(), MSR.getComments());
 					recs.removeRow(index);
 					recs.insertRow(index,
@@ -155,7 +155,7 @@ public class ServiceRecordGUI extends JDialog implements ActionListener {
 		} else if (e.getSource() == DeleteButton) {
 			try {
 				int index = table.getSelectedRow();
-				FirstGUI.MRC.removeRecord(index);
+				ChocAnSystem.MRC.removeRecord(index);
 				recs.removeRow(index);
 			} catch (ArrayIndexOutOfBoundsException e1) { // catches the
 															// exception for no

@@ -116,7 +116,7 @@ public class CreateServiceRecordGUI extends JDialog implements ActionListener {
 		scrollPane.setBounds(21, 31, 745, 167);
 		window.add(scrollPane);
 
-		ArrayList<ProviderDirectory> temp = FirstGUI.PDC.retrieveRecords();
+		ArrayList<ProviderDirectory> temp = ChocAnSystem.PDC.retrieveRecords();
 		recs = new DefaultTableModel() {
 			// prevents users from editing the table, must use buttons
 			@Override

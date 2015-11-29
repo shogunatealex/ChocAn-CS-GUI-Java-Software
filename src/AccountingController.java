@@ -17,13 +17,13 @@ public class AccountingController {
 	    date = removeTheSlashes.toString();
     }
     public void createReports() {
-        for(int i = 0; i < FirstGUI.MRC.size(); i++) {
-        	MemberRecord Record = FirstGUI.MRC.getSpecificRecord(i);
+        for(int i = 0; i < ChocAnSystem.MRC.size(); i++) {
+        	MemberRecord Record = ChocAnSystem.MRC.getSpecificRecord(i);
         	MemberReport mReport = new MemberReport(Record);
         	mReport.saveReports(date);
         }
-        for(int i = 0; i < FirstGUI.PRC.size(); i++) {
-            ProviderRecord Record = FirstGUI.PRC.getSpecificRecord(i);
+        for(int i = 0; i < ChocAnSystem.PRC.size(); i++) {
+            ProviderRecord Record = ChocAnSystem.PRC.getSpecificRecord(i);
             ProviderReport pReport = new ProviderReport(Record);
             pReport.saveReports(date);
         }
@@ -35,12 +35,12 @@ public class AccountingController {
         
     }
     public void createMemberReport(int memberNumber) {
-    	MemberRecord Record = FirstGUI.MRC.getSpecificRecordByMemberNumber(memberNumber);
+    	MemberRecord Record = ChocAnSystem.MRC.getSpecificRecordByMemberNumber(memberNumber);
     	MemberReport Report = new MemberReport(Record);
     	Report.saveReports(date);
     }
     public void createProviderReport(int providerNumber) {
-    	ProviderRecord Record = FirstGUI.PRC.getSpecificRecordByProviderNumber(providerNumber);
+    	ProviderRecord Record = ChocAnSystem.PRC.getSpecificRecordByProviderNumber(providerNumber);
     	ProviderReport Report = new ProviderReport(Record);
     	Report.saveReports(date);
     }

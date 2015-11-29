@@ -16,13 +16,13 @@ public class CardSimulatorTest {
 	@Test
 	public void testNegativeID() {
 		numberEntered = -100000;
-		assertFalse("Cannot have a negative ID Number", FirstGUI.MRC.isCardValid(numberEntered));
+		assertFalse("Cannot have a negative ID Number", ChocAnSystem.MRC.isCardValid(numberEntered));
 	}
 
 	@Test
 	public void testIsValid() {
 		numberEntered = 12345;
-		assertTrue("Number is in Member Record Collection", FirstGUI.MRC.isCardValid(numberEntered));
+		assertTrue("Number is in Member Record Collection", ChocAnSystem.MRC.isCardValid(numberEntered));
 	}
 /*
 	@Test

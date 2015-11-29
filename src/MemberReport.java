@@ -22,12 +22,12 @@ public class MemberReport {
 		    writer.println("City:          " + record.getCity());
 		    writer.println("State:         " + record.getState());
 		    writer.println("Zip:           " + record.getZipCode());
-		    for(int i = 0; i < FirstGUI.SRC.size(); i++) {
-			    ServiceRecord sRecord = FirstGUI.SRC.getSpecificRecord(i);
+		    for(int i = 0; i < ChocAnSystem.SRC.size(); i++) {
+			    ServiceRecord sRecord = ChocAnSystem.SRC.getSpecificRecord(i);
 	            if(sRecord.getMemberNumber() == record.getMemberNumber()) {
 	        	    writer.println("Date:          " + sRecord.getDate());
-	        	    writer.println("Provider Name: " + FirstGUI.PRC.getSpecificRecordByProviderNumber(sRecord.getProviderNumber()).getName());
-	        	    writer.println("Service Name:  " + FirstGUI.PDC.getSpecificRecordByServiceNumber(sRecord.getServiceCode()).get_Service());	        			
+	        	    writer.println("Provider Name: " + ChocAnSystem.PRC.getSpecificRecordByProviderNumber(sRecord.getProviderNumber()).getName());
+	        	    writer.println("Service Name:  " + ChocAnSystem.PDC.getSpecificRecordByServiceNumber(sRecord.getServiceCode()).get_Service());	        			
 	            }
 	        }
 		    writer.close();

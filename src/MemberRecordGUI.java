@@ -84,7 +84,7 @@ public class MemberRecordGUI extends JDialog implements ActionListener {
 		scrollPane.setBounds(21, 31, 745, 167);
 		window.add(scrollPane);
 
-		ArrayList<MemberRecord> temp = FirstGUI.MRC.retrieveRecords();
+		ArrayList<MemberRecord> temp = ChocAnSystem.MRC.retrieveRecords();
 		recs = new DefaultTableModel() {
 			// prevents users from editing the table, must use buttons
 			@Override
@@ -134,7 +134,7 @@ public class MemberRecordGUI extends JDialog implements ActionListener {
 				else {
 					formatter = "Suspended";
 				}
-				FirstGUI.MRC.addRecord(MMR.getName(), MMR.getMemberNumber(), MMR.getZipCode(), MMR.getActive(),
+				ChocAnSystem.MRC.addRecord(MMR.getName(), MMR.getMemberNumber(), MMR.getZipCode(), MMR.getActive(),
 						MMR.getAddress(), MMR.getCity(), MMR.getState());
 				recs.addRow((new Object[] { MMR.getName(), MMR.getMemberNumber(), MMR.getZipCode(), formatter,
 						MMR.getAddress(), MMR.getCity(), MMR.getState() }));
@@ -143,7 +143,7 @@ public class MemberRecordGUI extends JDialog implements ActionListener {
 		} else if (e.getSource() == EditButton) {
 			try {
 				int index = table.getSelectedRow();
-				MemberRecord toEdit = FirstGUI.MRC.getSpecificRecord(index);
+				MemberRecord toEdit = ChocAnSystem.MRC.getSpecificRecord(index);
 				ManageMemberRecord MMR = new ManageMemberRecord(toEdit);
 				if (MMR.isCanceled() == false) {
 					String formatter = "";
@@ -152,7 +152,7 @@ public class MemberRecordGUI extends JDialog implements ActionListener {
 					else {
 						formatter = "Suspended";
 					}
-					FirstGUI.MRC.editRecord(index, MMR.getName(), MMR.getMemberNumber(), MMR.getZipCode(),
+					ChocAnSystem.MRC.editRecord(index, MMR.getName(), MMR.getMemberNumber(), MMR.getZipCode(),
 							MMR.getActive(), MMR.getAddress(), MMR.getCity(), MMR.getState());
 					recs.removeRow(index);
 					recs.insertRow(index, (new Object[] { MMR.getName(), String.format("%09d", MMR.getMemberNumber()),
@@ -166,7 +166,7 @@ public class MemberRecordGUI extends JDialog implements ActionListener {
 		} else if (e.getSource() == DeleteButton) {
 			try {
 				int index = table.getSelectedRow();
-				FirstGUI.MRC.removeRecord(index);
+				ChocAnSystem.MRC.removeRecord(index);
 				recs.removeRow(index);
 			} catch (ArrayIndexOutOfBoundsException e1) { // catches the
 															// exception for no

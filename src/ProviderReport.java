@@ -25,16 +25,16 @@ public class ProviderReport {
 		    writer.println("City:            " + record.getCity());
 		    writer.println("State:           " + record.getState());
 		    writer.println("Zip:             " + record.getZipCode());
-		    for(int i = 0; i < FirstGUI.SRC.size(); i++) {
-			    ServiceRecord sRecord = FirstGUI.SRC.getSpecificRecord(i);
+		    for(int i = 0; i < ChocAnSystem.SRC.size(); i++) {
+			    ServiceRecord sRecord = ChocAnSystem.SRC.getSpecificRecord(i);
 	            if(sRecord.getProviderNumber() == record.getProviderNumber()) {
 	        	    writer.println("Date:            " + sRecord.getDate());
 	        	    writer.println("Time:            " + sRecord.getTime());
-	        	    writer.println("Member Name:     " + FirstGUI.MRC.getSpecificRecordByMemberNumber(sRecord.getMemberNumber()).getName());
+	        	    writer.println("Member Name:     " + ChocAnSystem.MRC.getSpecificRecordByMemberNumber(sRecord.getMemberNumber()).getName());
 	        	    writer.println("Member Number:   " + String.format("%09d", sRecord.getMemberNumber()));
 	        	    writer.println("Service Code:    " + String.format("%06d", sRecord.getServiceCode()));
-	        	    writer.println("Service Fee:     " + FirstGUI.PDC.getSpecificRecordByServiceNumber(sRecord.getServiceCode()).get_Cost());
-	        	    fee += FirstGUI.PDC.getSpecificRecordByServiceNumber(sRecord.getServiceCode()).get_Cost();
+	        	    writer.println("Service Fee:     " + ChocAnSystem.PDC.getSpecificRecordByServiceNumber(sRecord.getServiceCode()).get_Cost());
+	        	    fee += ChocAnSystem.PDC.getSpecificRecordByServiceNumber(sRecord.getServiceCode()).get_Cost();
 	        	    services += 1;
 	            }
 		    }

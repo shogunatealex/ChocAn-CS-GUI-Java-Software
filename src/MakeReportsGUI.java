@@ -78,7 +78,7 @@ public class MakeReportsGUI extends JFrame implements ActionListener {
 		if (e.getSource() == memberButton) {
 			try {
 				int memberNumber = Integer.parseInt(JOptionPane.showInputDialog("Please enter Member Number"));
-				if (FirstGUI.MRC.isMember(memberNumber)){
+				if (ChocAnSystem.MRC.isMember(memberNumber)){
                     AccountingController AC = new AccountingController();
                     AC.createMemberReport(memberNumber);
      		    }
@@ -94,12 +94,12 @@ public class MakeReportsGUI extends JFrame implements ActionListener {
 		else if (e.getSource() == providerButton) {
 			try {
 				int providerNumber = Integer.parseInt(JOptionPane.showInputDialog("Please enter Provider Number"));
-				if (FirstGUI.PRC.isProvider(providerNumber)){
+				if (ChocAnSystem.PRC.isProvider(providerNumber)){
                     AccountingController AC = new AccountingController();
                     AC.createProviderReport(providerNumber);
      		    }
 			    else{	
-			    	while(!FirstGUI.PRC.isProvider(providerNumber)) {
+			    	while(!ChocAnSystem.PRC.isProvider(providerNumber)) {
 			    		JOptionPane.showMessageDialog(this, "Not a valid Provider Number");
 				        providerNumber = Integer.parseInt(JOptionPane.showInputDialog("Please enter Provider Number"));
 							

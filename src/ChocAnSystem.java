@@ -15,7 +15,7 @@ import javax.swing.*;
  *         Launches entire program.
  *
  */
-public class FirstGUI extends JFrame implements ActionListener {
+public class ChocAnSystem extends JFrame implements ActionListener {
 
 	private JButton providerButton;
 	private JButton operatorButton;
@@ -33,7 +33,7 @@ public class FirstGUI extends JFrame implements ActionListener {
 	/**
 	 * Display options for type of employee accessing terminal.
 	 */
-	public FirstGUI() {
+	public ChocAnSystem() {
 		super("Welcome to Chocoholics Anonymous!");
 
 		Container c = getContentPane();
@@ -120,7 +120,7 @@ public class FirstGUI extends JFrame implements ActionListener {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		FirstGUI titleScreen = new FirstGUI();
+		ChocAnSystem titleScreen = new ChocAnSystem();
 		titleScreen.setVisible(true);
 	}
 }

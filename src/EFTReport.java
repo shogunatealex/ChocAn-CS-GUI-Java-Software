@@ -11,13 +11,13 @@ public class EFTReport {
 		String filename = "EFT" + date + ".txt";
 		try {
 			PrintWriter writer = new PrintWriter(filename, "UTF-8");
-		    for(int i = 0; i < FirstGUI.PRC.size(); i++) {
+		    for(int i = 0; i < ChocAnSystem.PRC.size(); i++) {
 			    double fee = 0;
-			    ProviderRecord pRecord = FirstGUI.PRC.getSpecificRecord(i);
-		        for(int j = 0; j < FirstGUI.SRC.size(); j++) {
-			        ServiceRecord sRecord = FirstGUI.SRC.getSpecificRecord(j);
+			    ProviderRecord pRecord = ChocAnSystem.PRC.getSpecificRecord(i);
+		        for(int j = 0; j < ChocAnSystem.SRC.size(); j++) {
+			        ServiceRecord sRecord = ChocAnSystem.SRC.getSpecificRecord(j);
 	                if(sRecord.getProviderNumber() == pRecord.getProviderNumber()) {
-	        	        fee += FirstGUI.PDC.getSpecificRecordByServiceNumber(sRecord.getServiceCode()).get_Cost();
+	        	        fee += ChocAnSystem.PDC.getSpecificRecordByServiceNumber(sRecord.getServiceCode()).get_Cost();
 	                }
 		        }
 		        writer.println("Provider name:   " + pRecord.getName());
