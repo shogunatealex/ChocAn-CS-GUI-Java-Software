@@ -5,9 +5,13 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Scanner;;
+import java.util.Scanner;
+
+import javax.swing.JFileChooser;
+import javax.swing.JFrame;;
 
 //Trevor
 /**
@@ -88,6 +92,33 @@ public class ProviderDirectoryCollection {
 		pArray.add(temp);
 		saveRecords();
 		collectRecords();
+	}
+	
+	/**
+	 * Create a new provider record.
+	 */
+	public void createReport() {
+		JFrame window = new JFrame();
+		JFileChooser chooser = new JFileChooser();
+		int returnVal = chooser.showSaveDialog(window);
+
+		if (returnVal == JFileChooser.APPROVE_OPTION) {
+			String fileName = chooser.getSelectedFile().getAbsolutePath();
+
+			try {
+				ObjectOutputStream output = new ObjectOutputStream(new FileOutputStream(fileName));
+				PrintStream printStream = new PrintStream(output);
+				for (ProviderDirectory record : this.pArray) {
+					printStream.print(record.toString());
+				}
+				printStream.close();
+				output.close();
+			} catch (FileNotFoundException e1) {
+				e1.printStackTrace();
+			} catch (IOException e1) {
+				e1.printStackTrace();
+			}
+		}
 	}
 
 	/**
