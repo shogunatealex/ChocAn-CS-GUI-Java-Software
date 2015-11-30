@@ -14,6 +14,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
 import javax.swing.JLabel;
 import javax.swing.JTable;
 import javax.swing.JTextArea;
@@ -35,11 +36,14 @@ public class CreateServiceRecordGUI extends JDialog implements ActionListener {
 	private JTextField date;
 	private JTextField time;
 	private JTextArea comments;
+	private JTextField providerNumber;
+	private JLabel providerNum;
 	private JLabel dateLabel;
 	private JLabel timeLabel;
 	private JLabel commentsLabel;
 	private JTable table;
 	private DefaultTableModel recs;
+	private int memberNumber;
 /*
 	/**
 	 * Mainly used for testing, stand-alone launch
@@ -58,7 +62,8 @@ public class CreateServiceRecordGUI extends JDialog implements ActionListener {
 	 * Create the dialog. Text fields for date, time, and comments. Creates new
 	 * service record.
 	 */
-	public CreateServiceRecordGUI() {
+	public CreateServiceRecordGUI(int mNumber) {
+		memberNumber = mNumber;
 		Container window = getContentPane();
 		setTitle("Member Record Editor");
 		window.setLayout(null);
@@ -89,6 +94,18 @@ public class CreateServiceRecordGUI extends JDialog implements ActionListener {
 		time.setSize(70, 35);
 		time.setLocation(75, 275);
 		window.add(time);
+		
+		providerNumber = new JTextField();
+		providerNumber.setSize(70,35);
+		providerNumber.setLocation(75, 325);
+		window.add(providerNumber);
+		
+		providerNum = new JLabel("Provider #");
+		providerNum.setSize(200,50);
+		providerNum.setLocation(25,315);
+		providerNum.setForeground(Color.BLUE);
+		
+		window.add(providerNum);
 
 		timeLabel = new JLabel("Time:");
 		timeLabel.setSize(200, 50);
@@ -150,20 +167,16 @@ public class CreateServiceRecordGUI extends JDialog implements ActionListener {
 		if (e.getSource() == BackButton) {
 			setVisible(false);
 		} else if (e.getSource() == SubmitButton) {
-			// ManageMemberRecord MMR = new ManageMemberRecord();
-			// if (MMR.isCanceled() == false){
-			// String formatter = "";
-			// if (MMR.getActive())
-			// formatter = "Active";
-			// else{
-			// formatter = "Suspended";
-			// }
-			// MainGUI.MRC.addRecord(MMR.getName(), MMR.getMemberNumber(),
-			// MMR.getZipCode(), MMR.getActive(), MMR.getAddress(),
-			// MMR.getCity(), MMR.getState());
-			// recs.addRow((new Object[] {MMR.getName(), MMR.getMemberNumber(),
-			// MMR.getZipCode(), formatter, MMR.getAddress(), MMR.getCity(),
-			// MMR.getState()}));
+			if (table.getSelectedRow() == -1){
+				JOptionPane.showMessageDialog(this, "Please select service type.");
+			}
+			else{
+				ProviderDirectory temp2 = ChocAnSystem.PDC.getSpecificRecord( table.getSelectedRow());
+				ServiceRecord temp = new ServiceRecord(date.getText(), time.getText(),Integer.parseInt(providerNumber.getText()), memberNumber,temp2.get_sNumber() , comments.getText());
+				ChocAnSystem.SRC.addRecord(temp);
+				setVisible(false);
+			}
+
 			// }
 
 		}
