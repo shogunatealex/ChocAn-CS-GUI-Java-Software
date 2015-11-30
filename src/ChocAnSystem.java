@@ -97,7 +97,6 @@ public class ChocAnSystem extends JFrame implements ActionListener {
 				while (true) {
 					if (PRC.isProvider(providerNumber)) {
 						ProviderMainMenu providerActions = new ProviderMainMenu();
-						providerActions.MainMenu1.setVisible(true);
 						return;
 					} else {
 						JOptionPane.showMessageDialog(this, "Not a valid Provider Number");
