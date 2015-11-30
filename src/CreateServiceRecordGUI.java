@@ -5,11 +5,13 @@ import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.ParseException;
 import java.util.ArrayList;
 
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JDialog;
+import javax.swing.JFormattedTextField;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.border.EmptyBorder;
@@ -21,6 +23,7 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
+import javax.swing.text.MaskFormatter;
 
 //JTable holds provider Directory, service record values
 
@@ -33,7 +36,7 @@ public class CreateServiceRecordGUI extends JDialog implements ActionListener {
 
 	private JButton SubmitButton = null;
 	private JButton BackButton = null;
-	private JTextField date;
+	private JFormattedTextField date;
 	private JTextField time;
 	private JTextArea comments;
 	private JTextField providerNumber;
@@ -79,10 +82,17 @@ public class CreateServiceRecordGUI extends JDialog implements ActionListener {
 		BackButton.addActionListener(this);
 		window.add(BackButton);
 
-		date = new JTextField();
-		date.setSize(70, 35);
-		date.setLocation(75, 225);
-		window.add(date);
+		try {
+			MaskFormatter mf1 = new MaskFormatter("##/##/####");
+			mf1.setPlaceholderCharacter('_');
+			date = new JFormattedTextField(mf1);
+			date.setSize(70, 35);
+			date.setLocation(75, 225);
+			window.add(date);
+		} catch (ParseException e) {
+		}
+
+
 
 		dateLabel = new JLabel("Date:");
 		dateLabel.setSize(200, 50);
