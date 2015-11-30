@@ -37,7 +37,7 @@ public class CreateServiceRecordGUI extends JDialog implements ActionListener {
 	private JButton SubmitButton = null;
 	private JButton BackButton = null;
 	private JFormattedTextField date;
-	private JTextField time;
+	private JFormattedTextField time;
 	private JTextArea comments;
 	private JTextField providerNumber;
 	private JLabel providerNum;
@@ -100,9 +100,17 @@ public class CreateServiceRecordGUI extends JDialog implements ActionListener {
 		dateLabel.setForeground(Color.blue);
 		window.add(dateLabel);
 
-		time = new JTextField();
-		time.setSize(70, 35);
-		time.setLocation(75, 275);
+		try {
+			MaskFormatter mf1 = new MaskFormatter("##:##:##");
+			mf1.setPlaceholderCharacter('_');
+			time = new JFormattedTextField(mf1);
+			time.setSize(70, 35);
+			time.setLocation(75, 275);
+			window.add(time);
+		} catch (ParseException e) {
+		}
+
+
 		window.add(time);
 		
 		providerNumber = new JTextField();

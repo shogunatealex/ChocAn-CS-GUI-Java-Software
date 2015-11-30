@@ -3,14 +3,18 @@ import java.awt.Container;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.ParseException;
 
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JDialog;
+import javax.swing.JFormattedTextField;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
+import javax.swing.text.MaskFormatter;
+
 import java.awt.SystemColor;
 import javax.swing.UIManager;
 import java.awt.Font;
@@ -26,11 +30,11 @@ public class ManageServiceRecord extends JDialog implements ActionListener {
 
 	private JButton OkButton;
 	private JButton BackButton = null;
-	private JTextField DateTextField;
+	private JFormattedTextField DateTextField;
 	private JTextField CommentsTextField;
 	private JTextField MemberNumberTextField;
 	private JTextField ServiceCodeTextField;
-	private JTextField TimeTextField;
+	private JFormattedTextField TimeTextField;
 	private JTextField ProviderNumberTextField;
 	protected boolean Cancel = true;
 /*
@@ -122,10 +126,16 @@ public class ManageServiceRecord extends JDialog implements ActionListener {
 		ServiceRecordsLabel.setBounds(227, 11, 226, 20);
 		getContentPane().add(ServiceRecordsLabel);
 
-		DateTextField = new JTextField();
-		DateTextField.setBounds(106, 42, 142, 20);
-		getContentPane().add(DateTextField);
-		DateTextField.setColumns(10);
+		try {
+			MaskFormatter mf1 = new MaskFormatter("##/##/####");
+			mf1.setPlaceholderCharacter('_');
+			DateTextField = new JFormattedTextField(mf1);
+			DateTextField.setBounds(106, 42, 142, 20);
+			getContentPane().add(DateTextField);
+			DateTextField.setColumns(10);
+
+		} catch (ParseException e) {
+		}
 
 		CommentsTextField = new JTextField();
 		CommentsTextField.setBounds(363, 42, 206, 69);
@@ -142,10 +152,19 @@ public class ManageServiceRecord extends JDialog implements ActionListener {
 		getContentPane().add(ServiceCodeTextField);
 		ServiceCodeTextField.setColumns(10);
 
-		TimeTextField = new JTextField();
-		TimeTextField.setBounds(106, 91, 142, 20);
-		getContentPane().add(TimeTextField);
-		TimeTextField.setColumns(10);
+		try {
+			MaskFormatter mf1 = new MaskFormatter("##:##:##");
+			mf1.setPlaceholderCharacter('_');
+			TimeTextField = new JFormattedTextField(mf1);
+			TimeTextField.setBounds(106, 91, 142, 20);
+			getContentPane().add(TimeTextField);
+			TimeTextField.setColumns(10);
+
+		} catch (ParseException e) {
+		}
+
+
+
 
 		ProviderNumberTextField = new JTextField();
 		ProviderNumberTextField.setBounds(106, 145, 142, 20);
