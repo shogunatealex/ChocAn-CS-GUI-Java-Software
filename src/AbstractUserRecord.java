@@ -1,76 +1,92 @@
 import java.io.Serializable;
 
 /**
+ * Holds common fields of member and provider records
+ * 
  * @author Evan Dwyer
- * Holds common fields of member and 
- * provider records
+ * 
  *
  */
-public abstract class AbstractUserRecord implements Serializable{
+public abstract class AbstractUserRecord implements Serializable {
 	private static final long serialVersionUID = 1L;
 	protected String name = "";
 	protected int zip = 0;
 	protected String address = "";
 	protected String city = "";
 	protected String state = "";
-/**
- * @param n name
- */
+
+	/**
+	 * @param n
+	 *            name
+	 */
 	public void setName(String n) {
 		name = n;
 	}
-/**
- * 
- * @param z zipCode
- */
+
+	/**
+	 * 
+	 * @param z
+	 *            zipCode
+	 */
 	public void setZipCode(int z) {
 		zip = z;
 	}
-/**
- * 
- * @param add address
- */
+
+	/**
+	 * 
+	 * @param add
+	 *            address
+	 */
 	public void setAddress(String add) {
 		address = add;
 	}
-/**
- * 
- * @param c city
- */
+
+	/**
+	 * 
+	 * @param c
+	 *            city
+	 */
 	public void setCity(String c) {
 		city = c;
 	}
-/**
- * 
- * @param s state
- */
+
+	/**
+	 * 
+	 * @param s
+	 *            state
+	 */
 	public void setState(String s) {
 		state = s;
 	}
-/**
- * @return name
- */
+
+	/**
+	 * @return name
+	 */
 	public String getName() {
 		return name;
 	}
+
 	/**
 	 * @return zipCode
 	 */
 	public int getZipCode() {
 		return zip;
 	}
+
 	/**
 	 * @return address
 	 */
 	public String getAddress() {
 		return address;
 	}
+
 	/**
 	 * @return city
 	 */
 	public String getCity() {
 		return city;
 	}
+
 	/**
 	 * @return state
 	 */
