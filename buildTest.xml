@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- WARNING: Eclipse auto-generated file.
+              Any modifications will be overwritten.
+              To include a user specific buildfile here, simply create one in the same
+              directory with the processing instruction <?eclipse.ant.import?>
+              as the first entry and export the buildfile again. --><project basedir="." default="build" name="cs315fall2015team3">
+    <property environment="env"/>
+    <property name="debuglevel" value="source,lines,vars"/>
+    <property name="target" value="1.7"/>
+    <property name="source" value="1.7"/>
+    <path id="cs315fall2015team3.classpath">
+        <pathelement location="bin"/>
+        <pathelement location="lib/hamcrest-core-1.3.jar"/>
+        <pathelement location="lib/junit-4.12.jar"/>
+    </path>
+    <target name="init">
+        <mkdir dir="bin"/>
+		<mkdir dir="release/"/>
+		<mkdir dir="release/Documentation"/>
+        <copy includeemptydirs="false" todir="release/Documentation">
+            <fileset dir="doc"/>
+        </copy>
+		<copy includeemptydirs="false" todir="bin">
+			<fileset dir="src">
+				<exclude name="**/*.java"/>
+			</fileset>
+		</copy>
+		<jar destfile="release/ChocAnSystem.jar">
+			<fileset dir="bin/"  />
+			<fileset dir="src/" includes="**/*.java"/>
+			<manifest>
+				<attribute name="Main-Class" value="ChocAnSystem"/>
+			</manifest>
+		</jar>
+    </target>
+    <target name="clean">
+        <delete dir="bin"/>
+    </target>
+    <target depends="clean" name="cleanall"/>
+    <target depends="build-subprojects,build-project" name="build"/>
+    <target name="build-subprojects"/>
+    <target depends="init" name="build-project">
+        <echo message="${ant.project.name}: ${ant.file}"/>
+        <javac debug="true" debuglevel="${debuglevel}" destdir="bin" includeantruntime="false" source="${source}" target="${target}">
+            <src path="src"/>
+            <classpath refid="cs315fall2015team3.classpath"/>
+        </javac>
+    </target>
+    <target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects"/>
+    <target description="copy Eclipse compiler jars to ant lib directory" name="init-eclipse-compiler">
+        <copy todir="${ant.library.dir}">
+            <fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar"/>
+        </copy>
+        <unzip dest="${ant.library.dir}">
+            <patternset includes="jdtCompilerAdapter.jar"/>
+            <fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar"/>
+        </unzip>
+    </target>
+    <target description="compile project with Eclipse compiler" name="build-eclipse-compiler">
+        <property name="build.compiler" value="org.eclipse.jdt.core.JDTCompilerAdapter"/>
+        <antcall target="build"/>
+    </target>
+    <target name="ChocAnSystem">
+        <java classname="ChocAnSystem" failonerror="true" fork="yes">
+            <classpath refid="cs315fall2015team3.classpath"/>
+        </java>
+    </target>
+    <target name="CreateServiceRecordGUI">
+        <java classname="CreateServiceRecordGUI" failonerror="true" fork="yes">
+            <classpath refid="cs315fall2015team3.classpath"/>
+        </java>
+    </target>
+    <target name="FirstGUI">
+        <java classname="FirstGUI" failonerror="true" fork="yes">
+            <classpath refid="cs315fall2015team3.classpath"/>
+        </java>
+    </target>
+    <target name="MainGUI (1)">
+        <java classname="src.MainGUI" failonerror="true" fork="yes">
+            <classpath refid="cs315fall2015team3.classpath"/>
+        </java>
+    </target>
+    <target name="MainGUI (2)">
+        <java classname="MainGUI" failonerror="true" fork="yes">
+            <classpath refid="cs315fall2015team3.classpath"/>
+        </java>
+    </target>
+    <target name="ManageMemberRecord (1)">
+        <java classname="ManageMemberRecord" failonerror="true" fork="yes">
+            <classpath refid="cs315fall2015team3.classpath"/>
+        </java>
+    </target>
+    <target name="ManageProviderRecord (1)">
+        <java classname="ManageProviderRecord" failonerror="true" fork="yes">
+            <classpath refid="cs315fall2015team3.classpath"/>
+        </java>
+    </target>
+    <target name="ManageRecordGUI">
+        <java classname="ManageRecordGUI" failonerror="true" fork="yes">
+            <classpath refid="cs315fall2015team3.classpath"/>
+        </java>
+    </target>
+    <target name="ManageServiceRecord (1)">
+        <java classname="ManageServiceRecord" failonerror="true" fork="yes">
+            <classpath refid="cs315fall2015team3.classpath"/>
+        </java>
+    </target>
+    <target name="MemberRecordGUI (1)">
+        <java classname="MemberRecordGUI" failonerror="true" fork="yes">
+            <classpath refid="cs315fall2015team3.classpath"/>
+        </java>
+    </target>
+    <target name="ProviderRecordGUI (1)">
+        <java classname="ProviderRecordGUI" failonerror="true" fork="yes">
+            <classpath refid="cs315fall2015team3.classpath"/>
+        </java>
+    </target>
+    <target name="RecordTypeGUI (1)">
+        <java classname="RecordTypeGUI" failonerror="true" fork="yes">
+            <classpath refid="cs315fall2015team3.classpath"/>
+        </java>
+    </target>
+    <target name="ServiceRecordGUI (1)">
+        <java classname="ServiceRecordGUI" failonerror="true" fork="yes">
+            <classpath refid="cs315fall2015team3.classpath"/>
+        </java>
+    </target>
+</project>
