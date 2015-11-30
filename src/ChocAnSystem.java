@@ -9,10 +9,11 @@ import java.awt.event.*;
 import javax.swing.*;
 
 /**
- * @author Haylie Helmold Holds collections of the different records. Allows for
- *         selection of which type of employee is accessing records, provider,
- *         operator, or manager.
- *         Launches entire program.
+ * Holds collections of the different records. Allows for selection of which
+ * type of employee is accessing records, provider, operator, or manager.
+ * Launches entire program.
+ * 
+ * @author Haylie Helmold
  *
  */
 public class ChocAnSystem extends JFrame implements ActionListener {

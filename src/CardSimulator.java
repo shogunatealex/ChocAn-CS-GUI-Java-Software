@@ -8,8 +8,10 @@ import java.awt.event.*;
 import javax.swing.*;
 
 /**
- * @author Haylie Helmold If valid member number, create new service record
- *         otherwise displays "Invalid Member Number"
+ * If valid member number, create new service record otherwise displays
+ * "Invalid Member Number"
+ * 
+ * @author Haylie Helmold
  *
  */
 

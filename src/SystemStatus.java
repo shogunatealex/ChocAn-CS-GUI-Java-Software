@@ -1,7 +1,9 @@
 //David 
 /**
- * @author David Glenn Holds status of the system, either interactive or
- *         non-interactive. Toggles status.
+ * Holds status of the system, either interactive or non-interactive. Toggles
+ * status.
+ * 
+ * @author David Glenn
  */
 public class SystemStatus {
 	private boolean interactive;

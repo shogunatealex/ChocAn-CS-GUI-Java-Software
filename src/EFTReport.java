@@ -2,7 +2,11 @@ import java.io.FileNotFoundException;
 import java.io.UnsupportedEncodingException;
 import java.io.PrintWriter;
 
-
+/**
+ * Creates the EFT Report 
+ * @author David Glenn
+ *
+ */
 public class EFTReport {
     public EFTReport() {
     }

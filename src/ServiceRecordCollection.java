@@ -13,8 +13,10 @@ import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 
 /**
- * @author Alex Anderson Collection of service records. Allows for reading,
- *         saving, adding, editing, and removing service records.
+ * Collection of service records. Allows for reading, saving, adding, editing,
+ * and removing service records.
+ * 
+ * @author Alex Anderson
  *
  */
 public class ServiceRecordCollection {
@@ -65,7 +67,8 @@ public class ServiceRecordCollection {
 		} // end catch
 		this.sorter();
 	}
-	public void sorter(){
+
+	public void sorter() {
 		Collections.sort(this.ServiceArray, new CustomComparator());
 	}
 
@@ -89,7 +92,7 @@ public class ServiceRecordCollection {
 	 * @param ServiceCode
 	 * @param Comments
 	 */
-	
+
 	public void addRecord(String date, String time, int providerNumber, int memberNumber, int ServiceCode,
 			String Comments) {
 		ServiceRecord temp = new ServiceRecord(date, time, providerNumber, memberNumber, ServiceCode, Comments);
@@ -186,6 +189,6 @@ public class ServiceRecordCollection {
 	}
 
 	public int size() {
-        return ServiceArray.size();
+		return ServiceArray.size();
 	}
 }// end MemberRecordCollection

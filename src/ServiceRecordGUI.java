@@ -16,8 +16,10 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 /**
- * @author Alex Anderson Display service records. Allow for adding, editing, and
- *         deleting service records.
+ * Display service records. Allow for adding, editing, and deleting service
+ * records.
+ * 
+ * @author Alex Anderson
  */
 public class ServiceRecordGUI extends JDialog implements ActionListener {
 
@@ -29,20 +31,14 @@ public class ServiceRecordGUI extends JDialog implements ActionListener {
 	private JButton BackButton = null;
 	private JTable table;
 	private DefaultTableModel recs;
-/*
-	/**
-	 * Used primarily for testing/ independently launching.
-	 /
-	public static void main(String[] args) {
-		try {
-			ServiceRecordGUI dialog = new ServiceRecordGUI();
-			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
-			dialog.setVisible(true);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-*/
+
+	/*
+	 * /** Used primarily for testing/ independently launching. / public static
+	 * void main(String[] args) { try { ServiceRecordGUI dialog = new
+	 * ServiceRecordGUI();
+	 * dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+	 * dialog.setVisible(true); } catch (Exception e) { e.printStackTrace(); } }
+	 */
 	/**
 	 * Create the dialog with contents.
 	 */

@@ -12,8 +12,9 @@ import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 
 /**
- * @author Alex Anderson Extends RecordCollection. Holds collection of member
- *         records.
+ * Extends RecordCollection. Holds collection of member records.
+ * 
+ * @author Alex Anderson
  *
  */
 public class MemberRecordCollection extends RecordCollection {
@@ -193,14 +194,14 @@ public class MemberRecordCollection extends RecordCollection {
 
 	/**
 	 * Return the number of provider records in the collection
+	 * 
 	 * @return
 	 */
-	
+
 	public int size() {
 		return MemberArray.size();
 	}
 
-	
 	public void createReport() {
 		JFrame window = new JFrame();
 		JFileChooser chooser = new JFileChooser();
@@ -224,17 +225,18 @@ public class MemberRecordCollection extends RecordCollection {
 			}
 		}
 	}
+
 	public MemberRecord getSpecificRecordByMemberNumber(int memberNumber) {
-		if(this.isMember(memberNumber)) {
-			for(MemberRecord record : MemberArray) {
-				if(record.getMemberNumber() == memberNumber) {
+		if (this.isMember(memberNumber)) {
+			for (MemberRecord record : MemberArray) {
+				if (record.getMemberNumber() == memberNumber) {
 					return record;
 				}
 			}
 		}
 		return null;
 	}
-	
+
 	public boolean isMember(int memberNumber) {
 		for (MemberRecord record : MemberArray) {
 			if (record.getMemberNumber() == memberNumber) {

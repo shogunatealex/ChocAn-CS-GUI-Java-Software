@@ -21,8 +21,9 @@ import java.awt.Font;
 import java.awt.Color;
 
 /**
- * @author Alex Anderson Allow for entering and editing service record
- *         information.
+ * Allow for entering and editing service record information.
+ * 
+ * @author Alex Anderson
  *
  */
 public class ManageServiceRecord extends JDialog implements ActionListener {
@@ -37,20 +38,14 @@ public class ManageServiceRecord extends JDialog implements ActionListener {
 	private JFormattedTextField TimeTextField;
 	private JTextField ProviderNumberTextField;
 	protected boolean Cancel = true;
-/*
-	/**
-	 * Used primarily for testing/ independently launching.
-	 /
-	public static void main(String[] args) {
-		try {
-			ManageServiceRecord dialog = new ManageServiceRecord();
-			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
-			dialog.setVisible(true);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-*/
+
+	/*
+	 * /** Used primarily for testing/ independently launching. / public static
+	 * void main(String[] args) { try { ManageServiceRecord dialog = new
+	 * ManageServiceRecord();
+	 * dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+	 * dialog.setVisible(true); } catch (Exception e) { e.printStackTrace(); } }
+	 */
 	/**
 	 * @return date
 	 */
@@ -162,9 +157,6 @@ public class ManageServiceRecord extends JDialog implements ActionListener {
 
 		} catch (ParseException e) {
 		}
-
-
-
 
 		ProviderNumberTextField = new JTextField();
 		ProviderNumberTextField.setBounds(106, 145, 142, 20);

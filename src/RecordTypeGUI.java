@@ -10,8 +10,9 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 /**
- * @author Alex Anderson Allow for selection of member, provider, or service
- *         record.
+ * Allow for selection of member, provider, or service record.
+ * 
+ * @author Alex Anderson
  *
  */
 public class RecordTypeGUI extends JDialog implements ActionListener {
@@ -20,18 +21,12 @@ public class RecordTypeGUI extends JDialog implements ActionListener {
 	private JButton ProviderRecord = null;
 	private JButton ServiceRecord = null;
 	private JButton MemberRecord = null;
-/*
-	/**
-	 * Used primarily for testing/ independent launching.
-	 /
-	public static void main(String[] args) {
-		try {
-			RecordTypeGUI dialog = new RecordTypeGUI();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-*/
+
+	/*
+	 * /** Used primarily for testing/ independent launching. / public static
+	 * void main(String[] args) { try { RecordTypeGUI dialog = new
+	 * RecordTypeGUI(); } catch (Exception e) { e.printStackTrace(); } }
+	 */
 	/**
 	 * Create the dialog with contents.
 	 */
@@ -68,8 +63,6 @@ public class RecordTypeGUI extends JDialog implements ActionListener {
 	}
 
 	/**
-	 * 
-	 * 
 	 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
 	 *      If memberRecord selected, display member record collection. If
 	 *      serviceRecord selected, display service record collection. If

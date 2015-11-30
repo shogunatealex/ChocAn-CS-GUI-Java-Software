@@ -16,8 +16,10 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 /**
- * @author Alex Anderson Display provider records. Allow for adding, editing,
- *         and deleting a provider record.
+ * Display provider records. Allow for adding, editing, and deleting a provider
+ * record.
+ * 
+ * @author Alex Anderson
  *
  */
 public class ProviderRecordGUI extends JDialog implements ActionListener {
@@ -30,20 +32,14 @@ public class ProviderRecordGUI extends JDialog implements ActionListener {
 	private JButton BackButton = null;
 	private JTable table;
 	private DefaultTableModel recs;
-/*
-	/**
-	 * Used primarily for testing/ independently launching.
-	 /
-	public static void main(String[] args) {
-		try {
-			ProviderRecordGUI dialog = new ProviderRecordGUI();
-			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
-			dialog.setVisible(true);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-*/
+
+	/*
+	 * /** Used primarily for testing/ independently launching. / public static
+	 * void main(String[] args) { try { ProviderRecordGUI dialog = new
+	 * ProviderRecordGUI();
+	 * dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+	 * dialog.setVisible(true); } catch (Exception e) { e.printStackTrace(); } }
+	 */
 	/**
 	 * Create the dialog with contents.
 	 */
@@ -127,7 +123,7 @@ public class ProviderRecordGUI extends JDialog implements ActionListener {
 				ChocAnSystem.PRC.addRecord(PMR.getName(), PMR.getProviderNumber(), PMR.getZipCode(), PMR.getAddress(),
 						PMR.getCity(), PMR.getState());
 				recs.addRow((new Object[] { PMR.getName(), PMR.getProviderNumber(), PMR.getZipCode(), PMR.getAddress(),
-						PMR.getCity(), PMR.getState()}));
+						PMR.getCity(), PMR.getState() }));
 			}
 
 		} else if (e.getSource() == EditButton) {

@@ -18,8 +18,9 @@ import javax.swing.JRadioButton;
 import java.awt.Color;
 
 /**
- * @author Alex Anderson Allow for adding, editing, and deleting of member
- *         records.
+ * Allow for adding, editing, and deleting of member records.
+ * 
+ * @author Alex Anderson
  *
  */
 public class ManageMemberRecord extends ManageRecordGUI implements ActionListener {
@@ -28,20 +29,14 @@ public class ManageMemberRecord extends ManageRecordGUI implements ActionListene
 	private JRadioButton YesRadioButton;
 	private JRadioButton NoRadioButton;
 	private ButtonGroup ActiveGroup;
-/*
-	/**
-	 * Used primarily for testing/launching independently
-	 /
-	public static void main(String[] args) {
-		try {
-			MemberRecordGUI dialog = new MemberRecordGUI();
-			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
-			dialog.setVisible(true);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-*/
+
+	/*
+	 * /** Used primarily for testing/launching independently / public static
+	 * void main(String[] args) { try { MemberRecordGUI dialog = new
+	 * MemberRecordGUI();
+	 * dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+	 * dialog.setVisible(true); } catch (Exception e) { e.printStackTrace(); } }
+	 */
 	/**
 	 * Create the dialog.
 	 * 

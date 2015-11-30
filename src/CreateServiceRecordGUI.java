@@ -28,8 +28,10 @@ import javax.swing.text.MaskFormatter;
 //JTable holds provider Directory, service record values
 
 /**
- * @author Alex Anderson Display service records Add service record Adds date,
- *         time, and comments to service records Based on selected member record
+ * Display service records Add service record Adds date, time, and comments to
+ * service records Based on selected member record
+ * 
+ * @author Alex Anderson
  *
  */
 public class CreateServiceRecordGUI extends JDialog implements ActionListener {
@@ -47,23 +49,20 @@ public class CreateServiceRecordGUI extends JDialog implements ActionListener {
 	private JTable table;
 	private DefaultTableModel recs;
 	private int memberNumber;
-/*
-	/**
-	 * Mainly used for testing, stand-alone launch
-	 /
-	public static void main(String[] args) {
-		try {
-			CreateServiceRecordGUI dialog = new CreateServiceRecordGUI();
-			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
-			dialog.setVisible(true);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-*/
+
+	/*
+	 * /** Mainly used for testing, stand-alone launch / public static void
+	 * main(String[] args) { try { CreateServiceRecordGUI dialog = new
+	 * CreateServiceRecordGUI();
+	 * dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+	 * dialog.setVisible(true); } catch (Exception e) { e.printStackTrace(); } }
+	 */
 	/**
 	 * Create the dialog. Text fields for date, time, and comments. Creates new
 	 * service record.
+	 * 
+	 * @param mNumber
+	 *            memberNumber
 	 */
 	public CreateServiceRecordGUI(int mNumber) {
 		memberNumber = mNumber;
@@ -92,8 +91,6 @@ public class CreateServiceRecordGUI extends JDialog implements ActionListener {
 		} catch (ParseException e) {
 		}
 
-
-
 		dateLabel = new JLabel("Date:");
 		dateLabel.setSize(200, 50);
 		dateLabel.setLocation(25, 215);
@@ -110,19 +107,18 @@ public class CreateServiceRecordGUI extends JDialog implements ActionListener {
 		} catch (ParseException e) {
 		}
 
-
 		window.add(time);
-		
+
 		providerNumber = new JTextField();
-		providerNumber.setSize(70,35);
+		providerNumber.setSize(70, 35);
 		providerNumber.setLocation(75, 325);
 		window.add(providerNumber);
-		
+
 		providerNum = new JLabel("Provider #");
-		providerNum.setSize(200,50);
-		providerNum.setLocation(25,315);
+		providerNum.setSize(200, 50);
+		providerNum.setLocation(25, 315);
 		providerNum.setForeground(Color.BLUE);
-		
+
 		window.add(providerNum);
 
 		timeLabel = new JLabel("Time:");
@@ -185,12 +181,13 @@ public class CreateServiceRecordGUI extends JDialog implements ActionListener {
 		if (e.getSource() == BackButton) {
 			setVisible(false);
 		} else if (e.getSource() == SubmitButton) {
-			if (table.getSelectedRow() == -1){
+			if (table.getSelectedRow() == -1) {
 				JOptionPane.showMessageDialog(this, "Please select service type.");
-			}
-			else{
-				ProviderDirectory temp2 = ChocAnSystem.PDC.getSpecificRecord( table.getSelectedRow());
-				ServiceRecord temp = new ServiceRecord(date.getText(), time.getText(),Integer.parseInt(providerNumber.getText()), memberNumber,temp2.get_sNumber() , comments.getText());
+			} else {
+				ProviderDirectory temp2 = ChocAnSystem.PDC.getSpecificRecord(table.getSelectedRow());
+				ServiceRecord temp = new ServiceRecord(date.getText(), time.getText(),
+						Integer.parseInt(providerNumber.getText()), memberNumber, temp2.get_sNumber(),
+						comments.getText());
 				ChocAnSystem.SRC.addRecord(temp);
 				setVisible(false);
 			}

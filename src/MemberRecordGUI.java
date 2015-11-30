@@ -19,8 +19,10 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 
 /**
- * @author Alex Anderson Display member records. Allow for adding, editing, and
- *         deleting member records.
+ * Display member records. Allow for adding, editing, and deleting member
+ * records.
+ * 
+ * @author Alex Anderson
  *
  */
 public class MemberRecordGUI extends JDialog implements ActionListener {
@@ -31,22 +33,15 @@ public class MemberRecordGUI extends JDialog implements ActionListener {
 	private JButton BackButton = null;
 	private JTable table;
 	private DefaultTableModel recs;
-/*
-	/**
-	 * Used primarily for testing/ independent launching
+
+	/*
+	 * /** Used primarily for testing/ independent launching
 	 * 
-	 * @param args
-	 /
-	public static void main(String[] args) {
-		try {
-			MemberRecordGUI dialog = new MemberRecordGUI();
-			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
-			dialog.setVisible(true);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-*/
+	 * @param args / public static void main(String[] args) { try {
+	 * MemberRecordGUI dialog = new MemberRecordGUI();
+	 * dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+	 * dialog.setVisible(true); } catch (Exception e) { e.printStackTrace(); } }
+	 */
 	/**
 	 * Create the dialog with GUI components.
 	 */
