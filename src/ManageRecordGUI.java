@@ -19,8 +19,10 @@ import javax.swing.JTextArea;
 import java.awt.Color;
 
 /**
- * @author Alex Anderson Allow for adding, editing, and deleting provider
- *         records. Displays provider records. Abstract class
+ * Allow for adding, editing, and deleting provider records. Displays provider
+ * records. Abstract class
+ * 
+ * @author Alex Anderson
  *
  */
 public abstract class ManageRecordGUI extends JDialog implements ActionListener {
@@ -35,20 +37,14 @@ public abstract class ManageRecordGUI extends JDialog implements ActionListener 
 	protected JDialog Owner;
 	protected Container window;
 	protected boolean Cancel = true;
-/*
-	/**
-	 * Used primarily for testing/ independent launching
-	 /
-	public static void main(String[] args) {
-		try {
-			ProviderRecordGUI dialog = new ProviderRecordGUI();
-			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
-			dialog.setVisible(true);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-*/
+
+	/*
+	 * /** Used primarily for testing/ independent launching / public static
+	 * void main(String[] args) { try { ProviderRecordGUI dialog = new
+	 * ProviderRecordGUI();
+	 * dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+	 * dialog.setVisible(true); } catch (Exception e) { e.printStackTrace(); } }
+	 */
 	/**
 	 * @return canceled if canceled.
 	 */

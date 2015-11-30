@@ -6,8 +6,10 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
 /**
- * @author Alex Anderson Abstract class for record collections. Place holders
- *         for reading, removing, and saving records.
+ * Abstract class for record collections. Place holders for reading, removing,
+ * and saving records.
+ * 
+ * @author Alex Anderson
  *
  */
 public abstract class RecordCollection {

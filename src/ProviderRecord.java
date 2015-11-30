@@ -1,8 +1,9 @@
 import java.io.Serializable;
 
 /**
- * @author Evan Dwyer Extends AbstractUserRecord. Holds fields for provider
- *         record.
+ * Extends AbstractUserRecord. Holds fields for provider record.
+ * 
+ * @author Evan Dwyer
  *
  */
 public class ProviderRecord extends AbstractUserRecord implements Serializable {
@@ -12,13 +13,19 @@ public class ProviderRecord extends AbstractUserRecord implements Serializable {
 	/**
 	 * 
 	 * @param n
+	 *            name
 	 * @param z
+	 *            zipCode
 	 * @param pNum
+	 *            providerNumber
 	 * @param add
+	 *            address
 	 * @param c
+	 *            city
 	 * @param s
+	 *            state
 	 */
-	public ProviderRecord(String n, int pNum, int z,  String add, String c, String s) {
+	public ProviderRecord(String n, int pNum, int z, String add, String c, String s) {
 		this.setName(n);
 		this.setZipCode(z);
 		this.setProviderNumber(pNum);

@@ -1,7 +1,9 @@
 import java.io.Serializable;
 
 /**
- * @author Evan Dwyer Extends AbstractUserRecord. Holds fields of member record.
+ * Extends AbstractUserRecord. Holds fields of member record.
+ * 
+ * @author Evan Dwyer
  *
  */
 public class MemberRecord extends AbstractUserRecord implements Serializable {

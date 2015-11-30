@@ -15,9 +15,10 @@ import javax.swing.JFrame;;
 
 //Trevor
 /**
- * @author Trevor Gentner Collection of Provider directories. Allowing for
- *         reading, saving, adding, editing, and removing provider provider
- *         directory.
+ * Collection of Provider directories. Allowing for reading, saving, adding,
+ * editing, and removing provider provider directory.
+ * 
+ * @author Trevor Gentner
  * @return ProviderDirectoryCollection collection of provider directories
  */
 public class ProviderDirectoryCollection {
@@ -35,9 +36,11 @@ public class ProviderDirectoryCollection {
 		collectRecords();
 
 	}
-	public void sorter(){
+
+	public void sorter() {
 		Collections.sort(pArray, new ProviderComparator());
 	}
+
 	/**
 	 * Read in provider directories from file.
 	 */
@@ -93,7 +96,7 @@ public class ProviderDirectoryCollection {
 		saveRecords();
 		collectRecords();
 	}
-	
+
 	/**
 	 * Create a new provider record.
 	 */
@@ -148,14 +151,14 @@ public class ProviderDirectoryCollection {
 	}
 
 	public ProviderDirectory getSpecificRecordByServiceNumber(int sNumber) {
-        for(int i = 0; i < pArray.size(); i ++) {
-        	if(pArray.get(i).get_sNumber() == sNumber) {
-        		return pArray.get(i);
-        	}
-        }
-        return null;
+		for (int i = 0; i < pArray.size(); i++) {
+			if (pArray.get(i).get_sNumber() == sNumber) {
+				return pArray.get(i);
+			}
+		}
+		return null;
 	}
-	
+
 	/**
 	 * Save provider directories to a file.
 	 */
@@ -185,5 +188,5 @@ public class ProviderDirectoryCollection {
 		} // end finally...finally
 		this.sorter();
 	}// end saveRecords
-	
+
 }

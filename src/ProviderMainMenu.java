@@ -4,9 +4,10 @@ import java.awt.*;
 import java.util.ArrayList;
 
 /**
+ * Allows for requesting the provider directory and swiping a member's card.
+ * 
  * @author Haylie Helmold
- * Allows for requesting the provider directory and 
- * swiping a member's card.
+ * 
  *
  */
 
@@ -45,7 +46,7 @@ public class ProviderMainMenu extends JFrame implements ActionListener {
 		MM.setForeground(Color.BLACK);
 		MM.setFont(font);
 		c.add(MM);
-		
+
 		// Size and location of panel on window
 		setSize(400, 400);
 		setLocation(100, 100);
@@ -60,7 +61,7 @@ public class ProviderMainMenu extends JFrame implements ActionListener {
 			ProviderRecordGUI newGui = new ProviderRecordGUI();
 		}
 		// Swipe Card Simulation
-		else if (e.getSource() == CardSimulation){
+		else if (e.getSource() == CardSimulation) {
 			CardSimulator simulator = new CardSimulator();
 		}
 	}

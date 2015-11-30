@@ -12,8 +12,10 @@ import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 
 /**
- * @author Alex Anderson Collection of provider records. Allows for reading,
- *         saving, adding, editing, and removing provider records.
+ * Collection of provider records. Allows for reading, saving, adding, editing,
+ * and removing provider records.
+ * 
+ * @author Alex Anderson
  *
  */
 public class ProviderRecordCollection extends RecordCollection {
@@ -180,13 +182,14 @@ public class ProviderRecordCollection extends RecordCollection {
 
 	/**
 	 * Return the number of provider records in the collection
+	 * 
 	 * @return
 	 */
-	
+
 	public int size() {
 		return ProviderArray.size();
 	}
-	
+
 	/**
 	 * Create a new provider record.
 	 */

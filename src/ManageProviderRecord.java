@@ -16,27 +16,21 @@ import javax.swing.border.EmptyBorder;
 import java.awt.Color;
 
 /**
- * @author Alex Anderson Allows for entering/ editing information in provider
- *         record.
+ * Allows for entering/ editing information in provider record.
+ * 
+ * @author Alex Anderson
  *
  */
 public class ManageProviderRecord extends ManageRecordGUI implements ActionListener {
 
 	private JTextField ProvNumTextField;
-/*
-	/**
-	 * Launch the application.
-	 /
-	public static void main(String[] args) {
-		try {
-			ManageProviderRecord dialog = new ManageProviderRecord();
-			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
-			dialog.setVisible(true);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-*/
+
+	/*
+	 * /** Launch the application. / public static void main(String[] args) {
+	 * try { ManageProviderRecord dialog = new ManageProviderRecord();
+	 * dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+	 * dialog.setVisible(true); } catch (Exception e) { e.printStackTrace(); } }
+	 */
 	/**
 	 * Create the dialog.
 	 * 
