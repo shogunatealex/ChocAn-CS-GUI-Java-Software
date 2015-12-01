@@ -25,7 +25,7 @@ public class AccountingController {
 	 * Create all four reports
 	 */
 	public void createReports() {
-		ChocAnSystem.status.toggleInteractiveMode();
+		ChocAnSystem.status.setInteractiveMode(false);
 		for (int i = 0; i < ChocAnSystem.MRC.size(); i++) {
 			MemberRecord Record = ChocAnSystem.MRC.getSpecificRecord(i);
 			MemberReport mReport = new MemberReport(Record);
@@ -41,7 +41,7 @@ public class AccountingController {
 
 		SummaryReport sReport = new SummaryReport();
 		sReport.saveReports(date);
-		ChocAnSystem.status.toggleInteractiveMode();
+		ChocAnSystem.status.setInteractiveMode(true);
 	}
 
 	/**
@@ -50,11 +50,11 @@ public class AccountingController {
 	 * @param memberNumber
 	 */
 	public void createMemberReport(int memberNumber) {
-		ChocAnSystem.status.toggleInteractiveMode();		
+		ChocAnSystem.status.setInteractiveMode(false);		
 		MemberRecord Record = ChocAnSystem.MRC.getSpecificRecordByMemberNumber(memberNumber);
 		MemberReport Report = new MemberReport(Record);
 		Report.saveReports(date);
-		ChocAnSystem.status.toggleInteractiveMode();
+		ChocAnSystem.status.setInteractiveMode(true);
 	}
 
 	/**
@@ -63,31 +63,31 @@ public class AccountingController {
 	 * @param providerNumber
 	 */
 	public void createProviderReport(int providerNumber) {
-		ChocAnSystem.status.toggleInteractiveMode();
+		ChocAnSystem.status.setInteractiveMode(false);
 		ProviderRecord Record = ChocAnSystem.PRC.getSpecificRecordByProviderNumber(providerNumber);
 		ProviderReport Report = new ProviderReport(Record);
 		Report.saveReports(date);
-		ChocAnSystem.status.toggleInteractiveMode();
+		ChocAnSystem.status.setInteractiveMode(true);
 	}
 
 	/**
 	 * Create EFT Report
 	 */
 	public void createEFTReport() {
-		ChocAnSystem.status.toggleInteractiveMode();
+		ChocAnSystem.status.setInteractiveMode(false);
 		EFTReport Report = new EFTReport();
 		Report.saveReports(date);
-		ChocAnSystem.status.toggleInteractiveMode();
+		ChocAnSystem.status.setInteractiveMode(true);
 	}
 
 	/**
 	 * Create Summary Report
 	 */
 	public void createSummaryReport() {
-		ChocAnSystem.status.toggleInteractiveMode();
+		ChocAnSystem.status.setInteractiveMode(false);
 		SummaryReport Report = new SummaryReport();
 		Report.saveReports(date);
-		ChocAnSystem.status.toggleInteractiveMode();
+		ChocAnSystem.status.setInteractiveMode(true);
 	}
 
 }

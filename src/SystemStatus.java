@@ -22,10 +22,7 @@ public class SystemStatus {
 	/**
 	 * Toggle system status.
 	 */
-	public void toggleInteractiveMode() {
-		if (this.interactive) {
-			this.interactive = false;
-		} else
-			this.interactive = true;
+	public void setInteractiveMode(boolean mode) {
+        interactive = mode;
 	}
 }
