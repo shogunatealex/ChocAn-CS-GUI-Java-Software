@@ -18,6 +18,7 @@ import javax.swing.*;
  */
 public class ChocAnSystem extends JFrame implements ActionListener {
 
+	public static SystemStatus status = new SystemStatus();
 	private JButton providerButton;
 	private JButton operatorButton;
 	private JButton managerButton;
@@ -41,6 +42,7 @@ public class ChocAnSystem extends JFrame implements ActionListener {
 		c.setLayout(null);
 
 		// Chocoholics
+		
 		ChocAn1 = new JLabel("Chocoholics");
 		ChocAn1.setSize(275, 50);
 		ChocAn1.setForeground(Color.BLACK);
