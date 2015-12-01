@@ -20,7 +20,7 @@ public class SystemStatusTest {
 
 	@Test
 	public void testToggleStatus() {
-		newSystem.toggleInteractiveMode();
+		newSystem.setInteractiveMode(false);
 		assertFalse("Get Status", newSystem.checkMode()); // system is not
 															// interactive
 	}
