@@ -84,7 +84,7 @@ public class CreateServiceRecordGUI extends JDialog implements ActionListener {
 		window.add(BackButton);
 
 		try {
-			MaskFormatter mf1 = new MaskFormatter("##/##/####");
+			MaskFormatter mf1 = new MaskFormatter("##-##-####");
 			mf1.setPlaceholderCharacter('_');
 			date = new JFormattedTextField(mf1);
 			date.setSize(70, 35);
@@ -105,7 +105,7 @@ public class CreateServiceRecordGUI extends JDialog implements ActionListener {
 			time = new JFormattedTextField(mf1);
 			String timeStamp = new SimpleDateFormat("MMddyyyyHHmmss").format(Calendar.getInstance().getTime());
 			time.setText(timeStamp);
-			time.setSize(70, 35);
+			time.setSize(150, 35);
 			time.setLocation(75, 275);
 			window.add(time);
 		} catch (ParseException e) {

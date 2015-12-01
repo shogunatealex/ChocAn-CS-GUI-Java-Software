@@ -124,7 +124,7 @@ public class ManageServiceRecord extends JDialog implements ActionListener {
 		getContentPane().add(ServiceRecordsLabel);
 
 		try {
-			MaskFormatter mf1 = new MaskFormatter("##/##/####");
+			MaskFormatter mf1 = new MaskFormatter("##-##-####");
 			mf1.setPlaceholderCharacter('_');
 			DateTextField = new JFormattedTextField(mf1);
 			DateTextField.setBounds(106, 42, 142, 20);
@@ -155,7 +155,6 @@ public class ManageServiceRecord extends JDialog implements ActionListener {
 			TimeTextField = new JFormattedTextField(mf1);
 			TimeTextField.setBounds(106, 91, 142, 20);
 			String timeStamp = new SimpleDateFormat("MMddyyyyHHmmss").format(Calendar.getInstance().getTime());
-			System.out.println(timeStamp);
 			TimeTextField.setText(timeStamp);
 			getContentPane().add(TimeTextField);
 			TimeTextField.setColumns(10);
