@@ -112,7 +112,7 @@ public class ProviderDirectoryCollection {
 				ObjectOutputStream output = new ObjectOutputStream(new FileOutputStream(fileName));
 				PrintStream printStream = new PrintStream(output);
 				for (ProviderDirectory record : this.pArray) {
-					printStream.print(record.toString());
+					printStream.println(record.toString());
 				}
 				printStream.close();
 				output.close();
