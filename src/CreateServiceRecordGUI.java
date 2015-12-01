@@ -6,7 +6,9 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
@@ -98,9 +100,11 @@ public class CreateServiceRecordGUI extends JDialog implements ActionListener {
 		window.add(dateLabel);
 
 		try {
-			MaskFormatter mf1 = new MaskFormatter("##:##:##");
+			MaskFormatter mf1 = new MaskFormatter("##-##-#### ##:##:##");
 			mf1.setPlaceholderCharacter('_');
 			time = new JFormattedTextField(mf1);
+			String timeStamp = new SimpleDateFormat("MMddyyyyHHmmss").format(Calendar.getInstance().getTime());
+			time.setText(timeStamp);
 			time.setSize(70, 35);
 			time.setLocation(75, 275);
 			window.add(time);

@@ -4,6 +4,8 @@ import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
@@ -148,10 +150,13 @@ public class ManageServiceRecord extends JDialog implements ActionListener {
 		ServiceCodeTextField.setColumns(10);
 
 		try {
-			MaskFormatter mf1 = new MaskFormatter("##:##:##");
+			MaskFormatter mf1 = new MaskFormatter("##-##-#### ##:##:##");
 			mf1.setPlaceholderCharacter('_');
 			TimeTextField = new JFormattedTextField(mf1);
 			TimeTextField.setBounds(106, 91, 142, 20);
+			String timeStamp = new SimpleDateFormat("MMddyyyyHHmmss").format(Calendar.getInstance().getTime());
+			System.out.println(timeStamp);
+			TimeTextField.setText(timeStamp);
 			getContentPane().add(TimeTextField);
 			TimeTextField.setColumns(10);
 
