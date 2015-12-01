@@ -6,11 +6,12 @@ import org.junit.After;
 public class ProviderDirectoryCollectionTest {
 	
 	private String filename = "PDC1.txt";
-	private ProviderDirectoryCollection p = new ProviderDirectoryCollection(filename);
+	private ProviderDirectoryCollection p;
 	private ProviderDirectory PD;
 	
 	@Before
 	public void setUp(){
+		ProviderDirectoryCollection p = new ProviderDirectoryCollection(filename);
 		ProviderDirectory PD = new ProviderDirectory(123, "Help", 100.00);
 	}
 	

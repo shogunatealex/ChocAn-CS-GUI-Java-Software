@@ -6,11 +6,10 @@ import org.junit.Before;
 public class CardSimulatorTest {
 	
 	private int numberEntered;
-	CardSimulator test = new CardSimulator();
 	
 	@Before
 	public void setUp(){
-		
+		CardSimulator test = new CardSimulator();	
 	}
 	
 	@Test
@@ -21,15 +20,8 @@ public class CardSimulatorTest {
 
 	@Test
 	public void testIsValid() {
-		numberEntered = 12345;
+		numberEntered = 1;
 		assertTrue("Number is in Member Record Collection", ChocAnSystem.MRC.isCardValid(numberEntered));
 	}
-/*
-	@Test
-	public void testisCancelled() {
-		test.
-		assertTrue("Action is cancelled", test.isCancelled() == true);
-	}
-*/
 	
 }
