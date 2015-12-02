@@ -6,6 +6,12 @@ import java.awt.Color;
 import java.awt.Container;
 import java.awt.Font;
 import java.awt.event.*;
+import java.sql.Date;
+import java.sql.Time;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.concurrent.TimeUnit;
+
 import javax.swing.*;
 
 /**
@@ -124,5 +130,32 @@ public class ChocAnSystem extends JFrame implements ActionListener {
 	public static void main(String[] args) {
 		ChocAnSystem titleScreen = new ChocAnSystem();
 		titleScreen.setVisible(true);
-	}
+		while (true){
+			// keeps a clock running and runs reports on Midnight Friday or 000000 Sat
+			String timeStamp2 = new SimpleDateFormat("HHmmss").format(Calendar.getInstance().getTime());
+			String timeStamp3 = new SimpleDateFormat("EE").format(Calendar.getInstance().getTime());
+
+			
+			System.out.println(timeStamp2);
+			try {
+				TimeUnit.SECONDS.sleep(1);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+			if (timeStamp3.equals("Sat")){
+				if (timeStamp2.equals("000000")){
+					AccountingController temp = new AccountingController();
+					temp.createReports();
+
+				}
+				
+
+			}
+			}
+
+		}
+
 }
+
