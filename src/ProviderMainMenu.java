@@ -58,7 +58,9 @@ public class ProviderMainMenu extends JFrame implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		// Request Provider Directory
 		if (e.getSource() == RequestPD) {
-			ProviderRecordGUI newGui = new ProviderRecordGUI();
+			ProviderDirectoryCollection PDC = new ProviderDirectoryCollection("ProviderDirectory.txt");
+			PDC.createReport();
+			
 		}
 		// Swipe Card Simulation
 		else if (e.getSource() == CardSimulation) {
