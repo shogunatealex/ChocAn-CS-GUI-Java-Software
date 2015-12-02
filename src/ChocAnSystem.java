@@ -131,31 +131,35 @@ public class ChocAnSystem extends JFrame implements ActionListener {
 		ChocAnSystem titleScreen = new ChocAnSystem();
 		titleScreen.setVisible(true);
 		while (true){
-			// keeps a clock running and runs reports on Midnight Friday or 000000 Sat
-			String timeStamp2 = new SimpleDateFormat("HHmmss").format(Calendar.getInstance().getTime());
-			String timeStamp3 = new SimpleDateFormat("EE").format(Calendar.getInstance().getTime());
+			if (titleScreen.isVisible() == true){
+				// keeps a clock running and runs reports on Midnight Friday or 000000 Sat
+				String timeStamp2 = new SimpleDateFormat("HHmmss").format(Calendar.getInstance().getTime());
+				String timeStamp3 = new SimpleDateFormat("EE").format(Calendar.getInstance().getTime());
 
-			
-			System.out.println(timeStamp2);
-			try {
-				TimeUnit.SECONDS.sleep(1);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+				try {
+					TimeUnit.SECONDS.sleep(1);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}// end catch
 
-			if (timeStamp3.equals("Sat")){
-				if (timeStamp2.equals("000000")){
-					AccountingController temp = new AccountingController();
-					temp.createReports();
+				if (timeStamp3.equals("Sat")){
+					if (timeStamp2.equals("000000")){
+						AccountingController temp = new AccountingController();
+						temp.createReports();
 
-				}
-				
+					} //end nested if
+					
 
-			}
-			}
+				}// end if			
+			}// end if
+			else{
+				break;
+			}// end else
+	
+			}// end while
 
-		}
+		}// end main
 
 }
 

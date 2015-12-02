@@ -151,7 +151,7 @@ public class ServiceRecordGUI extends JDialog implements ActionListener {
 		} else if (e.getSource() == DeleteButton) {
 			try {
 				int index = table.getSelectedRow();
-				ChocAnSystem.MRC.removeRecord(index);
+				ChocAnSystem.SRC.removeRecord(index);
 				recs.removeRow(index);
 			} catch (ArrayIndexOutOfBoundsException e1) { // catches the
 															// exception for no

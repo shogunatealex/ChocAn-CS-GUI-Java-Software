@@ -13,6 +13,7 @@ import javax.swing.JDialog;
 import javax.swing.JFormattedTextField;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 import javax.swing.text.MaskFormatter;
@@ -34,7 +35,7 @@ public class ManageServiceRecord extends JDialog implements ActionListener {
 	private JButton OkButton;
 	private JButton BackButton = null;
 	private JFormattedTextField DateTextField;
-	private JTextField CommentsTextField;
+	private JTextArea CommentsTextField;
 	private JTextField MemberNumberTextField;
 	private JTextField ServiceCodeTextField;
 	private JFormattedTextField TimeTextField;
@@ -134,7 +135,7 @@ public class ManageServiceRecord extends JDialog implements ActionListener {
 		} catch (ParseException e) {
 		}
 
-		CommentsTextField = new JTextField();
+		CommentsTextField = new JTextArea();
 		CommentsTextField.setBounds(363, 42, 206, 69);
 		getContentPane().add(CommentsTextField);
 		CommentsTextField.setColumns(10);
