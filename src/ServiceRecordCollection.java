@@ -71,7 +71,7 @@ public class ServiceRecordCollection {
 	}
 
 	public void sorter() {
-		//Collections.sort(this.ServiceArray, new CustomComparator());
+		Collections.sort(this.ServiceArray, new CustomComparator());
 	}
 
 	/**
