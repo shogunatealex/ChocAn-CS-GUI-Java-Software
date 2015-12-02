@@ -48,7 +48,8 @@ public class SummaryReport {
 					totalFee += providerFee;
 				}
 				writer.println("Total providers:   " + totalProviders);
-				writer.println("Total services:    " + totalServices);
+				writer.println("Total services:    "
+						+ String.format("%03d", totalServices));
 				writer.println("Total fee:         "
 						+ String.format("%.2f", totalFee));
 				writer.close();
