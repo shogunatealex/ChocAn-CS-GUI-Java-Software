@@ -102,6 +102,7 @@ public class ProviderDirectoryCollection {
 	 * Create a new provider record.
 	 */
 	public void createReport() {
+		// formats and writes report for providerDirectory request
 		JFrame window = new JFrame();
 		JFileChooser chooser = new JFileChooser();
 		int returnVal = chooser.showSaveDialog(window);

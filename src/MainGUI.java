@@ -38,14 +38,8 @@ public class MainGUI {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		// To be switched over to main ChocAn System class when created
-		// for (int i = 0; i < 20; i++)
-		// {
-		// MemberRecord temp = new MemberRecord("Alex Anderson", i, 19962, true,
-		// "Whereever I want", "Magnolia", "Delaware");
-		// MRC.addRecord(temp);
-		// }
-
+		
+		// sets up GUI
 		MainMenu = new JFrame();
 		MainMenu.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		MainMenu.setTitle("Main Menu");

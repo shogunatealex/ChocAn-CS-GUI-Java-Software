@@ -222,6 +222,7 @@ public class MemberRecordCollection extends RecordCollection {
 	}
 
 	public void createReport() {
+		// creates member report
 		JFrame window = new JFrame();
 		JFileChooser chooser = new JFileChooser();
 		int returnVal = chooser.showSaveDialog(window);
@@ -246,6 +247,7 @@ public class MemberRecordCollection extends RecordCollection {
 	}
 
 	public MemberRecord getSpecificRecordByMemberNumber(int memberNumber) {
+		// grabs specific memberrecord from teh colletion
 		if (this.isMember(memberNumber)) {
 			for (MemberRecord record : MemberArray) {
 				if (record.getMemberNumber() == memberNumber) {
@@ -257,6 +259,7 @@ public class MemberRecordCollection extends RecordCollection {
 	}
 
 	public boolean isMember(int memberNumber) {
+		// returns whether person is a member or not.
 		for (MemberRecord record : MemberArray) {
 			if (record.getMemberNumber() == memberNumber) {
 				return true;

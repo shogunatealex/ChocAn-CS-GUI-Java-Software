@@ -43,6 +43,7 @@ public class ServiceRecordGUI extends JDialog implements ActionListener {
 	 * Create the dialog with contents.
 	 */
 	public ServiceRecordGUI() {
+		// builds GUI
 		Container window = getContentPane();
 		setTitle("Service Record Editor");
 		setBounds(100, 100, 450, 300);
@@ -76,6 +77,7 @@ public class ServiceRecordGUI extends JDialog implements ActionListener {
 
 		results = new DefaultListModel();
 
+		// builds table
 		ArrayList<ServiceRecord> temp = ChocAnSystem.SRC.retrieveRecords();
 		recs = new DefaultTableModel() {
 			// prevents users from editing the table, must use buttons
@@ -89,6 +91,7 @@ public class ServiceRecordGUI extends JDialog implements ActionListener {
 				"Comment" };
 		recs.setColumnIdentifiers(header);
 		table.setModel(recs);
+		// populates table
 		for (ServiceRecord record : temp) {
 			recs.addRow((new Object[] { record.getDate(), record.getTime(),
 					String.format("%09d", record.getProviderNumber()), String.format("%09d", record.getMemberNumber()),
@@ -118,8 +121,10 @@ public class ServiceRecordGUI extends JDialog implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == BackButton) {
+			// nothing happens
 			setVisible(false);
 		} else if (e.getSource() == AddButton) {
+			// adds new record
 			ManageServiceRecord MSR = new ManageServiceRecord();
 			if (MSR.isCanceled() == false) {
 				ChocAnSystem.SRC.addRecord(MSR.getDate(), MSR.getTime(), MSR.getProviderNumber(), MSR.getMemberNumber(),
@@ -132,7 +137,7 @@ public class ServiceRecordGUI extends JDialog implements ActionListener {
 		} else if (e.getSource() == EditButton) {
 			try {
 				int index = table.getSelectedRow();
-
+				// edits existing record to table and array
 				ServiceRecord toEdit = ChocAnSystem.SRC.getSpecificRecord(index);
 				ManageServiceRecord MSR = new ManageServiceRecord(toEdit);
 				if (MSR.isCanceled() == false) {
@@ -151,6 +156,7 @@ public class ServiceRecordGUI extends JDialog implements ActionListener {
 			}
 		} else if (e.getSource() == DeleteButton) {
 			try {
+				// deletes record from talbe and array
 				int index = table.getSelectedRow();
 				ChocAnSystem.SRC.removeRecord(index);
 				recs.removeRow(index);

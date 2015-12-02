@@ -49,6 +49,7 @@ public class CardSimulator extends JFrame implements ActionListener {
 	public CardSimulator() {
 		super("Card Swipe Simulator");
 
+		// sets up gui
 		Container c = getContentPane();
 		c.setLayout(null);
 
@@ -94,20 +95,30 @@ public class CardSimulator extends JFrame implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == enterButton) {
-			this.readCardNumber = Integer.parseInt(cardNum.getText());
+			// checks card number
+			try{
+				this.readCardNumber = Integer.parseInt(cardNum.getText());
+				//returns "suspended" or "invalid" if incorrect
+				if (ChocAnSystem.MRC.isCardValid(readCardNumber)) {
+					if (ChocAnSystem.MRC.isCardSuspended(readCardNumber)){
+						JOptionPane.showMessageDialog(this, "Card Suspended");
+					}
+					else{
+						CreateServiceRecordGUI CSR = new CreateServiceRecordGUI(readCardNumber);
+					}
 
-			if (ChocAnSystem.MRC.isCardValid(readCardNumber)) {
-				if (ChocAnSystem.MRC.isCardSuspended(readCardNumber)){
-					JOptionPane.showMessageDialog(this, "Card Suspended");
+				} else { // Invalid card number
+					JOptionPane.showMessageDialog(this, "Invalid Member Number");
 				}
-				else{
-					CreateServiceRecordGUI CSR = new CreateServiceRecordGUI(readCardNumber);
-				}
-
-			} else { // Invalid card number
-				JOptionPane.showMessageDialog(this, "Invalid Member Number");
 			}
+			catch(Exception e1){
+				JOptionPane.showMessageDialog(this, "Please enter only numbers");
+			
+			}
+
+
 		} else if (e.getSource() == cancelButton) {
+			// just cancels
 			cancelled = true;
 			setVisible(false);
 		}

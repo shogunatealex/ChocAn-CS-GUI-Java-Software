@@ -47,6 +47,7 @@ public class MemberRecordGUI extends JDialog implements ActionListener {
 	 * Create the dialog with GUI components.
 	 */
 	public MemberRecordGUI() {
+		// builds GUI
 		Container window = getContentPane();
 		setTitle("Member Record Editor");
 		window.setLayout(null);
@@ -89,6 +90,7 @@ public class MemberRecordGUI extends JDialog implements ActionListener {
 				return false;
 			}
 		};
+		//builds JTable for screen
 		table = new JTable();
 		String header[] = new String[] { "Name", "ID", "Zipcode", "Status", "Address", "City", "State" };
 		recs.setColumnIdentifiers(header);
@@ -123,6 +125,7 @@ public class MemberRecordGUI extends JDialog implements ActionListener {
 		if (e.getSource() == BackButton) {
 			setVisible(false);
 		} else if (e.getSource() == AddButton) {
+			// adds record
 			ManageMemberRecord MMR = new ManageMemberRecord();
 			if (MMR.isCanceled() == false) {
 				String formatter = "";
@@ -131,6 +134,7 @@ public class MemberRecordGUI extends JDialog implements ActionListener {
 				else {
 					formatter = "Suspended";
 				}
+				// adds to array then to table
 				ChocAnSystem.MRC.addRecord(MMR.getName(), MMR.getMemberNumber(), MMR.getZipCode(), MMR.getActive(),
 						MMR.getAddress(), MMR.getCity(), MMR.getState());
 				recs.addRow((new Object[] { MMR.getName(), MMR.getMemberNumber(), MMR.getZipCode(), formatter,
@@ -139,6 +143,7 @@ public class MemberRecordGUI extends JDialog implements ActionListener {
 
 		} else if (e.getSource() == EditButton) {
 			try {
+				// grabs currently selected for the edit.
 				int index = table.getSelectedRow();
 				MemberRecord toEdit = ChocAnSystem.MRC.getSpecificRecord(index);
 				ManageMemberRecord MMR = new ManageMemberRecord(toEdit);
@@ -162,6 +167,7 @@ public class MemberRecordGUI extends JDialog implements ActionListener {
 			}
 		} else if (e.getSource() == DeleteButton) {
 			try {
+				// deletes item that is selected
 				int index = table.getSelectedRow();
 				ChocAnSystem.MRC.removeRecord(index);
 				recs.removeRow(index);

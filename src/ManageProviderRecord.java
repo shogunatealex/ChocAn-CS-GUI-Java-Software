@@ -61,6 +61,7 @@ public class ManageProviderRecord extends ManageRecordGUI implements ActionListe
 	 * Display components and fields of provider record.
 	 */
 	private void buildLocalPane() {
+		// builds GUI
 		super.buildPane();
 		setTitle("Manage Provider Record Editor");
 
@@ -96,10 +97,12 @@ public class ManageProviderRecord extends ManageRecordGUI implements ActionListe
 	 */
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == BackButton) {
+			// nothings happens
 			Cancel = true;
 			setVisible(false);
 
 		} else if (e.getSource() == OkButton) {
+			// submits
 			Cancel = false;
 			setVisible(false);
 		}

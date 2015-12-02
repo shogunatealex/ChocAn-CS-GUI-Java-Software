@@ -57,7 +57,7 @@ public abstract class ManageRecordGUI extends JDialog implements ActionListener 
 	 * Display contents.
 	 */
 	public void buildPane() {
-
+		// Builds GUI
 		window = getContentPane();
 		setTitle("Manage Record Editor");
 		setBounds(100, 100, 450, 300);

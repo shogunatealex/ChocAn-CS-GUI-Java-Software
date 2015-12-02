@@ -104,6 +104,7 @@ public class ManageServiceRecord extends JDialog implements ActionListener {
 	 * Display contents.
 	 */
 	private void buildLocalPane() {
+		// Builds GUI
 		Container window = getContentPane();
 		setTitle("Manage Service Record Editor");
 		setBounds(100, 100, 450, 300);
@@ -126,6 +127,7 @@ public class ManageServiceRecord extends JDialog implements ActionListener {
 		ServiceRecordsLabel.setBounds(227, 11, 226, 20);
 		getContentPane().add(ServiceRecordsLabel);
 
+		// formats text field to only take certain items.
 		try {
 			MaskFormatter mf1 = new MaskFormatter("##-##-####");
 			mf1.setPlaceholderCharacter('_');
@@ -151,7 +153,8 @@ public class ManageServiceRecord extends JDialog implements ActionListener {
 		ServiceCodeTextField.setBounds(363, 168, 206, 20);
 		getContentPane().add(ServiceCodeTextField);
 		ServiceCodeTextField.setColumns(10);
-
+		
+		// formats text field to only take certain numbers
 		try {
 			MaskFormatter mf1 = new MaskFormatter("##-##-#### ##:##:##");
 			mf1.setPlaceholderCharacter('_');
@@ -221,6 +224,7 @@ public class ManageServiceRecord extends JDialog implements ActionListener {
 	 *            serviceRecord
 	 */
 	public ManageServiceRecord(ServiceRecord SR) {
+		// builds it for the edit feature, sets all field to service record values
 		buildLocalPane();
 		DateTextField.setText(SR.getDate());
 		TimeTextField.setText(SR.getTime());
@@ -239,9 +243,11 @@ public class ManageServiceRecord extends JDialog implements ActionListener {
 	 */
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == BackButton) {
+			// nothing happens
 			Cancel = true;
 			setVisible(false);
 		} else if (e.getSource() == OkButton) {
+			// builds
 			Cancel = false;
 			setVisible(false);
 		}

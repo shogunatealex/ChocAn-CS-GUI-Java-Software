@@ -20,6 +20,7 @@ public class ProviderMainMenu extends JFrame implements ActionListener {
 	private Font font = new Font("Times New Roman", Font.BOLD, 40);
 
 	public ProviderMainMenu() {
+		// Builds GUI
 		super("Provider Menu");
 
 		Container c = getContentPane();

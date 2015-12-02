@@ -41,6 +41,7 @@ public class ServiceRecordCollection {
 	 */
 
 	public void collectRecords() {
+		// pulls in info from file
 		try {
 			ServiceArray.clear();
 			ObjectInputStream input = null;
@@ -71,7 +72,7 @@ public class ServiceRecordCollection {
 	}
 
 	public void sorter() {
-		Collections.sort(this.ServiceArray, new CustomComparator());
+		//Collections.sort(this.ServiceArray, new CustomComparator());
 	}
 
 	/**
@@ -117,6 +118,7 @@ public class ServiceRecordCollection {
 
 	public void editRecord(int index, String date, String time, int providerNumber, int memberNumber, int ServiceCode,
 			String Comments) {
+		// takes record and adds new values to it
 		ServiceRecord temp = new ServiceRecord(date, time, providerNumber, memberNumber, ServiceCode, Comments);
 		ServiceArray.remove(index);
 		ServiceArray.add(index, temp);

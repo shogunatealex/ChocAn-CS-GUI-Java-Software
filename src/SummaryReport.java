@@ -13,6 +13,7 @@ public class SummaryReport {
 	}
 
 	public void saveReports(String date) {
+		// formats and saves record
 		if (ChocAnSystem.status.checkMode() == false) {
 			int totalServices = 0;
 			int totalProviders = 0;
@@ -20,6 +21,7 @@ public class SummaryReport {
 			String filename = "Summary" + date + ".txt";
 			try {
 				PrintWriter writer = new PrintWriter(filename, "UTF-8");
+				// prints out all summaries
 				for (int i = 0; i < ChocAnSystem.PRC.size(); i++) {
 					double providerFee = 0;
 					int providerServices = 0;

@@ -21,10 +21,12 @@ public class ProviderReport {
 
 	public void saveReports(String date) {
 		if (ChocAnSystem.status.checkMode() == false) {
+			// formats and saves report
 			String filename = record.getName();
 			filename = filename + date;
 			filename = filename + ".txt";
 			filename = filename.replaceAll("\\s", "");
+			// opens file
 			try {
 				PrintWriter writer = new PrintWriter(filename, "UTF-8");
 				writer.println("Name:            " + record.getName());
@@ -34,9 +36,11 @@ public class ProviderReport {
 				writer.println("City:            " + record.getCity());
 				writer.println("State:           " + record.getState());
 				writer.println("Zip:             " + record.getZipCode());
+				// for every servicerecord it finds
 				for (int i = 0; i < ChocAnSystem.SRC.size(); i++) {
 					ServiceRecord sRecord = ChocAnSystem.SRC
 							.getSpecificRecord(i);
+					//if yes then it prints that
 					if (sRecord.getProviderNumber() == record
 							.getProviderNumber()) {
 						writer.println("Date:            " + sRecord.getDate());
@@ -63,6 +67,7 @@ public class ProviderReport {
 						services += 1;
 					}
 				}
+				// creates totals
 				writer.println("Total services: " + String.format("%03d", services));
 				writer.println("Total fee:      " + fee);
 				writer.close();

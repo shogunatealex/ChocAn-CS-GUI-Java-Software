@@ -117,8 +117,10 @@ public class ProviderRecordGUI extends JDialog implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == BackButton) {
+			// nothing happens
 			setVisible(false);
 		} else if (e.getSource() == AddButton) {
+			//adds new record to table and array
 			ManageProviderRecord PMR = new ManageProviderRecord();
 			if (PMR.isCanceled() == false) {
 				ChocAnSystem.PRC.addRecord(PMR.getName(), PMR.getProviderNumber(), PMR.getZipCode(), PMR.getAddress(),
@@ -129,6 +131,7 @@ public class ProviderRecordGUI extends JDialog implements ActionListener {
 
 		} else if (e.getSource() == EditButton) {
 			try {
+				// takes currently selected arrow and sets up GUI to be edited
 				int index = table.getSelectedRow();
 
 				ProviderRecord toEdit = ChocAnSystem.PRC.getSpecificRecord(index);
@@ -146,6 +149,7 @@ public class ProviderRecordGUI extends JDialog implements ActionListener {
 			}
 		} else if (e.getSource() == DeleteButton) {
 			try {
+				// deletes currently selected reocrd
 				int index = table.getSelectedRow();
 				ChocAnSystem.PRC.removeRecord(index);
 				recs.removeRow(index);

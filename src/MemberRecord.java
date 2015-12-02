@@ -24,6 +24,7 @@ public class MemberRecord extends AbstractUserRecord implements Serializable {
 	}
 
 	public String printLine() {
+		// formats for reports
 		String result;
 		String active;
 		if (this.isActive()) {

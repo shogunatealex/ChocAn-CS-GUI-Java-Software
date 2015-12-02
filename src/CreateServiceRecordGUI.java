@@ -70,7 +70,7 @@ public class CreateServiceRecordGUI extends JDialog implements ActionListener {
 	public CreateServiceRecordGUI(int mNumber) {
 		memberNumber = mNumber;
 		Container window = getContentPane();
-		setTitle("Member Record Editor");
+		setTitle("Service Record Editor");
 		window.setLayout(null);
 		setModal(true);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -145,7 +145,7 @@ public class CreateServiceRecordGUI extends JDialog implements ActionListener {
 		commentsLabel.setForeground(Color.blue);
 		window.add(commentsLabel);
 
-		JLabel MemberRecordsLabel = new JLabel("Member Records");
+		JLabel MemberRecordsLabel = new JLabel("Provider Directory Records");
 		MemberRecordsLabel.setBounds(21, 0, 100, 20);
 		window.add(MemberRecordsLabel);
 

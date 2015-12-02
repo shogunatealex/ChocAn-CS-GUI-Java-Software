@@ -17,6 +17,7 @@ public class MemberReport {
 
 	public void saveReports(String date) {
 		if (ChocAnSystem.status.checkMode() == false) {
+			// formats the report for the member
 			String filename = record.getName();
 			filename = filename + date;
 			filename = filename + ".txt";

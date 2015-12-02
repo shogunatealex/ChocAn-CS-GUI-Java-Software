@@ -72,6 +72,7 @@ public class ManageMemberRecord extends ManageRecordGUI implements ActionListene
 	 * Display memeber records and modification buttons.
 	 */
 	public void buildLocalPane() {
+		//creates GUI
 		super.buildPane();
 		setTitle("Manage Member Record Editor");
 
@@ -115,6 +116,7 @@ public class ManageMemberRecord extends ManageRecordGUI implements ActionListene
 	 * @return memberStatus
 	 */
 	public boolean getActive() {
+		// returns memberStatus
 		if (YesRadioButton.isSelected()) {
 			/// return "Active";
 			return true;
@@ -128,6 +130,7 @@ public class ManageMemberRecord extends ManageRecordGUI implements ActionListene
 	 * @return memberNumber
 	 */
 	public int getMemberNumber() {
+		//returns member number
 		return Integer.parseInt(MemNumTextField.getText());
 	}
 
@@ -138,10 +141,12 @@ public class ManageMemberRecord extends ManageRecordGUI implements ActionListene
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == BackButton) {
+			// nothing happens
 			Cancel = true;
 			setVisible(false);
 		} else if (e.getSource() == OkButton) {
 			Cancel = false;
+			// validates important fields
 			if (MemNumTextField.getText().equals("")) {
 				JOptionPane.showMessageDialog(this, "Please enter a Member Number");
 				return;

@@ -32,6 +32,7 @@ public class RecordTypeGUI extends JDialog implements ActionListener {
 	 * Create the dialog with contents.
 	 */
 	public RecordTypeGUI() {
+		// Builds GUI
 		Container window = getContentPane();
 		setTitle("Record Type Selector");
 		setBounds(100, 100, 450, 300);
@@ -72,13 +73,17 @@ public class RecordTypeGUI extends JDialog implements ActionListener {
 	 */
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == BackButton) {
+			// nothing happpens
 			setVisible(false);
 		} else if (e.getSource() == MemberRecord) {
+			// opens up Mem Record editor
 			MemberRecordGUI memberRecord = new MemberRecordGUI();
 
 		} else if (e.getSource() == ServiceRecord) {
+			// opens service record editor
 			ServiceRecordGUI serviceRecord = new ServiceRecordGUI();
 		} else if (e.getSource() == ProviderRecord) {
+			// opens provider record editor
 			ProviderRecordGUI providerRecord = new ProviderRecordGUI();
 		}
 	}
