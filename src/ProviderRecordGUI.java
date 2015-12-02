@@ -49,6 +49,7 @@ public class ProviderRecordGUI extends JDialog implements ActionListener {
 		setBounds(100, 100, 450, 300);
 		window.setLayout(null);
 		setModal(true);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
 		AddButton = new JButton("Add");
 		AddButton.addActionListener(this);

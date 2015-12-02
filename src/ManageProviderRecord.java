@@ -8,6 +8,7 @@ import java.awt.event.ActionListener;
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JDialog;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
@@ -52,6 +53,7 @@ public class ManageProviderRecord extends ManageRecordGUI implements ActionListe
 	public ManageProviderRecord() {
 		buildLocalPane();
 		setVisible(true);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
 	}
 

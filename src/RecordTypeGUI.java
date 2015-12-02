@@ -4,6 +4,7 @@ import java.awt.FlowLayout;
 
 import javax.swing.JButton;
 import javax.swing.JDialog;
+import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import java.awt.event.ActionListener;
@@ -36,6 +37,7 @@ public class RecordTypeGUI extends JDialog implements ActionListener {
 		setBounds(100, 100, 450, 300);
 		window.setLayout(null);
 		setModal(true);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
 		ProviderRecord = new JButton("Provider Record");
 		ProviderRecord.addActionListener(this);

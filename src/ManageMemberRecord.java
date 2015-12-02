@@ -65,6 +65,7 @@ public class ManageMemberRecord extends ManageRecordGUI implements ActionListene
 		buildLocalPane();
 
 		setVisible(true);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 	}
 
 	/**

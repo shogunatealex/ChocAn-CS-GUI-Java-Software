@@ -8,6 +8,7 @@ import java.awt.event.ActionListener;
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JDialog;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
@@ -62,6 +63,7 @@ public abstract class ManageRecordGUI extends JDialog implements ActionListener 
 		setBounds(100, 100, 450, 300);
 		window.setLayout(null);
 		setModal(true);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
 		OkButton = new JButton("Ok");
 		OkButton.addActionListener(this);

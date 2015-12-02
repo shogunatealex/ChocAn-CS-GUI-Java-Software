@@ -11,6 +11,7 @@ import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JFormattedTextField;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
@@ -108,6 +109,7 @@ public class ManageServiceRecord extends JDialog implements ActionListener {
 		setBounds(100, 100, 450, 300);
 		setModal(true);
 		window.setLayout(null);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
 		OkButton = new JButton("Ok");
 		OkButton.addActionListener(this);

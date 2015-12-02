@@ -26,6 +26,7 @@ public class MakeReportsGUI extends JFrame implements ActionListener {
 		super("Choose a report type");
 
 		Container c = getContentPane();
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		c.setLayout(null);
 
 		// Member Report Button

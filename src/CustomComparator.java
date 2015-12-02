@@ -11,8 +11,8 @@ public class CustomComparator implements Comparator<ServiceRecord> {
 	public int compare(ServiceRecord r1, ServiceRecord r2) {
 		String[] word1 = new String[3];
 		String[] word2 = new String[3];
-		word1= r1.getDate().split("/");
-		word2 = r2.getDate().split("/");
+		word1= r1.getDate().split("-");
+		word2 = r2.getDate().split("-");
 
 		if (word1[1].compareTo(word2[2]) == 0) {
 			if (word1[1].compareTo(word2[1]) == 0) {

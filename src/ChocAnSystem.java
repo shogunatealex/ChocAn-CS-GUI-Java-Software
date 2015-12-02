@@ -46,6 +46,7 @@ public class ChocAnSystem extends JFrame implements ActionListener {
 
 		Container c = getContentPane();
 		c.setLayout(null);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
 		// Chocoholics
 		

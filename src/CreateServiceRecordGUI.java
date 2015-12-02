@@ -14,6 +14,7 @@ import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JFormattedTextField;
+import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.border.EmptyBorder;
@@ -72,6 +73,7 @@ public class CreateServiceRecordGUI extends JDialog implements ActionListener {
 		setTitle("Member Record Editor");
 		window.setLayout(null);
 		setModal(true);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
 		SubmitButton = new JButton("Submit");
 		SubmitButton.addActionListener(this);

@@ -47,6 +47,7 @@ public class MainGUI {
 		// }
 
 		MainMenu = new JFrame();
+		MainMenu.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		MainMenu.setTitle("Main Menu");
 		MainMenu.setBounds(100, 100, 610, 250);
 		MainMenu.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

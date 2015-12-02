@@ -65,11 +65,13 @@ public class ServiceRecordCollection {
 			} // end catch
 		} catch (IOException e) {
 		} // end catch
+		finally{
+		}
 		this.sorter();
 	}
 
 	public void sorter() {
-		Collections.sort(this.ServiceArray, new CustomComparator());
+		//Collections.sort(this.ServiceArray, new CustomComparator());
 	}
 
 	/**
@@ -79,7 +81,6 @@ public class ServiceRecordCollection {
 	public void addRecord(ServiceRecord SR) {
 		ServiceArray.add(SR);
 		saveRecords();
-		collectRecords();
 	}// end addRecord
 
 	/**
