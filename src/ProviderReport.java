@@ -63,7 +63,7 @@ public class ProviderReport {
 						services += 1;
 					}
 				}
-				writer.println("Total services: " + services);
+				writer.println("Total services: " + String.format("%03d", services));
 				writer.println("Total fee:      " + fee);
 				writer.close();
 			} catch (FileNotFoundException e) {
