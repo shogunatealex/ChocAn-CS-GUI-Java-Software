@@ -2,6 +2,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -109,12 +110,15 @@ public class ProviderDirectoryCollection {
 			String fileName = chooser.getSelectedFile().getAbsolutePath();
 
 			try {
-				ObjectOutputStream output = new ObjectOutputStream(new FileOutputStream(fileName));
-				PrintStream printStream = new PrintStream(output);
+				FileWriter output = new FileWriter(fileName);
+				
+				
+				
 				for (ProviderDirectory record : this.pArray) {
-					printStream.println(record.toString());
+				
+					output.write(record.toString() + "\n");
 				}
-				printStream.close();
+				output.flush();
 				output.close();
 			} catch (FileNotFoundException e1) {
 				e1.printStackTrace();

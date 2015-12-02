@@ -75,7 +75,7 @@ public class ProviderDirectory implements Serializable {
 	 */
 	@Override
 	public String toString() {
-		String result = String.format("%s %d %s",this.get_Service(), this.get_sNumber(),  this.get_Cost());
+		String result = String.format("%s %06d %s",this.get_Service(), this.get_sNumber(),  this.get_Cost());
 		return result;
 	}
 

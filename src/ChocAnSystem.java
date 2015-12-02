@@ -131,6 +131,7 @@ public class ChocAnSystem extends JFrame implements ActionListener {
 	public static void main(String[] args) {
 		ChocAnSystem titleScreen = new ChocAnSystem();
 		titleScreen.setVisible(true);
+
 		while (true){
 			if (titleScreen.isVisible() == true){
 				// keeps a clock running and runs reports on Midnight Friday or 000000 Sat
