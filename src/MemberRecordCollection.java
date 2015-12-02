@@ -133,6 +133,25 @@ public class MemberRecordCollection extends RecordCollection {
 		else {
 			return true;
 		} // end else
+	
+	}// end isCardSuspended
+	
+	/*
+	 * @return status of member, either active or suspended.
+	 */
+	
+	public boolean isCardSuspended(int memNumber) {
+		for (MemberRecord record : MemberArray) {
+			if (record.getMemberNumber() == memNumber) {
+				if (record.isActive()){
+					return false;
+				}
+				else{
+					return true;
+				}
+			} // end if
+		} // end for
+		return false;
 	}// end isCardSuspended
 	/*
 	 * Edit selected member record.

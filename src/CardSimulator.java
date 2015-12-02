@@ -97,7 +97,13 @@ public class CardSimulator extends JFrame implements ActionListener {
 			this.readCardNumber = Integer.parseInt(cardNum.getText());
 
 			if (ChocAnSystem.MRC.isCardValid(readCardNumber)) {
-				CreateServiceRecordGUI CSR = new CreateServiceRecordGUI(readCardNumber);
+				if (ChocAnSystem.MRC.isCardSuspended(readCardNumber)){
+					JOptionPane.showMessageDialog(this, "Card Suspended");
+				}
+				else{
+					CreateServiceRecordGUI CSR = new CreateServiceRecordGUI(readCardNumber);
+				}
+
 			} else { // Invalid card number
 				JOptionPane.showMessageDialog(this, "Invalid Member Number");
 			}
